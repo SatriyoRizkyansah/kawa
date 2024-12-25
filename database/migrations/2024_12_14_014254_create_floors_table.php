@@ -14,7 +14,13 @@ return new class extends Migration
         Schema::create('floors', function (Blueprint $table) {
             $table->id();
             $table->string('floor_name');
-            $table->string('slug')->unique();
+            $table->string('slug');
+
+            $table->foreignId('building_id')->constrained(
+               table: 'buildings', 
+               indexName: 'bulding'
+            );
+
             $table->timestamps();
         });
     }

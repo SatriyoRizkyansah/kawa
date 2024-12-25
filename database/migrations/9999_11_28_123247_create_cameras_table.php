@@ -12,11 +12,22 @@ class CreateCamerasTable extends Migration
             $table->id();
             $table->string('nama_kamera');
             $table->string('rtsp');
-            // $table->string('gedung');
+            $table->string('descripsion');
+            $table->string('device_color');
+            $table->string('ip');
+            $table->string('type');
+            $table->string('brand');
+            $table->string('version_model');
+            $table->date('installation_date');
+
+            $table->foreignId('university_id')->constrained(
+               table: 'universities', 
+               indexName: 'university_camera_id'
+            );
 
             $table->foreignId('building_id')->constrained(
                table: 'buildings', 
-               indexName: 'bulding'
+               indexName: 'bulding_camera_id'
             );
 
             $table->foreignId('floor_id')->constrained(

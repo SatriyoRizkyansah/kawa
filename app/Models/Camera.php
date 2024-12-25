@@ -26,4 +26,9 @@ class Camera extends Model
     {
         return $this->belongsTo(Building::class);
     }
+
+      public function university()
+    {
+        return $this->belongsTo(University::class);
+    }
 }

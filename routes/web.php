@@ -1,11 +1,12 @@
 <?php
 
-use App\Http\Controllers\BuildingController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FloorController;
 use App\Http\Controllers\ManageController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\BuildingController;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\FloorController;
+use App\Http\Controllers\UniversityController;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 Route::get('/', function () {
@@ -38,6 +39,14 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/manage/edit/{id}', [ManageController::class, 'update'])->name('manage update');
     Route::delete('/manage/delete/{id}', [ManageController::class, 'destroy'])->name('destroy');
 
+    // Page Kampus
+    Route::get('/university', [UniversityController::class, 'index'])->middleware(['auth', 'verified'])->name('university');
+    Route::get('/university/create', [UniversityController::class, 'create'])->name('university create');
+    Route::post('/university/create', [UniversityController::class, 'store'])->name('university store');
+    Route::get('/university/edit/{id}', [UniversityController::class, 'edit'])->name('university edit');
+    Route::post('/university/edit/{id}', [UniversityController::class, 'update'])->name('university update');
+    Route::delete('/university/delete/{id}', [UniversityController::class, 'destroy'])->name('destroy');
+    
     // Page Gedung
     Route::get('/building', [BuildingController::class, 'index'])->middleware(['auth', 'verified'])->name('building');
     Route::get('/building/create', [BuildingController::class, 'create'])->name('building create');
@@ -46,7 +55,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/building/edit/{id}', [BuildingController::class, 'update'])->name('building update');
     Route::delete('/building/delete/{id}', [BuildingController::class, 'destroy'])->name('destroy');
 
-    // Page Gedung
+    // Page Floor
     // Route::get('/building', [ManageController::class, 'index'])->middleware(['auth', 'verified'])->name('gedung')
     Route::get('/floor', [FloorController::class, 'index'])->middleware(['auth', 'verified'])->name('floor');
     Route::get('/floor/create', [FloorController::class, 'create'])->name('floor create');

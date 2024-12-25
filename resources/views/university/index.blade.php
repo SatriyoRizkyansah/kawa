@@ -5,20 +5,18 @@
             <!-- Main Content -->
             <div id="content">
 
-
-            <!-- Begin Page Content -->
+                <!-- Begin Page Content -->
             <div class="container-fluid">
                 <!-- Page Heading -->
-                {{-- <h1 class="h3 mb-2 text-gray-800">Manage Data Kamera</h1> --}}
 
                 <!-- DataTales Example -->
                 <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Manage Data Kamera</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Data Universitas</h6>
                 </div>
                 <div class="card-body">
 
-                    <a href="/manage/create">
+                    <a href="/university/create">
                         <button class="btn btn-primary mb-4">
                             Tambah data 
                         </button>
@@ -30,39 +28,33 @@
                         <thead>
                         <tr>
                             <th>No</th>
-                            <th>Nama Kamera</th>
-                            <th>Link</th>
-                            <th>Universitas</th>
-                            <th>Gedung</th>
-                            <th>Lantai</th>
+                            <th>Nama Universitas</th>
+                            <th>Deskripsi</th>
                             <th>Action</th>
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach($cameras as $camera)
+                        @foreach($universities as $university)
                                 <tr>
                                     <td class="border px-4 py-2">{{ $loop->iteration }}</td>
-                                    <td class="border px-4 py-2">{{ $camera->nama_kamera }}</td>
-                                    <td class="border px-4 py-2"><a href="{{ $camera->rtsp }}" class="text-blue-500 hover:underline">{{ $camera->rtsp }}</a></td>
-                                    <td class="border px-4 py-2">{{ $camera->university->university_name }}</td>
-                                    <td class="border px-4 py-2">{{ $camera->building->building_name }}</td>
-                                    <td class="border px-4 py-2">{{ $camera->floor->floor_name }}</td>
+                                    <td class="border px-4 py-2">{{ $university->university_name }}</td>
+                                    <td class="border px-4 py-2">{{ $university->description }}</td>
                                     <td class="border px-4 py-2 fs-5">
-                                        <a href="{{ url('/manage/edit/'.$camera->id) }}" class="text-blue-500 hover:underline text-decoration-none">
+                                        <a href="{{ url('/university/edit/'.$university->id) }}" class="text-blue-500 hover:underline text-decoration-none">
                                             <i class="bi bi-pencil-square"></i>
                                         </a>
 
-                                        <a href="javascript:void(0)" onclick="if(confirm('Are you sure you want to delete this camera?')) { document.getElementById('delete-form-{{ $camera->id }}').submit(); }" class="text-red-500 hover:underline">
+                                        <a href="javascript:void(0)" onclick="if(confirm('Are you sure you want to delete this camera?')) { document.getElementById('delete-form-{{ $university->id }}').submit(); }" class="text-red-500 hover:underline">
                                             <i class="bi bi-trash text-danger"></i>
                                         </a>
 
-                                        <form id="delete-form-{{ $camera->id }}" action="{{ url('/manage/delete/'.$camera->id) }}" method="POST" style="display: none;">
+                                        <form id="delete-form-{{ $university->id }}" action="{{ url('/university/delete/'.$university->id) }}" method="POST" style="display: none;">
                                             @csrf
                                             @method('DELETE')
                                         </form>
                                     </td>
 
-                                </tr>
+                                                                </tr>
                                 @endforeach
                         </tbody>
                     </table>

@@ -12,7 +12,7 @@ class CreateCamerasTable extends Migration
             $table->id();
             $table->string('nama_kamera');
             $table->string('rtsp');
-            $table->string('descripsion');
+            $table->string('description');
             $table->string('device_color');
             $table->string('ip');
             $table->string('type');

@@ -90,7 +90,7 @@ class DatabaseSeeder extends Seeder
             DB::table('cameras')->insert([
                 'nama_kamera' => 'CAM ' . $i,
                 'rtsp' => 'http://example.com/stream' . $i,
-                'descripsion' => 'Deskripsi Kamera ' . $i,
+                'description' => 'Deskripsi Kamera ' . $i,
                 'device_color' => ['Black', 'White', 'Gray'][array_rand(['Black', 'White', 'Gray'])],
                 'ip' => '192.168.' . rand(1, 255) . '.' . rand(1, 255),
                 'type' => ['CCTV', 'Surveillance'][array_rand(['CCTV', 'Surveillance'])],

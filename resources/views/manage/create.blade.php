@@ -24,6 +24,46 @@
                             <input type="url" id="rtsp" name="rtsp" class="form-control" required>
                         </div>
                         <div class="mb-4">
+                            <label for="description">Deskripsi</label>
+                            <input type="text" id="description" name="description" class="form-control" required>
+                        </div>
+                        <div class="mb-4">
+                            <label for="device_color">Warna perangkat</label>
+                            <input type="text" id="device_color" name="device_color" class="form-control" required>
+                        </div>
+                        <div class="mb-4">
+                            <label for="ip">IP perangkat</label>
+                            <input type="text" id="ip" name="ip" class="form-control" required>
+                        </div>
+                        <div class="mb-4">
+                            <label for="type">Tipe perangkat</label>
+                            <input type="text" id="type" name="type" class="form-control" required>
+                        </div>
+                        <div class="mb-4">
+                            <label for="brand">Brand</label>
+                            <input type="text" id="brand" name="brand" class="form-control" required>
+                        </div>
+                        <div class="mb-4">
+                            <label for="version_model">Versi model</label>
+                            <input type="text" id="version_model" name="version_model" class="form-control" required>
+                        </div>
+                        <div class="mb-4">
+                            <label for="installation_date">Tanggal Installasi</label>
+                            <input type="date" id="installation_date" name="installation_date" class="form-control" required>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label for="university">Universitas</label>
+                            <select id="university" name="university" class="form-control" required>
+
+                                @foreach ($universities as $university)
+                                    <option value="{{ $university->id }}">{{ $university->university_name }}</option>
+                                @endforeach
+                    
+                            </select>
+                        </div>
+
+                        <div class="mb-4">
                             <label for="gedung">Gedung</label>
                             <select id="gedung" name="gedung" class="form-control" required>
 

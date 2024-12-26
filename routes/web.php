@@ -39,7 +39,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/manage/edit/{id}', [ManageController::class, 'update'])->name('manage update');
     Route::delete('/manage/delete/{id}', [ManageController::class, 'destroy'])->name('destroy');
 
-    // Page Kampus
+    // Page Kampus (University)
     Route::get('/university', [UniversityController::class, 'index'])->middleware(['auth', 'verified'])->name('university');
     Route::get('/university/create', [UniversityController::class, 'create'])->name('university create');
     Route::post('/university/create', [UniversityController::class, 'store'])->name('university store');
@@ -47,7 +47,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/university/edit/{id}', [UniversityController::class, 'update'])->name('university update');
     Route::delete('/university/delete/{id}', [UniversityController::class, 'destroy'])->name('destroy');
     
-    // Page Gedung
+    // Page Gedung (Building)
     Route::get('/building', [BuildingController::class, 'index'])->middleware(['auth', 'verified'])->name('building');
     Route::get('/building/create', [BuildingController::class, 'create'])->name('building create');
     Route::post('/building/create', [BuildingController::class, 'store'])->name('building store');
@@ -55,7 +55,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/building/edit/{id}', [BuildingController::class, 'update'])->name('building update');
     Route::delete('/building/delete/{id}', [BuildingController::class, 'destroy'])->name('destroy');
 
-    // Page Floor
+    // Page Lantai (Floor)
     // Route::get('/building', [ManageController::class, 'index'])->middleware(['auth', 'verified'])->name('gedung')
     Route::get('/floor', [FloorController::class, 'index'])->middleware(['auth', 'verified'])->name('floor');
     Route::get('/floor/create', [FloorController::class, 'create'])->name('floor create');

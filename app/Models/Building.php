@@ -19,4 +19,10 @@ class Building extends Model
     {
         return $this->hasMany(Floor::class);
     }
+
+    public function university()
+{
+    return $this->belongsTo(University::class, 'university_id');
+}
+
 }

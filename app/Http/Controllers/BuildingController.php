@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreBuildingRequest;
 use App\Http\Requests\UpdateBuildingRequest;
 use Symfony\Component\HttpFoundation\Request;
+use App\Models\University;
 
 class BuildingController extends Controller
 {
@@ -24,7 +25,8 @@ class BuildingController extends Controller
      */
     public function create()
     {
-        return view('building.create');
+        $universities = University::all();
+        return view('building.create')->with(compact('universities'));
     }
 
     /**
@@ -35,11 +37,13 @@ class BuildingController extends Controller
         $request->validate([
             'building_name' => 'required|string|max:255',
             'slug' => 'required|string|max:255',
+            'university' => 'required|exists:universities,id',
         ]);
 
         $building = new Building();
             $building->building_name = $request->building_name;
             $building->slug = $request->slug;
+            $building->university_id = $request->university;
         $building->save();
 
         return redirect()->route('dashboard')->with('success', 'Data gedung berhasil ditambahkan!');
@@ -59,7 +63,8 @@ class BuildingController extends Controller
     public function edit($id, Building $building)
     {
         $building = Building::find($id);
-        return view('building.edit')->with(compact('building'));
+        $universities = University::all();
+        return view('building.edit')->with(compact('building', 'universities'));
     }
 
     /**

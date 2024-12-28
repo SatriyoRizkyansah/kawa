@@ -29,6 +29,8 @@
                         <tr>
                             <th>No</th>
                             <th>Nama Gedung</th>
+                            <th>Slug</th>
+                            <th>Universitas</th>
                             <th>Action</th>
                         </tr>
                         </thead>
@@ -37,6 +39,8 @@
                                 <tr>
                                     <td class="border px-4 py-2">{{ $loop->iteration }}</td>
                                     <td class="border px-4 py-2">{{ $building->building_name }}</td>
+                                    <td class="border px-4 py-2">{{ $building->slug }}</td>
+                                    <td class="border px-4 py-2">{{ $building->university->university_name }}</td>
                                     <td class="border px-4 py-2 fs-5">
                                         <a href="{{ url('/building/edit/'.$building->id) }}" class="text-blue-500 hover:underline text-decoration-none">
                                             <i class="bi bi-pencil-square"></i>

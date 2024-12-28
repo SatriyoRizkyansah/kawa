@@ -29,6 +29,7 @@
                         <tr>
                             <th>No</th>
                             <th>Lantai</th>
+                            <th>Gedung</th>
                             <th>Action</th>
                         </tr>
                         </thead>
@@ -37,6 +38,7 @@
                                 <tr>
                                     <td class="border px-4 py-2">{{ $loop->iteration }}</td>
                                     <td class="border px-4 py-2">{{ $floor->floor_name }}</td>
+                                    <td class="border px-4 py-2">{{ $floor->building->building_name }}</td>
                                     <td class="border px-4 py-2 fs-5">
                                         <a href="{{ url('/floor/edit/'.$floor->id) }}" class="text-blue-500 hover:underline text-decoration-none">
                                             <i class="bi bi-pencil-square"></i>

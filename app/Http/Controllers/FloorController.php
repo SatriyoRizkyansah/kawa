@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Floor;
+use App\Models\Building;
+use Illuminate\Routing\Controller;
 use App\Http\Requests\StoreFloorRequest;
 use App\Http\Requests\UpdateFloorRequest;
 use Symfony\Component\HttpFoundation\Request;
@@ -23,7 +25,8 @@ class FloorController extends Controller
      */
     public function create()
     {
-        return view('floor.create');
+        $buildings = Building::all();
+        return view('floor.create')->with(compact('buildings'));
     }
 
     /**
@@ -34,14 +37,16 @@ class FloorController extends Controller
         $request->validate([
             'floor_name' => 'required|string|max:255',
             'slug' => 'required|string|max:255',
+            'building' => 'required|exists:buildings,id',
         ]);
 
         $floor = new Floor();
             $floor->floor_name = $request->floor_name;
             $floor->slug = $request->slug;
+            $floor->building_id = $request->building;
         $floor->save();
 
-        return redirect()->route('dashboard')->with('success', 'Data gedung berhasil ditambahkan!');
+        return redirect()->route('floor')->with('success', 'Data gedung berhasil ditambahkan!');
     }
 
     /**
@@ -58,7 +63,8 @@ class FloorController extends Controller
     public function edit($id, Floor $floor)
     {
         $floor = Floor::find($id);
-        return view('floor.edit')->with(compact('floor'));
+        $buildings = Building::all();
+        return view('floor.edit')->with(compact('floor', 'buildings'));
     }
 
     /**
@@ -69,14 +75,16 @@ class FloorController extends Controller
         $request->validate([
             'floor_name' => 'required|string|max:255',
             'slug' => 'required|string|max:255',
+            'building' => 'required|exists:buildings,id',
         ]);
 
         $floor = Floor::whereId($id)->first();
             $floor->floor_name = $request->floor_name;
             $floor->slug = $request->slug;
+            $floor->building_id = $request->building;
         $floor->update();
 
-        return redirect()->route('dashboard')->with('success', 'Data lantai berhasil diupdate!');
+        return redirect()->route('floor')->with('success', 'Data lantai berhasil diupdate!');
     }
 
     /**
@@ -86,6 +94,6 @@ class FloorController extends Controller
     {
         $floor = Floor::find($id);
         $floor->delete();
-        return redirect()->route('dashboard')->with('success', 'Data lantai berhasil dihapus!');
+        return redirect()->route('floor')->with('success', 'Data lantai berhasil dihapus!');
     }
 }

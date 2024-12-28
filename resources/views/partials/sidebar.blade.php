@@ -24,7 +24,6 @@
 
         <li class="nav-item active">
           <a class="nav-link" href="/user_information">
-            {{-- <i class="fas fa-fw fa-tachometer-alt"></i> --}}
             <i class="bi bi-person-fill"></i>
             <span>Data Pribadi</span></a
           >
@@ -32,6 +31,16 @@
 
         <!-- Divider -->
         <hr class="sidebar-divider" />
+
+        <li class="nav-item active">
+          <a class="nav-link" href="/beranda">
+           <i class="bi bi-houses-fill"></i>
+            <span>Beranda</span></a
+          >
+        </li>
+
+        <hr class="sidebar-divider" />
+
 
         <!-- Heading -->
         {{-- <div class="sidebar-heading">Interface</div> --}}

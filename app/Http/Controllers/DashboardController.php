@@ -13,7 +13,7 @@ class DashboardController extends Controller
     public function index()
     {
         $datas = Camera::all();
-        return view('index-dashboard', compact('datas'));
+        return view('dashboard', compact('datas'));
     }
 
     public function showByBuilding($id)

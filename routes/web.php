@@ -29,6 +29,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/cctv', [DashboardController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
     Route::get('/dashboard/building/{id}', [DashboardController::class, 'showByBuilding'])->middleware(['auth', 'verified'])->name('dashboard show by building');
     Route::get('/dashboard/floor/{id}', [DashboardController::class, 'showByFloor'])->middleware(['auth', 'verified'])->name('dashboard show by floor');
+
+    // User Information
+    Route::get('/user_information', [DashboardController::class, 'showUserInformation'])->middleware(['auth', 'verified'])->name('show user information');
     
 
     // Page Manage

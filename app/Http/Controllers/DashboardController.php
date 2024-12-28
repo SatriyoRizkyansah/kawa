@@ -32,6 +32,10 @@ class DashboardController extends Controller
     return view('index-dashboard', compact('datas', 'floor'));
 }
 
+    public function showUserInformation()
+{
+    return view('user_information.index');
+}
     
 
 }

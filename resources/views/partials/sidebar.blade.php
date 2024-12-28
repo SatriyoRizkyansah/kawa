@@ -18,12 +18,23 @@
             <span>Dashboard</span></a
           >
         </li>
+        
+        <!-- Divider -->
+        <hr class="sidebar-divider" />
+
+        <li class="nav-item active">
+          <a class="nav-link" href="/user_information">
+            {{-- <i class="fas fa-fw fa-tachometer-alt"></i> --}}
+            <i class="bi bi-person-fill"></i>
+            <span>Data Pribadi</span></a
+          >
+        </li>
 
         <!-- Divider -->
         <hr class="sidebar-divider" />
 
         <!-- Heading -->
-        <div class="sidebar-heading">Interface</div>
+        {{-- <div class="sidebar-heading">Interface</div> --}}
 
         <!-- Nav Item - Pages Collapse Menu -->
         <li class="nav-item">

@@ -27,7 +27,9 @@ Route::middleware(['auth'])->group(function () {
     // Page Dashboard index
     Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
     Route::get('/university_detail/{id}', [DashboardController::class, 'university_detail'])->middleware(['auth', 'verified'])->name('detail university');
-    Route::get('/cameras/{id}', [DashboardController::class, 'cameras'])->middleware(['auth', 'verified'])->name('cameras');
+    Route::get('/cameras_building/{id}', [DashboardController::class, 'cameras_building'])->middleware(['auth', 'verified'])->name('cameras by building');
+    Route::get('/cameras_floor/{id}', [DashboardController::class, 'cameras_floor'])->middleware(['auth', 'verified'])->name('cameras by floor');
+    Route::get('/camera_detail/{id}', [DashboardController::class, 'camera_detail'])->middleware(['auth', 'verified'])->name('camera detail');
 
     Route::get('/beranda', [DashboardController::class, 'beranda'])->middleware(['auth', 'verified'])->name('beranda');
 

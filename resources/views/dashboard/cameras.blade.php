@@ -5,7 +5,7 @@
                 <div class="container-fluid">
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">{{ $building->building_name }}</h1>
+                        <h1 class="h3 mb-0 text-gray-800">CCTV</h1>
                         <div class="dropdown mb-4">
                             <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -44,7 +44,9 @@
                                         <!-- icon -->
                                         <div class="camera d-flex">
                                             <i class='bx bxs-webcam mr-2'></i>
-                                            <h6 class="card-title mb-0">{{ $cam->nama_kamera }}</h6>
+                                                <a href="{{ url('/camera_detail/' . $cam->id) }}" class="text-dark">
+                                                    <h6 class="card-title mb-0">{{ $cam->nama_kamera }}</h6>
+                                                </a>
                                         </div>
                                         <div class="time">
                                             <div id="timestamp" class="timestamp small text-muted"></div>
@@ -68,7 +70,7 @@
                                                 <i class="fas fa-clock me-1"></i> Last update: 3s ago
                                             </small>
                                             <span class="badge bg-primary text-white">
-                                                <i class="fas fa-building me-1"></i> {{ $building->building_name }} - {{ $cam->floor->floor_name }}
+                                                <i class="fas fa-building me-1"></i> {{ $cam->building->building_name }} - {{ $cam->floor->floor_name }}
                                             </span>
                                         </div>
                                     </div>

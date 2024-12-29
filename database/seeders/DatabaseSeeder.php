@@ -53,39 +53,52 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         // Seeder untuk Universities (Maksimal 3)
-        for ($i = 1; $i <= 3; $i++) {
+            // DB::table('universities')->insert([
+            //     'university_name' => 'Universitas ' . Str::upper(Str::random(3)),
+            //     'slug' => 'universitas-' . $i,
+            //     'description' => 'Deskripsi untuk Universitas ' . $i,
+            //     'created_at' => now(),
+            //     'updated_at' => now(),
+            // ]);
+
             DB::table('universities')->insert([
-                'university_name' => 'Universitas ' . Str::upper(Str::random(3)),
-                'slug' => 'universitas-' . $i,
-                'description' => 'Deskripsi untuk Universitas ' . $i,
-                'created_at' => now(),
-                'updated_at' => now(),
-            ]);
-        }
+            ['university_name' => 'Kampus Pusat',
+                'slug' => 'kampus-pusat',
+                'description' => 'Deskripsi untuk Kampus Pusat',],
+            ['university_name' => 'Kampus Viktor',
+                'slug' => 'kampus-viktor',
+                'description' => 'Deskripsi untuk Kampus Viktor',],
+            ['university_name' => 'Kampus Pusat',
+                'slug' => 'kampus-pusat',
+                'description' => 'Deskripsi untuk Kampus Pusat',],
+            ['university_name' => 'Kampus Serang',
+                'slug' => 'kampus-serang',
+                'description' => 'Deskripsi untuk Kampus Serang',],
+        ]);
 
         // Seeder untuk Buildings (Maksimal 10)
         for ($i = 1; $i <= 10; $i++) {
             DB::table('buildings')->insert([
-                'building_name' => 'Gedung ' . chr(64 + $i), // A, B, C, ..., J
+                'building_name' => 'Gedung ' . chr(64 + $i), 
                 'slug' => 'gedung-' . $i,
-                'university_id' => rand(1, 3), // Hanya memilih dari universitas yang sudah ada
+                'university_id' => rand(1, 4), 
                 'created_at' => now(),
                 'updated_at' => now(),
             ]);
         }
 
-        // Seeder untuk Floors (20 Data, tetapi hanya untuk gedung yang ada)
+        // Seeder untuk Floors 
         for ($i = 1; $i <= 20; $i++) {
             DB::table('floors')->insert([
                 'floor_name' => 'Lantai ' . $i,
                 'slug' => 'lantai-' . $i,
-                'building_id' => rand(1, 10), // Hanya gedung yang ada
+                'building_id' => rand(1, 10), 
                 'created_at' => now(),
                 'updated_at' => now(),
             ]);
         }
 
-        // Seeder untuk Cameras (20 Data, dengan relasi yang sesuai)
+        // Seeder untuk Cameras
         for ($i = 1; $i <= 20; $i++) {
             DB::table('cameras')->insert([
                 'nama_kamera' => 'CAM ' . $i,
@@ -94,12 +107,12 @@ class DatabaseSeeder extends Seeder
                 'device_color' => ['Black', 'White', 'Gray'][array_rand(['Black', 'White', 'Gray'])],
                 'ip' => '192.168.' . rand(1, 255) . '.' . rand(1, 255),
                 'type' => ['CCTV', 'Surveillance'][array_rand(['CCTV', 'Surveillance'])],
-                'brand' => 'Brand ' . chr(65 + ($i % 26)), // Brand A, B, C...
+                'brand' => 'Brand ' . chr(65 + ($i % 26)), 
                 'version_model' => 'V' . rand(1, 5) . '.' . rand(0, 9),
                 'installation_date' => now()->subDays(rand(1, 365))->toDateString(),
-                'university_id' => rand(1, 3), // Hanya universitas yang ada
-                'building_id' => rand(1, 10), // Hanya gedung yang ada
-                'floor_id' => rand(1, 20), // Hanya lantai yang ada
+                'university_id' => rand(1, 4), 
+                'building_id' => rand(1, 10), 
+                'floor_id' => rand(1, 20), 
                 'created_at' => now(),
                 'updated_at' => now(),
             ]);

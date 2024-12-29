@@ -14,4 +14,6 @@ class University extends Model
     protected $fillable = [
         'university_name', 'slug', 'description',
     ];
+
+    
 }

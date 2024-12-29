@@ -1,10 +1,4 @@
 <x-app-layout>
-<x-slot name="header">
-    <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-        {{ __('Selamat Datang , ') }} {{ Auth::user()->name}}
-    </h2>
-</x-slot>
-
         <div id="content">
 
           <!-- Begin Page Content -->
@@ -111,73 +105,26 @@
             <!-- Content Row -->
 
             <div class="row">
-              <!-- Kampus 1 -->
-              <div class="col-md-6">
-                <div class="card shadow mb-4">
-                  <!-- Card Header - Dropdown -->
-                  <div class="card-header d-flex flex-row align-items-center justify-content-between">
-                    <h6 class="m-0 font-weight-bold text-primary"><i class="fa-solid fa-building-columns"></i> Kampus 1 (Pusat)</h6>
-                    <div class="badge bg-success text-white rounded-pill"><i class="bx bxs-webcam mr-1"></i>12 / 13</div>
-                  </div>
-                  <!-- Card Body -->
-                  <div class="card-body">
-                    <a href="gedung.html">
-                      <img src="images/pusat.jpg" alt="Image Cover" class="rounded" style="aspect-ratio: 19/6; width: 100%; object-fit: cover" />
-                    </a>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Kampus 2 -->
-              <div class="col-md-6">
-                <div class="card shadow mb-4">
-                  <!-- Card Header - Dropdown -->
-                  <div class="card-header d-flex flex-row align-items-center justify-content-between">
-                    <h6 class="m-0 font-weight-bold text-primary"><i class="fa-solid fa-building-columns"></i> Kampus 2 (Viktor)</h6>
-                    <div class="badge bg-success text-white rounded-pill"><i class="bx bxs-webcam mr-1"></i>12 / 13</div>
-                  </div>
-                  <!-- Card Body -->
-                  <div class="card-body">
-                    <a href="gedung.html">
-                      <img src="images/pusat.jpg" alt="Image Cover" class="rounded" style="aspect-ratio: 19/6; width: 100%; object-fit: cover" />
-                    </a>
+              @foreach ($universities as $university)
+              <!-- Kampus -->
+                <div class="col-md-6">
+                  <div class="card shadow mb-4">
+                    <!-- Card Header - Dropdown -->
+                    <div class="card-header d-flex flex-row align-items-center justify-content-between">
+                      <h6 class="m-0 font-weight-bold text-primary"><i class="fa-solid fa-building-columns"></i>
+                         <a href="{{ url('/university_detail/' . $university->id) }}">{{ $university->university_name }}</a>
+                        </h6>
+                      <div class="badge bg-success text-white rounded-pill"><i class="bx bxs-webcam mr-1"></i>12 / 13</div>
+                    </div>
+                    <!-- Card Body -->
+                    <div class="card-body">
+                      <a href="gedung.html">
+                        <img src="images/pusat.jpg" alt="Image Cover" class="rounded" style="aspect-ratio: 19/6; width: 100%; object-fit: cover" />
+                      </a>
+                    </div>
                   </div>
                 </div>
-              </div>
-
-              <!-- Kampus 3 -->
-              <div class="col-md-6">
-                <div class="card shadow mb-4">
-                  <!-- Card Header - Dropdown -->
-                  <div class="card-header d-flex flex-row align-items-center justify-content-between">
-                    <h6 class="m-0 font-weight-bold text-primary"><i class="fa-solid fa-building-columns"></i> Kampus 3 (Witana)</h6>
-                    <div class="badge bg-success text-white rounded-pill"><i class="bx bxs-webcam mr-1"></i>11 / 12</div>
-                  </div>
-                  <!-- Card Body -->
-                  <div class="card-body">
-                    <a href="gedung.html">
-                      <img src="images/witana.jpg" alt="Image Cover" class="rounded" style="aspect-ratio: 19/6; width: 100%; object-fit: cover" />
-                    </a>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Kampus 3 -->
-              <div class="col-md-6">
-                <div class="card shadow mb-4">
-                  <!-- Card Header - Dropdown -->
-                  <div class="card-header d-flex flex-row align-items-center justify-content-between">
-                    <h6 class="m-0 font-weight-bold text-primary"><i class="fa-solid fa-building-columns"></i> Kampus Serang</h6>
-                    <div class="badge bg-success text-white rounded-pill"><i class="bx bxs-webcam mr-1"></i>10 / 12</div>
-                  </div>
-                  <!-- Card Body -->
-                  <div class="card-body">
-                    <a href="gedung.html">
-                      <img src="images/serang.jpg" alt="Image Cover" class="rounded" style="aspect-ratio: 19/6; width: 100%; object-fit: cover" />
-                    </a>
-                  </div>
-                </div>
-              </div>
+              @endforeach
             </div>
           </div>
           <!-- /.container-fluid -->

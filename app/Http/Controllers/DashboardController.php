@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Floor;
 use App\Models\Camera;
 use App\Models\Building;
-use App\Models\Floor;
+use App\Models\University;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 
@@ -12,8 +13,19 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        // $datas = Camera::all();
-        return view('dashboard');
+        $universities = University::all();
+        return view('dashboard.index', compact('universities'));
+    }
+
+    public function university_detail($id){
+        $university = University::find($id);
+        $buildings = Building::where('university_id', $id)->get();
+        return view('dashboard.university_detail', compact('university','buildings'));
+    }
+
+    public function cameras($id){
+        $cameras = Camera::where('building_id', $id)->get();
+        return view('dashboard.cameras', compact('cameras'));
     }
 
     public function beranda()

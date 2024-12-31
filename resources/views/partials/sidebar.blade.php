@@ -22,7 +22,7 @@
         <!-- Divider -->
         <hr class="sidebar-divider" />
 
-        <li class="nav-item active">
+        <li class="nav-item">
           <a class="nav-link" href="/user_information">
             <i class="bi bi-person-fill"></i>
             <span>Data Pribadi</span></a
@@ -32,15 +32,12 @@
         <!-- Divider -->
         <hr class="sidebar-divider" />
 
-        <li class="nav-item active">
+        {{-- <li class="nav-item active">
           <a class="nav-link" href="/beranda">
            <i class="bi bi-houses-fill"></i>
             <span>Beranda</span></a
           >
-        </li>
-
-        <hr class="sidebar-divider" />
-
+        </li> --}}
 
         <!-- Heading -->
         {{-- <div class="sidebar-heading">Interface</div> --}}
@@ -71,10 +68,10 @@
           <div id="kampus" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
               {{-- <h6 class="collapse-header">Custom Components:</h6> --}}
-              <a class="collapse-item" href="#">Pusat</a>
-              <a class="collapse-item" href="#">Viktor</a>
-              <a class="collapse-item" href="#">Witana</a>
-              <a class="collapse-item" href="#">Serang</a>
+              <a class="collapse-item" href="{{ url('/kampus/1') }}">Pusat</a>
+              <a class="collapse-item" href="{{ url('/kampus/2') }}">Viktor</a>
+              <a class="collapse-item" href="{{ url('/kampus/3') }}">Witana</a>
+              <a class="collapse-item" href="{{ url('/kampus/4') }}">Serang</a>
             </div>
           </div>
         </li>
@@ -96,3 +93,5 @@
 
       </ul>
       <!-- End of Sidebar -->
+
+      

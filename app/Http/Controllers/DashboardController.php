@@ -40,6 +40,44 @@ class DashboardController extends Controller
         return view('dashboard.camera_detail', compact('camera'));
     }
 
+    // public function viewKampusAll(Request $request, $id) {
+    //     // Ambil semua gedung berdasarkan universitas
+    //     $buildings = Building::where('university_id', $id)->get();
+    //     $cameras = Camera::where('university_id', $id)->get();
+    //     $university = University::findOrFail($id);
+
+    //     return view('kampus.index', compact('cameras', 'buildings', 'university'));
+    // }
+
+    public function viewKampusAll(Request $request, $id)
+{
+    // Ambil semua gedung berdasarkan universitas
+    $buildings = Building::where('university_id', $id)->get();
+
+    // Ambil semua lantai jika gedung dipilih
+    $floors = Floor::whereIn('building_id', $buildings->pluck('id'))->get();
+
+    // Filter kamera berdasarkan gedung dan lantai
+    $cameras = Camera::where('university_id', $id);
+
+    if ($request->has('building_id')) {
+        $cameras->where('building_id', $request->building_id);
+        $floors = Floor::where('building_id', $request->building_id)->get();
+    }
+
+    if ($request->has('floor_id')) {
+        $cameras->where('floor_id', $request->floor_id);
+    }
+
+    $cameras = $cameras->get();
+
+    $university = University::findOrFail($id);
+
+    return view('kampus.index', compact('cameras', 'buildings', 'floors', 'university'));
+}
+
+
+
     public function beranda()
     {
         $datas = Camera::all();

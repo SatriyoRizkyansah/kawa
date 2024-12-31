@@ -111,7 +111,8 @@
                   <div class="card shadow mb-4">
                     <!-- Card Header - Dropdown -->
                     <div class="card-header d-flex flex-row align-items-center justify-content-between">
-                      <h6 class="m-0 font-weight-bold text-primary"><i class="fa-solid fa-building-columns"></i>
+                      <h6 class="m-0 font-weight-bold text-primary"><i class="bi bi-buildings"></i>
+                        
                          <a href="{{ url('/university_detail/' . $university->id) }}">{{ $university->university_name }}</a>
                         </h6>
                       <div class="badge bg-success text-white rounded-pill"><i class="bx bxs-webcam mr-1"></i>12 / 13</div>

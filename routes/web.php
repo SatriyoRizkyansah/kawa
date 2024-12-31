@@ -36,6 +36,11 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard/building/{id}', [DashboardController::class, 'showByBuilding'])->middleware(['auth', 'verified'])->name('dashboard show by building');
     Route::get('/dashboard/floor/{id}', [DashboardController::class, 'showByFloor'])->middleware(['auth', 'verified'])->name('dashboard show by floor');
 
+    // Kampus
+Route::get('/kampus/{id}', [DashboardController::class, 'viewKampusAll'])->middleware(['auth', 'verified'])->name('kampus.view');
+
+    Route::get('/kampus/building/{id}', [DashboardController::class, 'viewKampusAll'])->middleware(['auth', 'verified']);
+
     // User Information
     Route::get('/user_information', [DashboardController::class, 'showUserInformation'])->middleware(['auth', 'verified'])->name('show user information');
     

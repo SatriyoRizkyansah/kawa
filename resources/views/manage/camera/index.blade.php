@@ -18,7 +18,7 @@
                 </div>
                 <div class="card-body">
 
-                    <a href="/camera/create">
+                    <a href="/manage/camera/create">
                         <button class="btn btn-primary mb-4">
                             Tambah data 
                         </button>
@@ -48,7 +48,7 @@
                                     <td class="border px-4 py-2">{{ $camera->building->building_name }}</td>
                                     <td class="border px-4 py-2">{{ $camera->floor->floor_name }}</td>
                                     <td class="border px-4 py-2 fs-5">
-                                        <a href="{{ url('/camera/edit/'.$camera->id) }}" class="text-blue-500 hover:underline text-decoration-none">
+                                        <a href="{{ url('/manage/camera/edit/'.$camera->id) }}" class="text-blue-500 hover:underline text-decoration-none">
                                             <i class="bi bi-pencil-square"></i>
                                         </a>
 
@@ -56,7 +56,7 @@
                                             <i class="bi bi-trash text-danger"></i>
                                         </a>
 
-                                        <form id="delete-form-{{ $camera->id }}" action="{{ url('/camera/delete/'.$camera->id) }}" method="POST" style="display: none;">
+                                        <form id="delete-form-{{ $camera->id }}" action="{{ url('/manage/camera/delete/'.$camera->id) }}" method="POST" style="display: none;">
                                             @csrf
                                             @method('DELETE')
                                         </form>

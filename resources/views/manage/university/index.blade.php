@@ -16,7 +16,7 @@
                 </div>
                 <div class="card-body">
 
-                    {{-- <a href="/university/create">
+                    {{-- <a href="/manage/university/create">
                         <button class="btn btn-primary mb-4">
                             Tambah data 
                         </button>
@@ -40,7 +40,7 @@
                                     <td class="border px-4 py-2">{{ $university->university_name }}</td>
                                     <td class="border px-4 py-2">{{ $university->description }}</td>
                                     {{-- <td class="border px-4 py-2 fs-5">
-                                        <a href="{{ url('/university/edit/'.$university->id) }}" class="text-blue-500 hover:underline text-decoration-none">
+                                        <a href="{{ url('/manage/university/edit/'.$university->id) }}" class="text-blue-500 hover:underline text-decoration-none">
                                             <i class="bi bi-pencil-square"></i>
                                         </a>
 
@@ -48,7 +48,7 @@
                                             <i class="bi bi-trash text-danger"></i>
                                         </a>
 
-                                        <form id="delete-form-{{ $university->id }}" action="{{ url('/university/delete/'.$university->id) }}" method="POST" style="display: none;">
+                                        <form id="delete-form-{{ $university->id }}" action="{{ url('/manage/university/delete/'.$university->id) }}" method="POST" style="display: none;">
                                             @csrf
                                             @method('DELETE')
                                         </form>

@@ -46,37 +46,37 @@ Route::middleware(['auth'])->group(function () {
     
 
     // Page Camera
-    Route::get('/camera', [CameraController::class, 'index'])->name('camera');
-    Route::get('/camera/create', [CameraController::class, 'create'])->name('camera create');
-    Route::post('/camera/create', [CameraController::class, 'store'])->name('camera store');
-    Route::get('/camera/edit/{id}', [CameraController::class, 'edit'])->name('camera edit');
-    Route::post('/camera/edit/{id}', [CameraController::class, 'update'])->name('camera update');
-    Route::delete('/camera/delete/{id}', [CameraController::class, 'destroy'])->name('destroy');
+    Route::get('/manage/camera', [CameraController::class, 'index'])->name('camera');
+    Route::get('/manage/camera/create', [CameraController::class, 'create'])->name('camera create');
+    Route::post('/manage/camera/create', [CameraController::class, 'store'])->name('camera store');
+    Route::get('/manage/camera/edit/{id}', [CameraController::class, 'edit'])->name('camera edit');
+    Route::post('/manage/camera/edit/{id}', [CameraController::class, 'update'])->name('camera update');
+    Route::delete('/manage/camera/delete/{id}', [CameraController::class, 'destroy'])->name('destroy');
 
     // Page Kampus (University)
-    Route::get('/university', [UniversityController::class, 'index'])->middleware(['auth', 'verified'])->name('university');
-    Route::get('/university/create', [UniversityController::class, 'create'])->name('university create');
-    Route::post('/university/create', [UniversityController::class, 'store'])->name('university store');
-    Route::get('/university/edit/{id}', [UniversityController::class, 'edit'])->name('university edit');
-    Route::post('/university/edit/{id}', [UniversityController::class, 'update'])->name('university update');
-    Route::delete('/university/delete/{id}', [UniversityController::class, 'destroy'])->name('destroy');
+    Route::get('/manage/university', [UniversityController::class, 'index'])->middleware(['auth', 'verified'])->name('university');
+    Route::get('/manage/university/create', [UniversityController::class, 'create'])->name('university create');
+    Route::post('/manage/university/create', [UniversityController::class, 'store'])->name('university store');
+    Route::get('/manage/university/edit/{id}', [UniversityController::class, 'edit'])->name('university edit');
+    Route::post('/manage/university/edit/{id}', [UniversityController::class, 'update'])->name('university update');
+    Route::delete('/manage/university/delete/{id}', [UniversityController::class, 'destroy'])->name('destroy');
     
     // Page Gedung (Building)
-    Route::get('/building', [BuildingController::class, 'index'])->middleware(['auth', 'verified'])->name('building');
-    Route::get('/building/create', [BuildingController::class, 'create'])->name('building create');
-    Route::post('/building/create', [BuildingController::class, 'store'])->name('building store');
-    Route::get('/building/edit/{id}', [BuildingController::class, 'edit'])->name('building edit');
-    Route::post('/building/edit/{id}', [BuildingController::class, 'update'])->name('building update');
-    Route::delete('/building/delete/{id}', [BuildingController::class, 'destroy'])->name('destroy');
+    Route::get('/manage/building', [BuildingController::class, 'index'])->middleware(['auth', 'verified'])->name('building');
+    Route::get('/manage/building/create', [BuildingController::class, 'create'])->name('building create');
+    Route::post('/manage/building/create', [BuildingController::class, 'store'])->name('building store');
+    Route::get('/manage/building/edit/{id}', [BuildingController::class, 'edit'])->name('building edit');
+    Route::post('/manage/building/edit/{id}', [BuildingController::class, 'update'])->name('building update');
+    Route::delete('/manage/building/delete/{id}', [BuildingController::class, 'destroy'])->name('destroy');
 
     // Page Lantai (Floor)
     // Route::get('/building', [ManageController::class, 'index'])->middleware(['auth', 'verified'])->name('gedung')
-    Route::get('/floor', [FloorController::class, 'index'])->middleware(['auth', 'verified'])->name('floor');
-    Route::get('/floor/create', [FloorController::class, 'create'])->name('floor create');
-    Route::post('/floor/create', [FloorController::class, 'store'])->name('floor store');
-    Route::get('/floor/edit/{id}', [FloorController::class, 'edit'])->name('floor edit');
-    Route::post('/floor/edit/{id}', [FloorController::class, 'update'])->name('floor update');
-    Route::delete('/floor/delete/{id}', [FloorController::class, 'destroy'])->name('destroy');
+    Route::get('/manage/floor', [FloorController::class, 'index'])->middleware(['auth', 'verified'])->name('floor');
+    Route::get('/manage/floor/create', [FloorController::class, 'create'])->name('floor create');
+    Route::post('/manage/floor/create', [FloorController::class, 'store'])->name('floor store');
+    Route::get('/manage/floor/edit/{id}', [FloorController::class, 'edit'])->name('floor edit');
+    Route::post('/manage/floor/edit/{id}', [FloorController::class, 'update'])->name('floor update');
+    Route::delete('/manage/floor/delete/{id}', [FloorController::class, 'destroy'])->name('destroy');
 });
 
 require __DIR__.'/auth.php';

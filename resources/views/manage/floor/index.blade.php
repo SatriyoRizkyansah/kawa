@@ -16,7 +16,7 @@
                 </div>
                 <div class="card-body">
 
-                    <a href="/floor/create">
+                    <a href="/manage/floor/create">
                         <button class="btn btn-primary mb-4">
                             Tambah data 
                         </button>
@@ -40,7 +40,7 @@
                                     <td class="border px-4 py-2">{{ $floor->floor_name }}</td>
                                     <td class="border px-4 py-2">{{ $floor->building->building_name }}</td>
                                     <td class="border px-4 py-2 fs-5">
-                                        <a href="{{ url('/floor/edit/'.$floor->id) }}" class="text-blue-500 hover:underline text-decoration-none">
+                                        <a href="{{ url('/manage/floor/edit/'.$floor->id) }}" class="text-blue-500 hover:underline text-decoration-none">
                                             <i class="bi bi-pencil-square"></i>
                                         </a>
 
@@ -48,7 +48,7 @@
                                             <i class="bi bi-trash text-danger"></i>
                                         </a>
 
-                                        <form id="delete-form-{{ $floor->id }}" action="{{ url('/floor/delete/'.$floor->id) }}" method="POST" style="display: none;">
+                                        <form id="delete-form-{{ $floor->id }}" action="{{ url('/manage/floor/delete/'.$floor->id) }}" method="POST" style="display: none;">
                                             @csrf
                                             @method('DELETE')
                                         </form>

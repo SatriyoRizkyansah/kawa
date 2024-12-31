@@ -16,7 +16,7 @@
                 </div>
                 <div class="card-body">
 
-                    <a href="/building/create">
+                    <a href="/building/building/create">
                         <button class="btn btn-primary mb-4">
                             Tambah data 
                         </button>
@@ -42,7 +42,7 @@
                                     <td class="border px-4 py-2">{{ $building->slug }}</td>
                                     <td class="border px-4 py-2">{{ $building->university->university_name }}</td>
                                     <td class="border px-4 py-2 fs-5">
-                                        <a href="{{ url('/building/edit/'.$building->id) }}" class="text-blue-500 hover:underline text-decoration-none">
+                                        <a href="{{ url('/building/building/edit/'.$building->id) }}" class="text-blue-500 hover:underline text-decoration-none">
                                             <i class="bi bi-pencil-square"></i>
                                         </a>
 
@@ -50,7 +50,7 @@
                                             <i class="bi bi-trash text-danger"></i>
                                         </a>
 
-                                        <form id="delete-form-{{ $building->id }}" action="{{ url('/building/delete/'.$building->id) }}" method="POST" style="display: none;">
+                                        <form id="delete-form-{{ $building->id }}" action="{{ url('/building/building/delete/'.$building->id) }}" method="POST" style="display: none;">
                                             @csrf
                                             @method('DELETE')
                                         </form>

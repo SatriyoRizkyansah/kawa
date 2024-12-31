@@ -4,7 +4,7 @@
 
     <style>
       body {
-        background-image: url("iamges/bg.png");
+        background-image: url("images/bg.png");
         /* Ganti dengan URL gambar Anda */
         background-size: cover;
         background-position: center;

@@ -5,6 +5,7 @@ use App\Http\Controllers\FloorController;
 use App\Http\Controllers\ManageController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\BuildingController;
+use App\Http\Controllers\CameraController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\UniversityController;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
@@ -25,33 +26,32 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware(['auth'])->group(function () {
     // Page Dashboard index
-    Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
+    Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth', 'verified']);
+
+    // Kampus
     Route::get('/university_detail/{id}', [DashboardController::class, 'university_detail'])->middleware(['auth', 'verified'])->name('detail university');
     Route::get('/cameras_building/{id}', [DashboardController::class, 'cameras_building'])->middleware(['auth', 'verified'])->name('cameras by building');
     Route::get('/cameras_floor/{id}', [DashboardController::class, 'cameras_floor'])->middleware(['auth', 'verified'])->name('cameras by floor');
     Route::get('/camera_detail/{id}', [DashboardController::class, 'camera_detail'])->middleware(['auth', 'verified'])->name('camera detail');
-
     Route::get('/beranda', [DashboardController::class, 'beranda'])->middleware(['auth', 'verified'])->name('beranda');
-
     Route::get('/dashboard/building/{id}', [DashboardController::class, 'showByBuilding'])->middleware(['auth', 'verified'])->name('dashboard show by building');
     Route::get('/dashboard/floor/{id}', [DashboardController::class, 'showByFloor'])->middleware(['auth', 'verified'])->name('dashboard show by floor');
 
     // Kampus
-Route::get('/kampus/{id}', [DashboardController::class, 'viewKampusAll'])->middleware(['auth', 'verified'])->name('kampus.view');
-
-    Route::get('/kampus/building/{id}', [DashboardController::class, 'viewKampusAll'])->middleware(['auth', 'verified']);
+    // Route::get('/kampus/{id}', [DashboardController::class, 'viewKampusAll'])->middleware(['auth', 'verified'])->name('kampus.view');
+    // Route::get('/kampus/building/{id}', [DashboardController::class, 'viewKampusAll'])->middleware(['auth', 'verified']);
 
     // User Information
     Route::get('/user_information', [DashboardController::class, 'showUserInformation'])->middleware(['auth', 'verified'])->name('show user information');
     
 
-    // Page Manage
-    Route::get('/manage', [ManageController::class, 'index'])->name('manage');
-    Route::get('/manage/create', [ManageController::class, 'create'])->name('manage create');
-    Route::post('/manage/create', [ManageController::class, 'store'])->name('manage store');
-    Route::get('/manage/edit/{id}', [ManageController::class, 'edit'])->name('manage edit');
-    Route::post('/manage/edit/{id}', [ManageController::class, 'update'])->name('manage update');
-    Route::delete('/manage/delete/{id}', [ManageController::class, 'destroy'])->name('destroy');
+    // Page Camera
+    Route::get('/camera', [CameraController::class, 'index'])->name('camera');
+    Route::get('/camera/create', [CameraController::class, 'create'])->name('camera create');
+    Route::post('/camera/create', [CameraController::class, 'store'])->name('camera store');
+    Route::get('/camera/edit/{id}', [CameraController::class, 'edit'])->name('camera edit');
+    Route::post('/camera/edit/{id}', [CameraController::class, 'update'])->name('camera update');
+    Route::delete('/camera/delete/{id}', [CameraController::class, 'destroy'])->name('destroy');
 
     // Page Kampus (University)
     Route::get('/university', [UniversityController::class, 'index'])->middleware(['auth', 'verified'])->name('university');

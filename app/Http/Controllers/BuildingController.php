@@ -17,7 +17,7 @@ class BuildingController extends Controller
     public function index()
     {
         $buildings = Building::all();
-        return view('building.index')->with(compact('buildings'));
+        return view('manage.building.index')->with(compact('buildings'));
     }
 
     /**
@@ -26,7 +26,7 @@ class BuildingController extends Controller
     public function create()
     {
         $universities = University::all();
-        return view('building.create')->with(compact('universities'));
+        return view('manage.building.create')->with(compact('universities'));
     }
 
     /**
@@ -64,7 +64,7 @@ class BuildingController extends Controller
     {
         $building = Building::find($id);
         $universities = University::all();
-        return view('building.edit')->with(compact('building', 'universities'));
+        return view('manage.building.edit')->with(compact('building', 'universities'));
     }
 
     /**

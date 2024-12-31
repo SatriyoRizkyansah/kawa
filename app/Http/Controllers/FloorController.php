@@ -17,7 +17,7 @@ class FloorController extends Controller
     public function index()
     {
         $floors = Floor::all(); 
-        return view('floor.index')->with(compact('floors'));
+        return view('manage.floor.index')->with(compact('floors'));
     }
 
     /**
@@ -26,7 +26,7 @@ class FloorController extends Controller
     public function create()
     {
         $buildings = Building::all();
-        return view('floor.create')->with(compact('buildings'));
+        return view('manage.floor.create')->with(compact('buildings'));
     }
 
     /**
@@ -64,7 +64,7 @@ class FloorController extends Controller
     {
         $floor = Floor::find($id);
         $buildings = Building::all();
-        return view('floor.edit')->with(compact('floor', 'buildings'));
+        return view('manage.floor.edit')->with(compact('floor', 'buildings'));
     }
 
     /**

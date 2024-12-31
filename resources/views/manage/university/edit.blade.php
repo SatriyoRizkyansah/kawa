@@ -16,17 +16,17 @@
                 <div class="card-body">
                     <form method="POST">
                     @csrf
-                    <div class="mb-4">
-                        <label for="university_name" >Nama Universitas</label>
-                        <input type="text" id="title" name="university_name" class="form-control" required>
+                        <div class="mb-4">
+                        <label for="building_name" >Nama universitas</label>
+                        <input type="text" value="{{ $university->university_name }}" id="title" name="university_name" class="form-control" required>
                     </div>
                     <div class="mb-4">
-                        <label for="slug">Slug</label>
-                        <input type="text" id="slug" name="slug" class="form-control" required>
+                        <label for="slug" >Slug</label>
+                        <input type="text" value="{{ $university->slug }}" id="slug" name="slug" class="form-control" required>
                     </div>
                     <div class="mb-4">
                         <label for="description" >Deskripsi</label>
-                        <input type="text" id="description" name="description" class="form-control" required>
+                        <input type="text" id="description" value="{{ $university->description }}" name="description" class="form-control" required>
                     </div>
                     <button type="submit" name="submit" class="bg-blue-500 hover:bg-blue-600 text-black px-4 py-2 rounded-md shadow-md hover:shadow-lg border border-blue-500 font-bold">
                     Simpan
@@ -55,4 +55,5 @@
         e.preventDefault();
     })
 </script>
+
 

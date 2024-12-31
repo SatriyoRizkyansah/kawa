@@ -16,11 +16,11 @@
                 </div>
                 <div class="card-body">
 
-                    <a href="/university/create">
+                    {{-- <a href="/university/create">
                         <button class="btn btn-primary mb-4">
                             Tambah data 
                         </button>
-                    </a>
+                    </a> --}}
                     
 
                     <div class="table-responsive">
@@ -30,7 +30,7 @@
                             <th>No</th>
                             <th>Nama Universitas</th>
                             <th>Deskripsi</th>
-                            <th>Action</th>
+                            {{-- <th>Action</th> --}}
                         </tr>
                         </thead>
                         <tbody>
@@ -39,7 +39,7 @@
                                     <td class="border px-4 py-2">{{ $loop->iteration }}</td>
                                     <td class="border px-4 py-2">{{ $university->university_name }}</td>
                                     <td class="border px-4 py-2">{{ $university->description }}</td>
-                                    <td class="border px-4 py-2 fs-5">
+                                    {{-- <td class="border px-4 py-2 fs-5">
                                         <a href="{{ url('/university/edit/'.$university->id) }}" class="text-blue-500 hover:underline text-decoration-none">
                                             <i class="bi bi-pencil-square"></i>
                                         </a>
@@ -52,9 +52,9 @@
                                             @csrf
                                             @method('DELETE')
                                         </form>
-                                    </td>
+                                    </td> --}}
 
-                                                                </tr>
+                                    </tr>
                                 @endforeach
                         </tbody>
                     </table>

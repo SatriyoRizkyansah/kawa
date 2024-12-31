@@ -46,12 +46,12 @@
         <li class="nav-item">
           <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
             <i class="fas fa-fw fa-cog"></i>
-            <span>Manage</span>
+            <span>Manage / Pengaturan</span>
           </a>
           <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
               {{-- <h6 class="collapse-header">Custom Components:</h6> --}}
-              <a class="collapse-item" href="{{ route('manage') }}">Manage Kamera</a>
+              <a class="collapse-item" href="{{ route('camera') }}">Manage Kamera</a>
               <a class="collapse-item" href="{{ route('university') }}">Universitas</a>
               <a class="collapse-item" href="{{ route('building') }}">Gedung</a>
               <a class="collapse-item" href="{{ route('floor') }}">Lantai</a>
@@ -68,10 +68,10 @@
           <div id="kampus" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
               {{-- <h6 class="collapse-header">Custom Components:</h6> --}}
-              <a class="collapse-item" href="{{ url('/kampus/1') }}">Pusat</a>
-              <a class="collapse-item" href="{{ url('/kampus/2') }}">Viktor</a>
-              <a class="collapse-item" href="{{ url('/kampus/3') }}">Witana</a>
-              <a class="collapse-item" href="{{ url('/kampus/4') }}">Serang</a>
+              <a class="collapse-item" href="{{ url('/university_detail/1') }}">Pusat</a>
+              <a class="collapse-item" href="{{ url('/university_detail/2') }}">Viktor</a>
+              <a class="collapse-item" href="{{ url('/university_detail/3') }}">Witana</a>
+              <a class="collapse-item" href="{{ url('/university_detail/4') }}">Serang</a>
             </div>
           </div>
         </li>

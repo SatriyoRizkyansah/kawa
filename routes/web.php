@@ -26,7 +26,7 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware(['auth'])->group(function () {
     // Page Dashboard index
-    Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth', 'verified']);
+    Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 
     // Kampus
     Route::get('/university_detail/{id}', [DashboardController::class, 'university_detail'])->middleware(['auth', 'verified'])->name('detail university');
@@ -52,6 +52,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/manage/camera/edit/{id}', [CameraController::class, 'edit'])->name('camera edit');
     Route::post('/manage/camera/edit/{id}', [CameraController::class, 'update'])->name('camera update');
     Route::delete('/manage/camera/delete/{id}', [CameraController::class, 'destroy'])->name('destroy');
+
+    Route::get('/api/get-gedung/{universityId}', [CameraController::class, 'getGedung']);
+    Route::get('/api/get-lantai/{gedungId}', [CameraController::class, 'getLantai']);
 
     // Page Kampus (University)
     Route::get('/manage/university', [UniversityController::class, 'index'])->middleware(['auth', 'verified'])->name('university');

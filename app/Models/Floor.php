@@ -25,4 +25,6 @@ class Floor extends Model
         return $this->hasMany(Camera::class);
     }
 
+
+
 }

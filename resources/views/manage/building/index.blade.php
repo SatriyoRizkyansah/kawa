@@ -2,6 +2,7 @@
 
     <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
+
             <!-- Main Content -->
             <div id="content">
 
@@ -21,7 +22,6 @@
                             Tambah data 
                         </button>
                     </a>
-                    
 
                     <div class="table-responsive">
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -29,7 +29,6 @@
                         <tr>
                             <th>No</th>
                             <th>Nama Gedung</th>
-                            <th>Slug</th>
                             <th>Universitas</th>
                             <th>Action</th>
                         </tr>
@@ -39,7 +38,7 @@
                                 <tr>
                                     <td class="border px-4 py-2">{{ $loop->iteration }}</td>
                                     <td class="border px-4 py-2">{{ $building->building_name }}</td>
-                                    <td class="border px-4 py-2">{{ $building->slug }}</td>
+
                                     <td class="border px-4 py-2">{{ $building->university->university_name }}</td>
                                     <td class="border px-4 py-2 fs-5">
                                         <a href="{{ url('/manage/building/edit/'.$building->id) }}" class="text-blue-500 hover:underline text-decoration-none">
@@ -68,23 +67,28 @@
             </div>
         </div>
     <!-- End of Main Content -->
+    
+    <!-- Bootstrap core JavaScript-->
+        <!-- jQuery -->
+<script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
+
+<!-- Bootstrap Bundle -->
+<script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+
+<!-- Core Plugin jQuery Easing -->
+<script src="{{ asset('vendor/jquery-easing/jquery.easing.min.js') }}"></script>
+
+<!-- SB Admin 2 Core Script -->
+<script src="{{ asset('js/sb-admin-2.min.js') }}"></script>
+
+<!-- DataTables Plugin -->
+<script src="{{ asset('vendor/datatables/jquery.dataTables.min.js') }}"></script>
+<script src="{{ asset('vendor/datatables/dataTables.bootstrap4.min.js') }}"></script>
+
+<!-- DataTables Custom Script -->
+<script src="{{ asset('js/demo/datatables-demo.js') }}"></script>
+
 </x-app-layout>
 
 
-<!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-
-    <!-- Custom scripts for all pages-->
-    <script src="js/sb-admin-2.min.js"></script>
-
-    <!-- Page level plugins -->
-    <script src="vendor/datatables/jquery.dataTables.min.js"></script>
-    <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
-
-    <!-- Page level custom scripts -->
-    <script src="js/demo/datatables-demo.js"></script>
 

@@ -131,7 +131,7 @@
                   <!-- Card Header - Dropdown -->
                   <div class="card-header d-flex flex-row align-items-center justify-content-between">
                     <a href="{{ url('/university_detail/1')}}">
-                      <h6 class="m-0 font-weight-bold text-primary"><i class="fa-solid fa-building-columns"></i> Kampus 1 (Pusat)</h6>
+                      <h6 class="m-0 font-weight-bold text-primary"><i class="fa-solid fa-building-columns"></i> Kampus Pusat</h6>
                     </a>
                     <div class="badge bg-success text-white rounded-pill"><i class="bx bxs-webcam mr-1"></i>12 / 13</div>
                   </div>
@@ -150,7 +150,7 @@
                   <!-- Card Header - Dropdown -->
                   <div class="card-header d-flex flex-row align-items-center justify-content-between">
                     <a href="{{ url('/university_detail/2')}}">
-                      <h6 class="m-0 font-weight-bold text-primary"><i class="fa-solid fa-building-columns"></i> Kampus 2 (Viktor)</h6>
+                      <h6 class="m-0 font-weight-bold text-primary"><i class="fa-solid fa-building-columns"></i> Kampus Viktor</h6>
                     </a>
                     <div class="badge bg-success text-white rounded-pill"><i class="bx bxs-webcam mr-1"></i>12 / 13</div>
                   </div>
@@ -169,7 +169,7 @@
                   <!-- Card Header - Dropdown -->
                   <div class="card-header d-flex flex-row align-items-center justify-content-between">
                     <a href="{{ url('/university_detail/3')}}">
-                      <h6 class="m-0 font-weight-bold text-primary"><i class="fa-solid fa-building-columns"></i> Kampus 3 (Witana)</h6>
+                      <h6 class="m-0 font-weight-bold text-primary"><i class="fa-solid fa-building-columns"></i> Kampus Witana</h6>
                     </a>
                     <div class="badge bg-success text-white rounded-pill"><i class="bx bxs-webcam mr-1"></i>11 / 12</div>
                   </div>

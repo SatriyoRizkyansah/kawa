@@ -9,6 +9,8 @@
 
     <title>Kawa AI - Dashboard</title>
 
+    <link rel="icon" href="{{ asset('images/logo-unpam.png') }}" type="image/png">
+
     {{-- Bootstrap Css --}}
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
@@ -18,10 +20,6 @@
     <!-- Custom fonts for this template-->
     <link href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('css/sb-admin-2.min.css') }}" rel="stylesheet" />
-
-
-    <!-- Custom styles for this template-->
-    <link href="css/sb-admin-2.min.css" rel="stylesheet" />
   </head>
 
   <body id="page-top" >
@@ -91,7 +89,7 @@
     {{-- Bootstrap JS Via CDN --}}
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
-    <!-- Bootstrap core JavaScript-->
+    {{-- <!-- Bootstrap core JavaScript-->
     <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
     <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 
@@ -106,7 +104,31 @@
 
     <!-- Page level custom scripts -->
     <script src="{{ asset('js/demo/chart-area-demo.js') }}"></script>
-    <script src="{{ asset('js/demo/chart-pie-demo.js') }}"></script>
+    <script src="{{ asset('js/demo/chart-pie-demo.js') }}"></script> --}}
+
+    <!-- jQuery (wajib dimuat pertama) -->
+    <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
+
+    <!-- Bootstrap JS (bergantung pada jQuery) -->
+    <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+
+    <!-- Core plugin JavaScript -->
+    <script src="{{ asset('vendor/jquery-easing/jquery.easing.min.js') }}"></script>
+
+    <!-- Custom scripts for all pages -->
+    <script src="{{ asset('js/sb-admin-2.min.js') }}"></script>
+
+    <!-- DataTables JS (pastikan urutan ini benar) -->
+    <script src="{{ asset('vendor/datatables/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('vendor/datatables/dataTables.bootstrap4.min.js') }}"></script>
+
+    <!-- Inisialisasi DataTables -->
+    <script>
+        $(document).ready(function () {
+            $('#dataTable').DataTable();
+        });
+    </script>
+
 
   </body>
 </html>

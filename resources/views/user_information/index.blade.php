@@ -35,7 +35,7 @@
                                     <tr>
                                         <td>Nama</td>
                                         <td>:</td>
-                                        <td>Lukman Muludin</td>
+                                        <td>{{ Auth::user()->name }}</td>
                                     </tr>
                                     <tr>
                                         <td>Tanggal Lahir</td>

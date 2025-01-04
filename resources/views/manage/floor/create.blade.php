@@ -26,9 +26,9 @@
                     <div class="mb-4">
                             <label for="building">Gedung</label>
                             <select id="building" name="building" class="form-control" required>
-
+                    
                                 @foreach ($buildings as $building)
-                                    <option value="{{ $building->id }}">{{ $building->building_name }}</option>
+                                    <option value="{{ $building->id }}">{{ $building->building_name }} | {{ $building->university->university_name }}</option>
                                 @endforeach
                     
                             </select>

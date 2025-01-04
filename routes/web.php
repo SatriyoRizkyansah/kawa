@@ -25,6 +25,11 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::middleware(['auth'])->group(function () {
+    // error fixing, dummy route
+    Route::get('/coba', function () {
+        return view('coba');
+    });
+
     // Page Dashboard index
     Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 

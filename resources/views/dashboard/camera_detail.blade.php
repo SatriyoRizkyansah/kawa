@@ -133,7 +133,7 @@
                         <tr>
                           <td>RSTP / HLS</td>
                           <td>:</td>
-                          <td>RSTP</td>
+                          <td>{{ $camera->rtsp }}</td>
                           <td></td>
                         </tr>
                         <tr>

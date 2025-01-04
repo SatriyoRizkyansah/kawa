@@ -29,7 +29,7 @@
                             <option value="" disabled selected>Pilih Gedung</option>
                             @foreach ($buildings as $building)
                                 <option value="{{ $building->id }}" 
-                                    {{ $building->id == $building->building_id ? 'selected' : '' }}>
+                                    {{ $building->id == $floor->building_id ? 'selected' : '' }}>
                                     {{ $building->building_name }}
                                 </option>
                             @endforeach

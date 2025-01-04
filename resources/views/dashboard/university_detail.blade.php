@@ -21,7 +21,7 @@
                         <!-- icon -->
                         <div class="camera d-flex">
                             <i class="bx bxs-buildings fa-fw mr-2"></i>
-                            <a href="{{ url('/cameras_building/' . $building->id) }}" class="text-decoration-none text-dark">
+                            <a href="{{ route('cameras.by.building', ['id' => $building->id]); }}" class="text-decoration-none text-dark">
                             <h6 class="card-title mb-0">{{ $building->building_name }}</h6>
                             </a>
                         </div>
@@ -34,7 +34,7 @@
                         <div class="row">
                             @foreach ($building->floors as $floor)
                                 <div class="col-12 d-flex justify-content-between bg-white pb-1 mb-1 rounded text-dark">
-                                    <a href="{{ url('/cameras_floor/' . $floor->id) }}" class=" text-dark">
+                                    <a href="{{ route('cameras.by.floor', ['id' => $floor->id]) }}" class=" text-dark">
                                         <div class="lantai">{{ $floor->floor_name }}</div>
                                     </a>
                                 <div class="status">

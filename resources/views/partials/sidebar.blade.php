@@ -12,8 +12,8 @@
         <hr class="sidebar-divider my-0" />
 
         <!-- Nav Item - Dashboard -->
-        <li class="nav-item {{ Request::is('dashboard') ? 'active' : '' }}">
-          <a class="nav-link" href="/dashboard">
+        <li class="nav-item {{ Request::is('admin/dashboard') ? 'active' : '' }}">
+          <a class="nav-link" href="{{ route('dashboard') }}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a
           >
@@ -22,15 +22,15 @@
         <!-- Divider -->
         <hr class="sidebar-divider" />
 
-        <li class="nav-item {{ Request::is('user_information') ? 'active' : '' }}">
-          <a class="nav-link" href="/user_information">
+        <li class="nav-item {{ Request::is('admin/user_information') ? 'active' : '' }}">
+          <a class="nav-link" href="{{ route('user_info') }}">
             <i class="bi bi-person-fill"></i>
             <span>Data Pribadi</span></a
           >
         </li>
 
         {{-- Kampus --}}
-        <li class="nav-item {{ Request::is('university_detail*') ? 'active' : '' }}">
+        <li class="nav-item {{ Request::is('admin/university_detail*') ? 'active' : '' }}">
           <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#kampus" aria-expanded="true" aria-controls="kampus">
             <i class="bi bi-buildings-fill"></i>
             <span>Kampus</span>
@@ -38,10 +38,10 @@
           <div id="kampus" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
               {{-- <h6 class="collapse-header">Custom Components:</h6> --}}
-              <a class="collapse-item" href="{{ url('/university_detail/1') }}">Pusat</a>
-              <a class="collapse-item" href="{{ url('/university_detail/2') }}">Viktor</a>
-              <a class="collapse-item" href="{{ url('/university_detail/3') }}">Witana</a>
-              <a class="collapse-item" href="{{ url('/university_detail/4') }}">Serang</a>
+              <a class="collapse-item" href="{{ route('detail.university', ['id' => 1]) }}">Pusat</a>
+              <a class="collapse-item" href="{{ route('detail.university', ['id' => 2]) }}">Viktor</a>
+              <a class="collapse-item" href="{{ route('detail.university', ['id' => 3]) }}">Witana</a>
+              <a class="collapse-item" href="{{ route('detail.university', ['id' => 4]) }}">Serang</a>
             </div>
           </div>
         </li>
@@ -63,7 +63,7 @@
 
         <div class="sidebar-heading">Control</div>
 
-       <li class="nav-item {{ Request::is('manage/*') ? 'active' : '' }}">
+       <li class="nav-item {{ Request::is('admin/manage/*') ? 'active' : '' }}">
           <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
             <i class="fas fa-fw fa-cog"></i>
             <span>Manage / Pengaturan</span>
@@ -71,10 +71,10 @@
           <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
               {{-- <h6 class="collapse-header">Custom Components:</h6> --}}
-              <a class="collapse-item" href="{{ url('manage/camera') }}">Manage Kamera</a>
-              <a class="collapse-item" href="{{ url('manage/university') }}">Universitas</a>
-              <a class="collapse-item" href="{{ url('manage/building') }}">Gedung</a>
-              <a class="collapse-item" href="{{ url('manage/floor') }}">Lantai</a>
+              <a class="collapse-item" href="{{ route('camera') }}">Manage Kamera</a>
+              <a class="collapse-item" href="{{ route('university') }}">Universitas</a>
+              <a class="collapse-item" href="{{ route('building') }}">Gedung</a>
+              <a class="collapse-item" href="{{ route('floor') }}">Lantai</a>
             </div>
           </div>
         </li>

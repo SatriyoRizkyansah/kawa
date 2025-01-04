@@ -31,6 +31,7 @@ class BuildingController extends Controller
      */
     public function create()
     {
+        // dd('Route berhasil dipanggil');
         $universities = University::all();
         return view('manage.building.create')->with(compact('universities'));
     }

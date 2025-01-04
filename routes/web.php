@@ -59,7 +59,7 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('/manage/camera/delete/{id}', [CameraController::class, 'destroy'])->name('destroy');
 
     Route::get('/api/get-gedung/{universityId}', [CameraController::class, 'getGedung']);
-    Route::get('/api/get-lantai/{gedungId}', [CameraController::class, 'getLantai']);
+    Route::get('/api/get-lantai/{id}', [CameraController::class, 'getLantai']);
 
     // Page Kampus (University)
     Route::get('/manage/university', [UniversityController::class, 'index'])->middleware(['auth', 'verified'])->name('university');
@@ -68,6 +68,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/manage/university/edit/{id}', [UniversityController::class, 'edit'])->name('university edit');
     Route::post('/manage/university/edit/{id}', [UniversityController::class, 'update'])->name('university update');
     Route::delete('/manage/university/delete/{id}', [UniversityController::class, 'destroy'])->name('destroy');
+    Route::get('/manage/building/{universityId}', [BuildingController::class, 'showByUniversity'])->middleware(['auth', 'verified'])->name('building');
+    
     
     // Page Gedung (Building)
     Route::get('/manage/building', [BuildingController::class, 'index'])->middleware(['auth', 'verified'])->name('building');
@@ -76,6 +78,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/manage/building/edit/{id}', [BuildingController::class, 'edit'])->name('building edit');
     Route::post('/manage/building/edit/{id}', [BuildingController::class, 'update'])->name('building update');
     Route::delete('/manage/building/delete/{id}', [BuildingController::class, 'destroy'])->name('destroy');
+    Route::get('/manage/floor/{id}', [FloorController::class, 'showByBuilding'])->middleware(['auth', 'verified'])->name('floor');
 
     // Page Lantai (Floor)
     // Route::get('/building', [ManageController::class, 'index'])->middleware(['auth', 'verified'])->name('gedung')

@@ -44,6 +44,11 @@
                                     <td class="border px-4 py-2">{{ $floor->building->building_name }}</td>
                                     <td class="border px-4 py-2">{{ $floor->building->university->university_name }}</td>
                                     <td class="border px-4 py-2 fs-5">
+
+                                        <a href="{{ url('/cameras_floor/'.$floor->id) }}" class="text-blue-500 hover:underline text-decoration-none">
+                                            <i class="bi bi-eye text-success fs-5"></i>
+                                        </a>
+
                                         <a href="{{ url('/manage/floor/edit/'.$floor->id) }}" class="text-blue-500 hover:underline text-decoration-none">
                                             <i class="bi bi-pencil-square"></i>
                                         </a>

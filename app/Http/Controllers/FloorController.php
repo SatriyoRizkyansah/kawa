@@ -21,6 +21,12 @@ class FloorController extends Controller
         return view('manage.floor.index')->with(compact('floors'));
     }
 
+    public function showByBuilding($id)
+    {
+        $floors = Floor::where('building_id', $id)->get(); 
+        return view('manage.floor.index')->with(compact('floors'));
+    }
+
     /**
      * Show the form for creating a new resource.
      */

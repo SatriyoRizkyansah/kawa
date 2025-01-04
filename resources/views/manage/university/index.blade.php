@@ -37,7 +37,10 @@
                         @foreach($universities as $university)
                                 <tr>
                                     <td class="border px-4 py-2">{{ $loop->iteration }}</td>
-                                    <td class="border px-4 py-2">{{ $university->university_name }}</td>
+                                    <td class="border px-4 py-2">
+                                        <a href="{{ url('/manage/building/'.$university->id) }}" class="text-decoration-none">{{ $university->university_name }}</a>
+                                    </td>
+
                                     <td class="border px-4 py-2">{{ $university->description }}</td>
                                     {{-- <td class="border px-4 py-2 fs-5">
                                         <a href="{{ url('/manage/university/edit/'.$university->id) }}" class="text-blue-500 hover:underline text-decoration-none">

@@ -20,6 +20,12 @@ class BuildingController extends Controller
         return view('manage.building.index')->with(compact('buildings'));
     }
 
+    public function showByUniversity($id)
+    {
+        $buildings = Building::where('university_id', $id)->get();
+        return view('manage.building.index')->with(compact('buildings'));
+    }
+
     /**
      * Show the form for creating a new resource.
      */

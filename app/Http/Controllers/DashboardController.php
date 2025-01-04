@@ -25,14 +25,14 @@ class DashboardController extends Controller
 
     public function cameras_building($id){
         $cameras = Camera::where('building_id', $id)->get();
-        // $building = Building::findOrFail($id);
-        return view('dashboard.cameras', compact('cameras'));
+         $title = 'CCTV ' . $cameras->first()->building->building_name . ' - ' . $cameras->first()->building->university->university_name;
+        return view('dashboard.cameras', compact('cameras', 'title'));
     }
 
     public function cameras_floor($id){
         $cameras = Camera::where('floor_id', $id)->get();
-        // $building = Building::findOrFail($id);
-        return view('dashboard.cameras', compact('cameras'));
+        $title = 'CCTV ' . $cameras->first()->building->building_name . ' - ' . $cameras->first()->building->university->university_name . ' - ' . $cameras->first()->floor->floor_name;
+        return view('dashboard.cameras', compact('cameras', 'title'));
     }
 
     public function camera_detail($id){

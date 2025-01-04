@@ -29,6 +29,7 @@
                         <tr>
                             <th>No</th>
                             <th>Lantai</th>
+                            <th>Universitas</th>
                             <th>Gedung</th>
                             <th>Universitas</th>
                             <th>Action</th>
@@ -39,6 +40,7 @@
                                 <tr>
                                     <td class="border px-4 py-2">{{ $loop->iteration }}</td>
                                     <td class="border px-4 py-2">{{ $floor->floor_name }}</td>
+                                    <td class="border px-4 py-2">{{ $floor->university->university_name }}</td>
                                     <td class="border px-4 py-2">{{ $floor->building->building_name }}</td>
                                     <td class="border px-4 py-2">{{ $floor->building->university->university_name }}</td>
                                     <td class="border px-4 py-2 fs-5">

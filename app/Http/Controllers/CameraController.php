@@ -79,7 +79,7 @@ class CameraController extends Controller
             $camera->floor_id = $request->lantai;
         $camera->save();
 
-        return redirect()->route('dashboard')->with('success', 'CCTV berhasil ditambahkan!');
+        return redirect()->route('camera')->with('success', 'CCTV berhasil ditambahkan!');
     }
 
         public function edit($id)
@@ -126,7 +126,7 @@ class CameraController extends Controller
         $camera->floor_id = $request->lantai;
         $camera->save();
 
-        return redirect()->route('dashboard')->with('success', 'Data kamera berhasil diperbarui!');
+        return redirect()->route('camera')->with('success', 'Data kamera berhasil diperbarui!');
     }
 
     
@@ -134,6 +134,6 @@ class CameraController extends Controller
     public function destroy($id){
         $camera = Camera::find($id);
         $camera->delete();
-        return redirect()->route('dashboard')->with('success', 'CCTV berhasil dihapus!');
+        return redirect()->route('camera')->with('success', 'CCTV berhasil dihapus!');
     }
 }

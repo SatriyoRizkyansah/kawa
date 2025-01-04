@@ -15,6 +15,31 @@
                 <div class="card-body">
                     <form method="POST">
                     @csrf
+
+                    <div class="mb-4">
+                                <label for="university">Universitas</label>
+                                <select id="university" name="university" class="form-control" required>
+                                    <option value="">Pilih Universitas</option>
+                                    @foreach ($universities as $university)
+                                        <option value="{{ $university->id }}">{{ $university->university_name }}</option>
+                                    @endforeach
+                                </select>
+                        </div>
+
+                       <div class="mb-4">
+                           <label for="gedung">Gedung</label>
+                           <select id="gedung" name="gedung" class="form-control" disabled required>
+                               <option value="">Pilih Gedung</option>
+                           </select>
+                       </div>
+                       
+                       <div class="mb-4">
+                           <label for="lantai">Lantai</label>
+                           <select id="lantai" name="lantai" class="form-control" disabled required>
+                               <option value="">Pilih Lantai</option>
+                           </select>
+                        </div>
+                        
                         <div class="mb-4">
                             <label for="nama_kamera">Nama Kamera</label>
                             <input type="text" id="nama_kamera" name="nama_kamera" class="form-control" required>
@@ -52,29 +77,7 @@
                             <input type="date" id="installation_date" name="installation_date" class="form-control" required>
                         </div>
                         
-                        <div class="mb-4">
-                                <label for="university">Universitas</label>
-                                <select id="university" name="university" class="form-control" required>
-                                    <option value="">Pilih Universitas</option>
-                                    @foreach ($universities as $university)
-                                        <option value="{{ $university->id }}">{{ $university->university_name }}</option>
-                                    @endforeach
-                                </select>
-                        </div>
-
-                       <div class="mb-4">
-                           <label for="gedung">Gedung</label>
-                           <select id="gedung" name="gedung" class="form-control" disabled required>
-                               <option value="">Pilih Gedung</option>
-                           </select>
-                       </div>
-                       
-                       <div class="mb-4">
-                           <label for="lantai">Lantai</label>
-                           <select id="lantai" name="lantai" class="form-control" disabled required>
-                               <option value="">Pilih Lantai</option>
-                           </select>
-                            </div>
+                        
                         <button type="submit" name="submit" class="btn btn-primary">
                         Simpan Kamera
                         </button>

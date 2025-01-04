@@ -26,9 +26,9 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware(['auth'])->group(function () {
     // error fixing, dummy route
-    Route::get('/coba', function () {
-        return view('coba');
-    });
+    // Route::get('/coba', function () {
+    //     return view('coba');
+    // });
 
     // Page Dashboard index
     Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
@@ -82,6 +82,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/manage/floor', [FloorController::class, 'index'])->middleware(['auth', 'verified'])->name('floor');
     Route::get('/manage/floor/create', [FloorController::class, 'create'])->name('floor create');
     Route::post('/manage/floor/create', [FloorController::class, 'store'])->name('floor store');
+    Route::get('/manage/floor/create/get-gedung/{universityId}', [FloorController::class, 'getGedung']);
     Route::get('/manage/floor/edit/{id}', [FloorController::class, 'edit'])->name('floor edit');
     Route::post('/manage/floor/edit/{id}', [FloorController::class, 'update'])->name('floor update');
     Route::delete('/manage/floor/delete/{id}', [FloorController::class, 'destroy'])->name('destroy');

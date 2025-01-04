@@ -15,115 +15,65 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
-
+        // Seeder untuk User
         User::factory()->create([
             'name' => 'Test User',
             'email' => 'test@example.com',
         ]);
 
-        // DB::table('universities')->insert([
-        //     ['university_name' => 'Universitas A',
-        //         'slug' => 'universitas-a'],
-        //     ['university_name' => 'Universitas B',
-        //         'slug' => 'universitas-b'],
-        // ]);
-
-        // DB::table('buildings')->insert([
-        //     ['building_name' => 'A',
-        //         'slug' => 'a'],
-        //     ['building_name' => 'B',
-        //         'slug' => 'b'],
-        //     ['building_name' => 'C',
-        //         'slug' => 'c'],
-        // ]);
-
-        // DB::table('floors')->insert([
-        //     ['floor_name' => 'Lantai 1',
-        //         'slug' => 'lantai-1'],
-        //     ['floor_name' => 'Lantai 2',
-        //         'slug' => 'lantai-2'],
-        //     ['floor_name' => 'Lantai 3',
-        //         'slug' => 'lantai-3'],
-        // ]);
-
-        // DB::table('cameras')->insert([
-        //     ['nama_kamera' => 'CAM 1', 'rtsp' => 'http://example.com/stream1', 'building_id' => '1', 'floor_id' => '1'],
-        //     ['nama_kamera' => 'CAM 2', 'rtsp' => 'http://example.com/stream2', 'building_id' => '2', 'floor_id' => '2'],
-        // ]);
-
-        // Seeder untuk Universities (Maksimal 3)
-            // DB::table('universities')->insert([
-            //     'university_name' => 'Universitas ' . Str::upper(Str::random(3)),
-            //     'slug' => 'universitas-' . $i,
-            //     'description' => 'Deskripsi untuk Universitas ' . $i,
-            //     'created_at' => now(),
-            //     'updated_at' => now(),
-            // ]);
-
+        // Seeder untuk Universities
         DB::table('universities')->insert([
-            ['university_name' => 'Kampus Pusat',
-                'slug' => 'kampus-pusat',
-                'description' => 'Deskripsi untuk Kampus Pusat',],
-            ['university_name' => 'Kampus Viktor',
-                'slug' => 'kampus-viktor',
-                'description' => 'Deskripsi untuk Kampus Viktor',],
-            ['university_name' => 'Kampus Witana',
-                'slug' => 'kampus-witana',
-                'description' => 'Deskripsi untuk Kampus Witana',],
-            ['university_name' => 'Kampus Serang',
-                'slug' => 'kampus-serang',
-                'description' => 'Deskripsi untuk Kampus Serang',],
+            ['university_name' => 'Kampus Pusat', 'slug' => 'kampus-pusat', 'description' => 'Deskripsi untuk Kampus Pusat'],
+            ['university_name' => 'Kampus Viktor', 'slug' => 'kampus-viktor', 'description' => 'Deskripsi untuk Kampus Viktor'],
+            ['university_name' => 'Kampus Witana', 'slug' => 'kampus-witana', 'description' => 'Deskripsi untuk Kampus Witana'],
+            ['university_name' => 'Kampus Serang', 'slug' => 'kampus-serang', 'description' => 'Deskripsi untuk Kampus Serang'],
         ]);
 
-       // Seeder untuk Buildings (A, B, C)
         // Seeder untuk Buildings (A, B, C di setiap Universitas)
-// Seeder untuk Buildings (A, B, C di setiap Universitas)
-$buildingNames = ['A', 'B', 'C'];
+        $buildingNames = ['A', 'B', 'C'];
 
-foreach (range(1, 4) as $universityId) {
-    foreach ($buildingNames as $name) {
-        $buildingId = DB::table('buildings')->insertGetId([
-            'building_name' => 'Gedung ' . $name,
-            'slug' => 'gedung-' . strtolower($name) . '-u' . $universityId,
-            'university_id' => $universityId,
-            'created_at' => now(),
-            'updated_at' => now(),
-        ]);
-
-        // Seeder untuk Floors (1 - 10 di setiap Gedung)
-        $floorIds = [];
-        for ($floor = 1; $floor <= 10; $floor++) {
-            $floorId = DB::table('floors')->insertGetId([
-                'floor_name' => 'Lantai ' . $floor,
-                'slug' => 'lantai-' . $floor . '-g' . $buildingId,
-                'building_id' => $buildingId,
-                'created_at' => now(),
-                'updated_at' => now(),
-            ]);
-            $floorIds[] = $floorId;
-
-            // Seeder untuk Cameras (Minimal 5 Kamera per Lantai)
-            for ($camera = 1; $camera <= 5; $camera++) {
-                DB::table('cameras')->insert([
-                    'nama_kamera' => 'CAM ' . $camera . '-L' . $floor . '-G' . $buildingId,
-                    'rtsp' => 'http://example.com/stream' . $camera,
-                    'description' => 'Deskripsi Kamera ' . $camera,
-                    'device_color' => ['Black', 'White', 'Gray'][array_rand(['Black', 'White', 'Gray'])],
-                    'ip' => '192.168.' . rand(1, 255) . '.' . rand(1, 255),
-                    'type' => ['CCTV', 'Surveillance'][array_rand(['CCTV', 'Surveillance'])],
-                    'brand' => 'Brand ' . chr(65 + ($camera % 26)),
-                    'version_model' => 'V' . rand(1, 5) . '.' . rand(0, 9),
-                    'installation_date' => now()->subDays(rand(1, 365))->toDateString(),
+        foreach (range(1, 4) as $universityId) {
+            foreach ($buildingNames as $name) {
+                $buildingId = DB::table('buildings')->insertGetId([
+                    'building_name' => 'Gedung ' . $name,
+                    'slug' => 'gedung-' . strtolower($name) . '-u' . $universityId,
                     'university_id' => $universityId,
-                    'building_id' => $buildingId,
-                    'floor_id' => $floorId, // Menggunakan ID lantai yang benar
                     'created_at' => now(),
                     'updated_at' => now(),
                 ]);
+
+                // Seeder untuk Floors (1 - 10 di setiap Gedung)
+                for ($floor = 1; $floor <= 10; $floor++) {
+                    $floorId = DB::table('floors')->insertGetId([
+                        'floor_name' => 'Lantai ' . $floor,
+                        'slug' => 'lantai-' . $floor . '-g' . $buildingId,
+                        'university_id' => $universityId, // Menambahkan university_id dari gedung
+                        'building_id' => $buildingId,
+                        'created_at' => now(),
+                        'updated_at' => now(),
+                    ]);
+
+                    // Seeder untuk Cameras (Minimal 5 Kamera per Lantai)
+                    for ($camera = 1; $camera <= 5; $camera++) {
+                        DB::table('cameras')->insert([
+                            'nama_kamera' => 'CAM ' . $camera . '-L' . $floor . '-G' . $buildingId,
+                            'rtsp' => 'http://example.com/stream' . $camera,
+                            'description' => 'Deskripsi Kamera ' . $camera,
+                            'device_color' => ['Black', 'White', 'Gray'][array_rand(['Black', 'White', 'Gray'])],
+                            'ip' => '192.168.' . rand(1, 255) . '.' . rand(1, 255),
+                            'type' => ['CCTV', 'Surveillance'][array_rand(['CCTV', 'Surveillance'])],
+                            'brand' => 'Brand ' . chr(65 + ($camera % 26)),
+                            'version_model' => 'V' . rand(1, 5) . '.' . rand(0, 9),
+                            'installation_date' => now()->subDays(rand(1, 365))->toDateString(),
+                            'university_id' => $universityId,
+                            'building_id' => $buildingId,
+                            'floor_id' => $floorId,
+                            'created_at' => now(),
+                            'updated_at' => now(),
+                        ]);
+                    }
+                }
             }
         }
-    }
-}
     }
 }

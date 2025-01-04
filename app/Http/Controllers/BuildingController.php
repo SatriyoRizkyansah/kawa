@@ -46,7 +46,7 @@ class BuildingController extends Controller
             $building->university_id = $request->university;
         $building->save();
 
-        return redirect()->route('dashboard')->with('success', 'Data gedung berhasil ditambahkan!');
+        return redirect()->route('building')->with('success', 'Data gedung berhasil ditambahkan!');
     }
 
     /**
@@ -82,7 +82,7 @@ class BuildingController extends Controller
             $building->slug = $request->slug;
         $building->update();
 
-        return redirect()->route('dashboard')->with('success', 'Data gedung berhasil diupdate!');
+        return redirect()->route('building')->with('success', 'Data gedung berhasil diupdate!');
     }
 
     /**
@@ -92,6 +92,6 @@ class BuildingController extends Controller
     {
         $building = Building::find($id);
         $building->delete();
-        return redirect()->route('dashboard')->with('success', 'Data gedung berhasil dihapus!');
+        return redirect()->route('building')->with('success', 'Data gedung berhasil dihapus!');
     }
 }

@@ -16,6 +16,11 @@ return new class extends Migration
             $table->string('floor_name');
             $table->string('slug');
 
+            $table->foreignId('university_id')->constrained(
+               table: 'universities', 
+               indexName: 'university_id'
+            );
+
             $table->foreignId('building_id')->constrained(
                table: 'buildings', 
                indexName: 'bulding'

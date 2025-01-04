@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Floor;
 use App\Models\Building;
+use App\Models\University;
 use Illuminate\Routing\Controller;
 use App\Http\Requests\StoreFloorRequest;
 use App\Http\Requests\UpdateFloorRequest;
@@ -25,8 +26,15 @@ class FloorController extends Controller
      */
     public function create()
     {
+        $universities = University::all();
         $buildings = Building::all();
-        return view('manage.floor.create')->with(compact('buildings'));
+        return view('manage.floor.create')->with(compact('buildings', 'universities'));
+    }
+
+      public function getGedung($universityId)
+    {
+        $gedung = Building::where('university_id', $universityId)->get();
+        return response()->json($gedung);
     }
 
     /**
@@ -37,16 +45,20 @@ class FloorController extends Controller
         $request->validate([
             'floor_name' => 'required|string|max:255',
             'slug' => 'required|string|max:255',
+            'university' => 'required|exists:universities,id',
             'building' => 'required|exists:buildings,id',
         ]);
 
         $floor = new Floor();
             $floor->floor_name = $request->floor_name;
             $floor->slug = $request->slug;
+            $floor->university_id = $request->university;
             $floor->building_id = $request->building;
+
+        // dd($floor);
         $floor->save();
 
-        return redirect()->route('floor')->with('success', 'Data gedung berhasil ditambahkan!');
+        return redirect()->route('floor')->with('success', 'Data lantai berhasil ditambahkan!');
     }
 
     /**

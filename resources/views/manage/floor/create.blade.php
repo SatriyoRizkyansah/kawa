@@ -23,16 +23,23 @@
                         <label for="slug">Slug</label>
                         <input type="text" id="slug" name="slug" class="form-control" required>
                     </div>
+                    
                     <div class="mb-4">
-                            <label for="building">Gedung</label>
-                            <select id="building" name="building" class="form-control" required>
-                    
-                                @foreach ($buildings as $building)
-                                    <option value="{{ $building->id }}">{{ $building->building_name }} | {{ $building->university->university_name }}</option>
-                                @endforeach
-                    
-                            </select>
-                    </div>
+                         <label for="university">Universitas</label>
+                         <select id="university" name="university" class="form-control" required>
+                             <option value="">Pilih Universitas</option>
+                             @foreach ($universities as $university)
+                                 <option value="{{ $university->id }}">{{ $university->university_name }}</option>
+                             @endforeach
+                         </select>
+                 </div>
+
+                <div class="mb-4">
+                    <label for="gedung">Gedung</label>
+                    <select id="gedung" name="building" class="form-control" disabled required>
+                        <option value="">Pilih Gedung</option>
+                    </select>
+                </div>
                     <button type="submit" name="submit" class="bg-blue-500 hover:bg-blue-600 text-black px-4 py-2 rounded-md shadow-md hover:shadow-lg border border-blue-500 font-bold">
                     Simpan
                     </button>
@@ -44,9 +51,7 @@
         </div>
     <!-- End of Main Content -->
 
-</x-app-layout>
-
-<script>
+    <script>
     // Slug otomatis
     const title = document.querySelector('#title');
     const slug = document.querySelector('#slug');
@@ -61,3 +66,29 @@
         e.preventDefault();
     })
 </script>
+
+ <script>
+        document.getElementById('university').addEventListener('change', function () {
+            let universityId = this.value;
+            let gedungDropdown = document.getElementById('gedung');
+
+            // Reset Gedung dan Lantai
+            gedungDropdown.innerHTML = '<option value="">Pilih Gedung</option>';
+
+            if (universityId) {
+                fetch(`/manage/floor/create/get-gedung/${universityId}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        gedungDropdown.innerHTML = '<option value="">Pilih Gedung</option>';
+                        data.forEach(item => {
+                            gedungDropdown.innerHTML += `<option value="${item.id}">${item.building_name}</option>`;
+                        });
+                        gedungDropdown.disabled = false;
+                    });
+            } else {
+                gedungDropdown.disabled = true;
+            }
+        });
+    </script>
+</x-app-layout>
+

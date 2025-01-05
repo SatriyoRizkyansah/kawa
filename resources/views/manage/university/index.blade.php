@@ -38,7 +38,7 @@
                                 <tr>
                                     <td class="border px-4 py-2">{{ $loop->iteration }}</td>
                                     <td class="border px-4 py-2">
-                                        <a href="{{ url('/manage/building/'.$university->id) }}" class="text-decoration-none">{{ $university->university_name }}</a>
+                                        <a href="{{ route('buildingByUniversity' , ['id' => $university->id]) }}" class="text-decoration-none">{{ $university->university_name }}</a>
                                     </td>
 
                                     <td class="border px-4 py-2">{{ $university->description }}</td>

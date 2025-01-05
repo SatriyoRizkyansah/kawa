@@ -37,16 +37,16 @@
                                 <tr>
                                     <td class="border px-4 py-2">{{ $loop->iteration }}</td>
                                     <td class="border px-4 py-2">
-                                        <a href="/manage/floor/{{ $building->id }}" class="text-decoration-none">{{ $building->building_name }}</a>
+                                        <a href="{{ route('floorByBuilding', ['id' => $building->id]) }}" class="text-decoration-none">{{ $building->building_name }}</a>
                                     </td>
 
                                     <td class="border px-4 py-2">{{ $building->university->university_name }}</td>
                                     <td class="border px-4 py-2 fs-5">
-                                        <a href="{{ url('/cameras_building/'.$building->id) }}" class="text-blue-500 hover:underline text-decoration-none">
+                                        <a href="{{ route('cameras.by.building' , ['id' => $building->id]) }}" class="text-blue-500 hover:underline text-decoration-none">
                                             <i class="bi bi-eye text-success fs-5"></i>
                                         </a>
 
-                                        <a href="{{ url('/manage/building/edit/'.$building->id) }}" class="text-blue-500 hover:underline text-decoration-none">
+                                        <a href="{{ route('building.edit', ['id' => $building->id]) }}" class="text-blue-500 hover:underline text-decoration-none">
                                             <i class="bi bi-pencil-square"></i>
                                         </a>
 
@@ -54,7 +54,7 @@
                                             <i class="bi bi-trash text-danger"></i>
                                         </a>
 
-                                        <form id="delete-form-{{ $building->id }}" action="{{ url('/manage/building/delete/'.$building->id) }}" method="POST" style="display: none;">
+                                        <form id="delete-form-{{ $building->id }}" action="{{ route('building.delete', ['id' => $building->id]) }}" method="POST" style="display: none;">
                                             @csrf
                                             @method('DELETE')
                                         </form>

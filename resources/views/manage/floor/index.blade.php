@@ -16,7 +16,7 @@
                 </div>
                 <div class="card-body">
 
-                    <a href="/manage/floor/create">
+                    <a href="{{ route('floor.create') }}">
                         <button class="btn btn-primary mb-4">
                             Tambah data 
                         </button>
@@ -45,11 +45,11 @@
                                     <td class="border px-4 py-2">{{ $floor->building->university->university_name }}</td>
                                     <td class="border px-4 py-2 fs-5">
 
-                                        <a href="{{ url('/cameras_floor/'.$floor->id) }}" class="text-blue-500 hover:underline text-decoration-none">
+                                        <a href="{{ route('cameras.by.floor' , ['id' => $floor->id]) }}" class="text-blue-500 hover:underline text-decoration-none">
                                             <i class="bi bi-eye text-success fs-5"></i>
                                         </a>
 
-                                        <a href="{{ url('/manage/floor/edit/'.$floor->id) }}" class="text-blue-500 hover:underline text-decoration-none">
+                                        <a href="{{ route('floor.edit' , ['id' => $floor->id]) }}" class="text-blue-500 hover:underline text-decoration-none">
                                             <i class="bi bi-pencil-square"></i>
                                         </a>
 
@@ -57,7 +57,7 @@
                                             <i class="bi bi-trash text-danger"></i>
                                         </a>
 
-                                        <form id="delete-form-{{ $floor->id }}" action="{{ url('/manage/floor/delete/'.$floor->id) }}" method="POST" style="display: none;">
+                                        <form id="delete-form-{{ $floor->id }}" action="{{ route('floor.delete' , ['id' => $floor->id]) }}" method="POST" style="display: none;">
                                             @csrf
                                             @method('DELETE')
                                         </form>

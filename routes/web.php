@@ -26,7 +26,7 @@ Route::prefix('admin')->group(function () {
         Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
         // Page Dashboard index
-        Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
+        Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
         // Kampus
         Route::get('/university_detail/{id}', [DashboardController::class, 'university_detail'])->middleware(['auth', 'verified'])->name('detail.university');

@@ -1,7 +1,7 @@
       <!-- Sidebar -->
       <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
         <!-- Sidebar - Brand -->
-        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/dashboard">
+        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ route('dashboard') }}">
           <div class="sidebar-brand-icon">
             <img src="{{ asset('images/logo-unpam.png') }}" alt="" style="width: 40px">
           </div>
@@ -38,10 +38,10 @@
           <div id="kampus" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
               {{-- <h6 class="collapse-header">Custom Components:</h6> --}}
-              <a class="collapse-item" href="{{ route('detail.university', ['id' => 1]) }}">Pusat</a>
-              <a class="collapse-item" href="{{ route('detail.university', ['id' => 2]) }}">Viktor</a>
-              <a class="collapse-item" href="{{ route('detail.university', ['id' => 3]) }}">Witana</a>
-              <a class="collapse-item" href="{{ route('detail.university', ['id' => 4]) }}">Serang</a>
+              <a class="collapse-item" href="{{ route('detail.university', ['id' => Crypt::encryptString(1 . '|' . now()->timestamp)]) }}">Pusat</a>
+              <a class="collapse-item" href="{{ route('detail.university', ['id' => Crypt::encryptString(2 . '|' . now()->timestamp)]) }}">Viktor</a>
+              <a class="collapse-item" href="{{ route('detail.university', ['id' => Crypt::encryptString(3 . '|' . now()->timestamp)]) }}">Witana</a>
+              <a class="collapse-item" href="{{ route('detail.university', ['id' => Crypt::encryptString(4 . '|' . now()->timestamp)]) }}">Serang</a>
             </div>
           </div>
         </li>

@@ -3,11 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Building;
+use App\Models\University;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Crypt;
 use App\Http\Requests\StoreBuildingRequest;
 use App\Http\Requests\UpdateBuildingRequest;
 use Symfony\Component\HttpFoundation\Request;
-use App\Models\University;
 
 class BuildingController extends Controller
 {
@@ -20,10 +21,19 @@ class BuildingController extends Controller
         return view('manage.building.index')->with(compact('buildings'));
     }
 
-    public function showByUniversity($id)
+    public function showByUniversity($encryptedId)
     {
-        $buildings = Building::where('university_id', $id)->get();
-        return view('manage.building.index')->with(compact('buildings'));
+
+        try {
+            $decrypted = Crypt::decryptString($encryptedId);
+            list($id, $timestamp) = explode('|', $decrypted);
+
+            $buildings = Building::where('university_id', $id)->get();
+            return view('manage.building.index')->with(compact('buildings'));
+
+        } catch (\Exception $e) {
+            abort(404);
+        }
     }
 
     /**

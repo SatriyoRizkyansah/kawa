@@ -48,9 +48,6 @@ Route::prefix('admin')->group(function () {
         Route::post('/manage/camera/edit/{id}', [CameraController::class, 'update'])->name('camera update');
         Route::delete('/manage/camera/delete/{id}', [CameraController::class, 'destroy'])->name('camera.delete');
 
-        Route::get('/api/get-gedung/{universityId}', [CameraController::class, 'getGedung']);
-        Route::get('/api/get-lantai/{id}', [CameraController::class, 'getLantai']);
-
         // Page Kampus (University)
         Route::get('/manage/university', [UniversityController::class, 'index'])->name('university');
         Route::get('/manage/university/create', [UniversityController::class, 'create'])->name('university create');
@@ -78,5 +75,9 @@ Route::prefix('admin')->group(function () {
         Route::delete('/manage/floor/delete/{id}', [FloorController::class, 'destroy'])->name('floor.delete');
     });
 });
+
+    // Route untuk fetch data gedung & lantai
+    Route::get('/api/get-gedung/{universityId}', [CameraController::class, 'getGedung']);
+    Route::get('/api/get-lantai/{id}', [CameraController::class, 'getLantai']);
 
 require __DIR__.'/auth.php';

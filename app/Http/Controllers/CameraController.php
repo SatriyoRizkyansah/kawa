@@ -8,6 +8,7 @@ use App\Models\Building;
 use App\Models\University;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Crypt;
 
 class CameraController extends Controller
 {
@@ -82,8 +83,12 @@ class CameraController extends Controller
         return redirect()->route('camera')->with('success', 'CCTV berhasil ditambahkan!');
     }
 
-        public function edit($id)
+        public function edit($encryptedId)
     {
+        try {
+            $decrypted = Crypt::decryptString($encryptedId);
+            list($id, $timestamp) = explode('|', $decrypted);
+
         $camera = Camera::findOrFail($id);
 
         $universities = University::all();
@@ -91,12 +96,22 @@ class CameraController extends Controller
         $floors = Floor::where('building_id', $camera->building_id)->get();
 
         return view('manage.camera.edit', compact('camera', 'universities', 'buildings', 'floors'));
+        } catch (\Exception $e) {
+            abort(404);
+        }
+
+
     }
 
 
-        public function update(Request $request, $id)
+        public function update(Request $request, $encryptedId)
     {
-        $request->validate([
+
+        try {
+            $decrypted = Crypt::decryptString($encryptedId);
+            list($id, $timestamp) = explode('|', $decrypted);
+
+               $request->validate([
             'nama_kamera' => 'required|string|max:255',
             'rtsp' => 'required|url|max:255',
             'description' => 'required|string|max:255',
@@ -127,6 +142,11 @@ class CameraController extends Controller
         $camera->save();
 
         return redirect()->route('camera')->with('success', 'Data kamera berhasil diperbarui!');
+        } catch (\Exception $e) {
+            abort(404);
+        }
+
+
     }
 
     

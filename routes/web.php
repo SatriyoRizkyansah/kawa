@@ -69,7 +69,6 @@ Route::prefix('admin')->group(function () {
         Route::get('/manage/floor', [FloorController::class, 'index'])->name('floor');
         Route::get('/manage/lantai/create', [FloorController::class, 'create'])->name('floor.create');
         Route::post('/manage/floor/create', [FloorController::class, 'store'])->name('floor store');
-        Route::get('/manage/floor/create/get-gedung/{universityId}', [FloorController::class, 'getGedung']);
         Route::get('/manage/floor/edit/{id}', [FloorController::class, 'edit'])->name('floor.edit');
         Route::post('/manage/floor/edit/{id}', [FloorController::class, 'update'])->name('floor update');
         Route::delete('/manage/floor/delete/{id}', [FloorController::class, 'destroy'])->name('floor.delete');
@@ -79,5 +78,8 @@ Route::prefix('admin')->group(function () {
     // Route untuk fetch data gedung & lantai
     Route::get('/api/get-gedung/{universityId}', [CameraController::class, 'getGedung']);
     Route::get('/api/get-lantai/{id}', [CameraController::class, 'getLantai']);
+
+    // Fetch data gedung
+    Route::get('/manage/floor/create/get-gedung/{universityId}', [FloorController::class, 'getGedung']);
 
 require __DIR__.'/auth.php';

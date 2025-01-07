@@ -15,16 +15,8 @@
                 <div class="card-body">
                     <form method="POST">
                         @csrf
+
                         <div class="mb-4">
-                        <label for="floor_name">Nama lantai</label>
-                        <input type="text" id="title" name="floor_name" class="form-control" required>
-                    </div>
-                    <div class="mb-4">
-                        <label for="slug">Slug</label>
-                        <input type="text" id="slug" name="slug" class="form-control" required>
-                    </div>
-                    
-                    <div class="mb-4">
                          <label for="university">Universitas</label>
                          <select id="university" name="university" class="form-control" required>
                              <option value="">Pilih Universitas</option>
@@ -32,14 +24,24 @@
                                  <option value="{{ $university->id }}">{{ $university->university_name }}</option>
                              @endforeach
                          </select>
-                 </div>
+                     </div>
 
-                <div class="mb-4">
-                    <label for="gedung">Gedung</label>
-                    <select id="gedung" name="building" class="form-control" disabled required>
-                        <option value="">Pilih Gedung</option>
-                    </select>
-                </div>
+                    <div class="mb-4">
+                        <label for="gedung">Gedung</label>
+                        <select id="gedung" name="building" class="form-control" disabled required>
+                            <option value="">Pilih Gedung</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="floor_name">Nama lantai</label>
+                        <input type="text" id="title" name="floor_name" class="form-control" required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="slug">Slug</label>
+                        <input type="text" id="slug" name="slug" class="form-control" required>
+                    </div>
+
                     <button type="submit" name="submit" class="bg-blue-500 hover:bg-blue-600 text-black px-4 py-2 rounded-md shadow-md hover:shadow-lg border border-blue-500 font-bold">
                     Simpan
                     </button>

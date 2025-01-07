@@ -21,7 +21,6 @@
                     Tambah data
                 </a>
 
-
                     <div class="table-responsive">
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
@@ -37,16 +36,16 @@
                                 <tr>
                                     <td class="border px-4 py-2">{{ $loop->iteration }}</td>
                                     <td class="border px-4 py-2">
-                                        <a href="{{ route('floorByBuilding', ['id' => $building->id]) }}" class="text-decoration-none">{{ $building->building_name }}</a>
+                                        <a href="{{ route('floorByBuilding', ['id' => Crypt::encryptString($building->id . '|' . now()->timestamp)]) }}" class="text-decoration-none">{{ $building->building_name }}</a>
                                     </td>
 
                                     <td class="border px-4 py-2">{{ $building->university->university_name }}</td>
                                     <td class="border px-4 py-2 fs-5">
-                                        <a href="{{ route('cameras.by.building' , ['id' => $building->id]) }}" class="text-blue-500 hover:underline text-decoration-none">
+                                        <a href="{{ route('cameras.by.building', ['id' => Crypt::encryptString($building->id . '|' . now()->timestamp)]) }}" class="text-blue-500 hover:underline text-decoration-none">
                                             <i class="bi bi-eye text-success fs-5"></i>
                                         </a>
 
-                                        <a href="{{ route('building.edit', ['id' => $building->id]) }}" class="text-blue-500 hover:underline text-decoration-none">
+                                        <a href="{{ route('building.edit', ['id' => Crypt::encryptString($building->id . '|' . now()->timestamp)]) }}" class="text-blue-500 hover:underline text-decoration-none">
                                             <i class="bi bi-pencil-square"></i>
                                         </a>
 

@@ -124,7 +124,7 @@
             lantaiDropdown.innerHTML = '<option value="">Pilih Lantai</option>';
 
             if (gedungId) {
-                fetch(`admin/api/get-lantai/${gedungId}`)
+                fetch(`/api/get-lantai/${gedungId}`)
                     .then(response => response.json())
                     .then(data => {
                         data.forEach(item => {

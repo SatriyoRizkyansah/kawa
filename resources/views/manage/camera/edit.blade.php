@@ -15,42 +15,6 @@
                 <div class="card-body">
                     <form method="POST">
                         @csrf
-                    <div class="mb-4">
-                        <label for="nama_kamera">Nama Kamera</label>
-                        <input type="text" value="{{ $camera->nama_kamera }}" id="nama_kamera" name="nama_kamera" class="form-control" required>
-                    </div>
-                    <div class="mb-4">
-                        <label for="rtsp">Link RTSP / Video Stream</label>
-                        <input type="url" value="{{ $camera->rtsp }}" id="rtsp" name="rtsp" class="form-control" required>
-                    </div>
-                    <div class="mb-4">
-                        <label for="description">Deskripsi</label>
-                        <input type="text" value="{{ $camera->description }}" id="description" name="description" class="form-control" required>
-                    </div>
-                    <div class="mb-4">
-                        <label for="device_color">Warna perangkat</label>
-                        <input type="text" value="{{ $camera->device_color }}" id="device_color" name="device_color" class="form-control" required>
-                    </div>
-                    <div class="mb-4">
-                        <label for="ip">IP perangkat</label>
-                        <input type="text" value="{{ $camera->ip }}" id="ip" name="ip" class="form-control" required>
-                    </div>
-                    <div class="mb-4">
-                        <label for="type">Tipe perangkat</label>
-                        <input type="text" value="{{ $camera->type }}" id="type" name="type" class="form-control" required>
-                    </div>
-                    <div class="mb-4">
-                        <label for="brand">Brand</label>
-                        <input type="text" value="{{ $camera->brand }}" id="brand" name="brand" class="form-control" required>
-                    </div>
-                    <div class="mb-4">
-                        <label for="version_model">Versi model</label>
-                        <input type="text" value="{{ $camera->version_model }}" id="version_model" name="version_model" class="form-control" required>
-                    </div>
-                    <div class="mb-4">
-                        <label for="installation_date">Tanggal Installasi</label>
-                        <input type="date" value="{{ $camera->installation_date }}" id="installation_date" name="installation_date" class="form-control" required>
-                    </div>
 
                     <div class="mb-4">
                         <label for="university">Universitas</label>
@@ -88,6 +52,42 @@
                         </select>
                     </div>
 
+                    <div class="mb-4">
+                        <label for="nama_kamera">Nama Kamera</label>
+                        <input type="text" value="{{ $camera->nama_kamera }}" id="nama_kamera" name="nama_kamera" class="form-control" required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="rtsp">Link RTSP / Video Stream</label>
+                        <input type="url" value="{{ $camera->rtsp }}" id="rtsp" name="rtsp" class="form-control" required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="description">Deskripsi</label>
+                        <input type="text" value="{{ $camera->description }}" id="description" name="description" class="form-control" required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="device_color">Warna perangkat</label>
+                        <input type="text" value="{{ $camera->device_color }}" id="device_color" name="device_color" class="form-control" required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="ip">IP perangkat</label>
+                        <input type="text" value="{{ $camera->ip }}" id="ip" name="ip" class="form-control" required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="type">Tipe perangkat</label>
+                        <input type="text" value="{{ $camera->type }}" id="type" name="type" class="form-control" required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="brand">Brand</label>
+                        <input type="text" value="{{ $camera->brand }}" id="brand" name="brand" class="form-control" required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="version_model">Versi model</label>
+                        <input type="text" value="{{ $camera->version_model }}" id="version_model" name="version_model" class="form-control" required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="installation_date">Tanggal Installasi</label>
+                        <input type="date" value="{{ $camera->installation_date }}" id="installation_date" name="installation_date" class="form-control" required>
+                    </div>
 
                     <button type="submit" name="submit" class="btn btn-primary">
                     Update Kamera

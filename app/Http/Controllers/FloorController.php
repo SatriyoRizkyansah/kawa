@@ -6,6 +6,7 @@ use App\Models\Floor;
 use App\Models\Building;
 use App\Models\University;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Crypt;
 use App\Http\Requests\StoreFloorRequest;
 use App\Http\Requests\UpdateFloorRequest;
 use Symfony\Component\HttpFoundation\Request;
@@ -21,10 +22,17 @@ class FloorController extends Controller
         return view('manage.floor.index')->with(compact('floors'));
     }
 
-    public function showByBuilding($id)
+    public function showByBuilding($encryptedId)
     {
-        $floors = Floor::where('building_id', $id)->get(); 
-        return view('manage.floor.index')->with(compact('floors'));
+        try {
+            $decrypted = Crypt::decryptString($encryptedId);
+            list($id, $timestamp) = explode('|', $decrypted);
+            $floors = Floor::where('building_id', $id)->get(); 
+            return view('manage.floor.index')->with(compact('floors'));
+
+        } catch (\Exception $e) {
+            abort(404);
+        }
     }
 
     /**
@@ -78,31 +86,48 @@ class FloorController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit($id, Floor $floor)
+    public function edit($encryptedId, Floor $floor)
     {
-        $floor = Floor::find($id);
-        $buildings = Building::all();
-        return view('manage.floor.edit')->with(compact('floor', 'buildings'));
+         try {
+            $decrypted = Crypt::decryptString($encryptedId);
+            list($id, $timestamp) = explode('|', $decrypted);
+
+            $floor = Floor::find($id);
+            $universities = University::all();
+            $buildings = Building::all();
+            return view('manage.floor.edit')->with(compact('floor', 'universities', 'buildings'));
+
+        } catch (\Exception $e) {
+            abort(404);
+        }
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update($id, Request $request, Floor $floor)
+    public function update($encryptedId, Request $request, Floor $floor)
     {
-        $request->validate([
-            'floor_name' => 'required|string|max:255',
-            'slug' => 'required|string|max:255',
-            'building' => 'required|exists:buildings,id',
-        ]);
+        try {
+            $decrypted = Crypt::decryptString($encryptedId);
+            list($id, $timestamp) = explode('|', $decrypted);
 
-        $floor = Floor::whereId($id)->first();
-            $floor->floor_name = $request->floor_name;
-            $floor->slug = $request->slug;
-            $floor->building_id = $request->building;
-        $floor->update();
+            $request->validate([
+                'floor_name' => 'required|string|max:255',
+                'slug' => 'required|string|max:255',
+                'building' => 'required|exists:buildings,id',
+            ]);
 
-        return redirect()->route('floor')->with('success', 'Data lantai berhasil diupdate!');
+            $floor = Floor::whereId($id)->first();
+                $floor->floor_name = $request->floor_name;
+                $floor->slug = $request->slug;
+                $floor->building_id = $request->building;
+            $floor->update();
+
+            return redirect()->route('floor')->with('success', 'Data lantai berhasil diupdate!');
+
+        } catch (\Exception $e) {
+            abort(404);
+        }
     }
 
     /**

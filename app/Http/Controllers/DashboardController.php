@@ -20,93 +20,32 @@ class DashboardController extends Controller
         return view('dashboard.index', compact('universities'));
     }
 
-    // public function university_detail($id){
-    //     $university = University::find($id);
-    //     $buildings = Building::where('university_id', $id)->get();
-    //     return view('dashboard.university_detail', compact('university','buildings'));
-    // }
-
-    // public function university_detail($hashId)
-    // {
-    //     // Menyesuaikan salt dinamis berdasarkan waktu yang sama seperti saat encoding
-    //     $dynamicSalt = 'salt-' . now()->format('YmdHis'); // Pastikan format waktu konsisten
-
-    //     // Decode hashId yang berisi UUID
-    //     $decoded = Hashids::connection('main')->decode($hashId, $dynamicSalt);
-
-    //     if (empty($decoded)) {
-    //         abort(404); // ID tidak valid
-    //     }
-
-    //     // Mendapatkan university berdasarkan UUID yang terdecode
-    //     $university = University::findOrFail($decoded[0]); // UUID yang terdecode
-    //     $buildings = Building::where('university_id', $university->id)->get();
-
-    //     return view('dashboard.university_detail', compact('university', 'buildings'));
-    // }
-
-
-    public function university_detail($encryptedId)
+    public function university_detail($id)
     {
-        try {
-            $decrypted = Crypt::decryptString($encryptedId);
-            list($id, $timestamp) = explode('|', $decrypted);
+        $university = University::findOrFail($id);
+        $buildings = Building::where('university_id', $id)->get();
 
-            $university = University::findOrFail($id);
-            $buildings = Building::where('university_id', $id)->get();
-
-            return view('dashboard.university_detail', compact('university', 'buildings'));
-        } catch (\Exception $e) {
-            abort(404);
-        }
+        return view('dashboard.university_detail', compact('university', 'buildings'));
     }
 
-    public function cameras_building($encryptedId){
+    public function cameras_building($id){
 
-        try {
-            $decrypted = Crypt::decryptString($encryptedId);
-            list($id, $timestamp) = explode('|', $decrypted);
+        $cameras = Camera::where('building_id', $id)->get();
+        $title = 'CCTV ' . $cameras->first()->building->building_name . ' - ' . $cameras->first()->building->university->university_name;
+        return view('dashboard.cameras', compact('cameras', 'title'));
 
-            $cameras = Camera::where('building_id', $id)->get();
-            $title = 'CCTV ' . $cameras->first()->building->building_name . ' - ' . $cameras->first()->building->university->university_name;
-
-            return view('dashboard.cameras', compact('cameras', 'title'));
-        } catch (\Exception $e) {
-            abort(404);
-        }
     }
 
-    public function cameras_floor($encryptedId){
+    public function cameras_floor($id){
+        $cameras = Camera::where('floor_id', $id)->get();
+        $title = 'CCTV ' . $cameras->first()->building->building_name . ' - ' . $cameras->first()->building->university->university_name . ' - ' . $cameras->first()->floor->floor_name;
 
-        try {
-            $decrypted = Crypt::decryptString($encryptedId);
-            list($id, $timestamp) = explode('|', $decrypted);
-
-             $cameras = Camera::where('floor_id', $id)->get();
-             $title = 'CCTV ' . $cameras->first()->building->building_name . ' - ' . $cameras->first()->building->university->university_name . ' - ' . $cameras->first()->floor->floor_name;
-
-            return view('dashboard.cameras', compact('cameras', 'title'));
-        } catch (\Exception $e) {
-            abort(404);
-        }
-        
+        return view('dashboard.cameras', compact('cameras', 'title'));
     }
 
-    public function camera_detail($encryptedId){
-
-        try {
-            $decrypted = Crypt::decryptString($encryptedId);
-            list($id, $timestamp) = explode('|', $decrypted);
-
-            $camera = Camera::findOrFail($id);
-
-            return view('dashboard.camera_detail', compact('camera'));
-        } catch (\Exception $e) {
-            abort(404);
-        }
-
-        
-        
+    public function camera_detail($id){
+        $camera = Camera::findOrFail($id);
+        return view('dashboard.camera_detail', compact('camera'));
     }
 
     public function viewKampusAll(Request $request, $id)

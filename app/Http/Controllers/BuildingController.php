@@ -76,46 +76,31 @@ class BuildingController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit($encryptedId, Building $building)
+    public function edit($id, Building $building)
     {
-        try {
-            $decrypted = Crypt::decryptString($encryptedId);
-            list($id, $timestamp) = explode('|', $decrypted);
-
-            $building = Building::find($id);
-            $universities = University::all();
-            return view('manage.building.edit')->with(compact('building', 'universities'));
-
-        } catch (\Exception $e) {
-            abort(404);
-        }
+        $building = Building::find($id);
+        $universities = University::all();
+        return view('manage.building.edit')->with(compact('building', 'universities'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update($encryptedId, Request $request, Building $building)
+    public function update($id, Request $request, Building $building)
     {
 
-        try {
-            $decrypted = Crypt::decryptString($encryptedId);
-            list($id, $timestamp) = explode('|', $decrypted);
+         $request->validate([
+             'building_name' => 'required|string|max:255',
+             'slug' => 'required|string|max:255',
+         ]);
 
-            $request->validate([
-                'building_name' => 'required|string|max:255',
-                'slug' => 'required|string|max:255',
-            ]);
-
-            $building = Building::whereId($id)->first();
-                $building->building_name = $request->building_name;
-                $building->slug = $request->slug;
-            $building->update();
+         $building = Building::whereId($id)->first();
+             $building->building_name = $request->building_name;
+             $building->slug = $request->slug;
+         $building->update();
 
         return redirect()->route('building')->with('success', 'Data gedung berhasil diupdate!');
 
-        } catch (\Exception $e) {
-            abort(404);
-        }
     }
 
     /**

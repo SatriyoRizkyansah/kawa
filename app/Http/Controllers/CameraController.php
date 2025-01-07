@@ -15,13 +15,6 @@ class CameraController extends Controller
     public function index()
     {
         $cameras = Camera::all();
-        // $buildings = Building::all();
-        // $floors = Floor::all(); 
-
-        // $groupedCameras = $cctvs->groupBy('gedung')->map(function ($group) {
-        //     return $group->groupBy('lantai');
-        // });
-
         return view('manage.camera.index')->with(compact('cameras'));
     }
 
@@ -83,12 +76,8 @@ class CameraController extends Controller
         return redirect()->route('camera')->with('success', 'CCTV berhasil ditambahkan!');
     }
 
-        public function edit($encryptedId)
+        public function edit($id)
     {
-        try {
-            $decrypted = Crypt::decryptString($encryptedId);
-            list($id, $timestamp) = explode('|', $decrypted);
-
         $camera = Camera::findOrFail($id);
 
         $universities = University::all();
@@ -96,22 +85,13 @@ class CameraController extends Controller
         $floors = Floor::where('building_id', $camera->building_id)->get();
 
         return view('manage.camera.edit', compact('camera', 'universities', 'buildings', 'floors'));
-        } catch (\Exception $e) {
-            abort(404);
-        }
-
-
     }
 
 
-        public function update(Request $request, $encryptedId)
+        public function update(Request $request, $id)
     {
 
-        try {
-            $decrypted = Crypt::decryptString($encryptedId);
-            list($id, $timestamp) = explode('|', $decrypted);
-
-               $request->validate([
+        $request->validate([
             'nama_kamera' => 'required|string|max:255',
             'rtsp' => 'required|url|max:255',
             'description' => 'required|string|max:255',
@@ -142,11 +122,6 @@ class CameraController extends Controller
         $camera->save();
 
         return redirect()->route('camera')->with('success', 'Data kamera berhasil diperbarui!');
-        } catch (\Exception $e) {
-            abort(404);
-        }
-
-
     }
 
     

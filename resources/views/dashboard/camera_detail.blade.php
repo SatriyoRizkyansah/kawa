@@ -39,9 +39,9 @@
                       <!-- icon -->
                       <div class="camera d-flex">
                         <i class="bx bxs-webcam mr-2"></i>
-                        <a href="detail-kamera" class="text-decoration-none">
+                        {{-- <a href="detail-kamera" class="text-decoration-none"> --}}
                           <h6 class="card-title mb-0">{{ $camera->nama_kamera }}</h6>
-                        </a>
+                        {{-- </a> --}}
                       </div>
                       <div class="time">
                         <div id="timestamp" class="timestamp small text-muted"></div>

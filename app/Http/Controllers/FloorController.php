@@ -22,17 +22,10 @@ class FloorController extends Controller
         return view('manage.floor.index')->with(compact('floors'));
     }
 
-    public function showByBuilding($encryptedId)
+    public function showByBuilding($id)
     {
-        try {
-            $decrypted = Crypt::decryptString($encryptedId);
-            list($id, $timestamp) = explode('|', $decrypted);
-            $floors = Floor::where('building_id', $id)->get(); 
-            return view('manage.floor.index')->with(compact('floors'));
-
-        } catch (\Exception $e) {
-            abort(404);
-        }
+        $floors = Floor::where('building_id', $id)->get(); 
+        return view('manage.floor.index')->with(compact('floors'));
     }
 
     /**
@@ -86,48 +79,34 @@ class FloorController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit($encryptedId, Floor $floor)
+    public function edit($id, Floor $floor)
     {
-         try {
-            $decrypted = Crypt::decryptString($encryptedId);
-            list($id, $timestamp) = explode('|', $decrypted);
 
-            $floor = Floor::find($id);
-            $universities = University::all();
-            $buildings = Building::all();
-            return view('manage.floor.edit')->with(compact('floor', 'universities', 'buildings'));
-
-        } catch (\Exception $e) {
-            abort(404);
-        }
+        $floor = Floor::find($id);
+        $universities = University::all();
+        $buildings = Building::all();
+        return view('manage.floor.edit')->with(compact('floor', 'universities', 'buildings'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update($encryptedId, Request $request, Floor $floor)
+    public function update($id, Request $request, Floor $floor)
     {
-        try {
-            $decrypted = Crypt::decryptString($encryptedId);
-            list($id, $timestamp) = explode('|', $decrypted);
 
-            $request->validate([
-                'floor_name' => 'required|string|max:255',
-                'slug' => 'required|string|max:255',
-                'building' => 'required|exists:buildings,id',
-            ]);
+        $request->validate([
+            'floor_name' => 'required|string|max:255',
+            'slug' => 'required|string|max:255',
+            'building' => 'required|exists:buildings,id',
+        ]);
 
-            $floor = Floor::whereId($id)->first();
-                $floor->floor_name = $request->floor_name;
-                $floor->slug = $request->slug;
-                $floor->building_id = $request->building;
-            $floor->update();
+        $floor = Floor::whereId($id)->first();
+            $floor->floor_name = $request->floor_name;
+            $floor->slug = $request->slug;
+            $floor->building_id = $request->building;
+        $floor->update();
 
-            return redirect()->route('floor')->with('success', 'Data lantai berhasil diupdate!');
-
-        } catch (\Exception $e) {
-            abort(404);
-        }
+        return redirect()->route('floor')->with('success', 'Data lantai berhasil diupdate!');
     }
 
     /**

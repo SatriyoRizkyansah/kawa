@@ -38,10 +38,10 @@
           <div id="kampus" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
               {{-- <h6 class="collapse-header">Custom Components:</h6> --}}
-              <a class="collapse-item" href="{{ route('detail.university', ['id' => Crypt::encryptString(1 . '|' . now()->timestamp)]) }}">Pusat</a>
-              <a class="collapse-item" href="{{ route('detail.university', ['id' => Crypt::encryptString(2 . '|' . now()->timestamp)]) }}">Viktor</a>
-              <a class="collapse-item" href="{{ route('detail.university', ['id' => Crypt::encryptString(3 . '|' . now()->timestamp)]) }}">Witana</a>
-              <a class="collapse-item" href="{{ route('detail.university', ['id' => Crypt::encryptString(4 . '|' . now()->timestamp)]) }}">Serang</a>
+              <a class="collapse-item" href="{{ route('detail.university', ['id' => 1]) }}">Pusat</a>
+              <a class="collapse-item" href="{{ route('detail.university', ['id' => 2]) }}">Viktor</a>
+              <a class="collapse-item" href="{{ route('detail.university', ['id' => 3]) }}">Witana</a>
+              <a class="collapse-item" href="{{ route('detail.university', ['id' => 4]) }}">Serang</a>
             </div>
           </div>
         </li>

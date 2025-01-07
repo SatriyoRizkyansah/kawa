@@ -44,7 +44,7 @@
                                         <!-- icon -->
                                         <div class="camera d-flex">
                                             <i class='bx bxs-webcam mr-2'></i>
-                                                <a href="{{ route('camera.detail', ['id' => Crypt::encryptString($cam->id . '|' . now()->timestamp)]) }}" class="text-dark">
+                                                <a href="{{ route('camera.detail', ['id' => $cam->id]) }}" class="text-dark">
                                                     <h6 class="card-title mb-0">{{ $cam->nama_kamera }}</h6>
                                                 </a>
                                         </div>

@@ -9,7 +9,7 @@ class CreateCamerasTable extends Migration
     public function up()
     {
         Schema::create('cameras', function (Blueprint $table) {
-            $table->id();
+            $table->string('id')->primary();
             $table->string('nama_kamera');
             $table->string('rtsp');
             $table->string('description');
@@ -20,20 +20,14 @@ class CreateCamerasTable extends Migration
             $table->string('version_model');
             $table->date('installation_date');
 
-            $table->foreignId('university_id')->constrained(
-               table: 'universities', 
-               indexName: 'university_camera_id'
-            );
+            $table->string('university_id');
+            $table->foreign('university_id')->references('id')->on('universities')->onDelete('cascade');
 
-            $table->foreignId('building_id')->constrained(
-               table: 'buildings', 
-               indexName: 'bulding_camera_id'
-            );
+            $table->string('building_id');
+            $table->foreign('building_id')->references('id')->on('buildings')->onDelete('cascade');
 
-            $table->foreignId('floor_id')->constrained(
-               table: 'floors', 
-               indexName: 'floor'
-            );
+            $table->string('floor_id');
+            $table->foreign('floor_id')->references('id')->on('floors')->onDelete('cascade');
 
             // $table->string('lantai');
             $table->timestamps();

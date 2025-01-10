@@ -50,6 +50,7 @@ class FloorController extends Controller
     public function store(Request $request)
     {
         $request->validate([
+            'id' => 'required|string|max:255',
             'floor_name' => 'required|string|max:255',
             'slug' => 'required|string|max:255',
             'university' => 'required|exists:universities,id',
@@ -57,6 +58,8 @@ class FloorController extends Controller
         ]);
 
         $floor = new Floor();
+
+            $floor->id = md5($request->id);
             $floor->floor_name = $request->floor_name;
             $floor->slug = $request->slug;
             $floor->university_id = $request->university;

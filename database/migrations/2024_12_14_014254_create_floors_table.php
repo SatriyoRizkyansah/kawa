@@ -12,19 +12,15 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('floors', function (Blueprint $table) {
-            $table->id();
+            $table->string('id')->primary();
             $table->string('floor_name');
             $table->string('slug');
 
-            $table->foreignId('university_id')->constrained(
-               table: 'universities', 
-               indexName: 'university_id'
-            );
+            $table->string('university_id');
+            $table->foreign('university_id')->references('id')->on('universities')->onDelete('cascade');
 
-            $table->foreignId('building_id')->constrained(
-               table: 'buildings', 
-               indexName: 'bulding'
-            );
+            $table->string('building_id');
+            $table->foreign('building_id')->references('id')->on('buildings')->onDelete('cascade');
 
             $table->timestamps();
         });

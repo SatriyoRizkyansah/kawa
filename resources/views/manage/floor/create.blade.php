@@ -16,6 +16,10 @@
                     <form method="POST">
                         @csrf
 
+                    <div class="mb-4">
+                        <input type="text" id="id" name="id" value="{{ Carbon::now()->format('YmdHis') }}" class="form-control" hidden>
+                    </div>
+
                         <div class="mb-4">
                          <label for="university">Universitas</label>
                          <select id="university" name="university" class="form-control" required>

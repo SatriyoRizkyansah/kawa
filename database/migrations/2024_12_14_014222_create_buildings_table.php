@@ -12,14 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('buildings', function (Blueprint $table) {
-            $table->id();
+            $table->string('id')->primary();
             $table->string('building_name');
             $table->string('slug');
 
-            $table->foreignId('university_id')->constrained(
-               table: 'universities', 
-               indexName: 'university'
-            );
+            $table->string('university_id');
+            $table->foreign('university_id')->references('id')->on('universities')->onDelete('cascade');
 
             $table->timestamps();
         });

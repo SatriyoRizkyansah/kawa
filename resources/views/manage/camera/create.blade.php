@@ -44,6 +44,7 @@
                             <label for="nama_kamera">Nama Kamera</label>
                             <input type="text" id="nama_kamera" name="nama_kamera" class="form-control" required>
                         </div>
+                        
                         <div class="mb-4">
                             <label for="rtsp">Link RTSP / HLS (Video Stream)</label>
                             <input type="url" id="rtsp" name="rtsp" class="form-control" required>

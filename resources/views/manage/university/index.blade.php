@@ -38,7 +38,7 @@
                                 <tr>
                                     <td class="border px-4 py-2">{{ $loop->iteration }}</td>
                                     <td class="border px-4 py-2">
-                                        <a href="{{ route('buildingByUniversity', ['id' => Crypt::encryptString($university->id . '|' . now()->timestamp)]) }}" class="text-decoration-none">{{ $university->university_name }}</a>
+                                        <a href="{{ route('buildingByUniversity', ['id' => $university->id]) }}" class="text-decoration-none">{{ $university->university_name }}</a>
                                     </td>
 
                                     <td class="border px-4 py-2">{{ $university->description }}</td>
@@ -47,7 +47,7 @@
                                             <i class="bi bi-pencil-square"></i>
                                         </a>
 
-                                        <a href="javascript:void(0)" onclick="if(confirm('Are you sure you want to delete this camera?')) { document.getElementById('delete-form-{{ $university->id }}').submit(); }" class="text-red-500 hover:underline">
+                                        <a href="javascript:void(0)" onclicxk="if(confirm('Are you sure you want to delete this camera?')) { document.getElementById('delete-form-{{ $university->id }}').submit(); }" class="text-red-500 hover:underline">
                                             <i class="bi bi-trash text-danger"></i>
                                         </a>
 

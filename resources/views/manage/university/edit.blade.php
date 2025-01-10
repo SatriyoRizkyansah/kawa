@@ -16,6 +16,11 @@
                 <div class="card-body">
                     <form method="POST">
                     @csrf
+
+                    <div class="mb-4">
+                        <input type="text" id="id" name="id" value="{{ $building->id } }}" class="form-control" hidden>
+                    </div>
+
                         <div class="mb-4">
                         <label for="building_name" >Nama universitas</label>
                         <input type="text" value="{{ $university->university_name }}" id="title" name="university_name" class="form-control" required>

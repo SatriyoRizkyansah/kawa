@@ -15,6 +15,10 @@
                         <form method="POST">
                             @csrf
 
+                            <div class="mb-4">
+                                <input type="text" id="id" name="id" value="{{ $building->id } }}" class="form-control" hidden>
+                            </div>
+
                             <!-- Universitas Dropdown -->
                             <div class="mb-4">
                                 <label for="university">Universitas</label>

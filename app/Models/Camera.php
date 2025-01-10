@@ -8,6 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Camera extends Model
 {
     use HasFactory;
+    protected $primaryKey = 'id'; 
+    public $incrementing = false; 
+    protected $keyType = 'string'; 
 
     // Tentukan tabel yang akan digunakan (jika berbeda dengan plural nama model)
     protected $table = 'cameras';

@@ -14,6 +14,11 @@
                 <div class="card-body">
                     <form method="POST">
                     @csrf
+
+                    <div class="mb-4">
+                        <input type="text" id="id" name="id" value="{{ Date('YmdHis') }}" class="form-control" hidden>
+                    </div>
+
                     <div class="mb-4">
                         <label for="building_name" >Nama gedung</label>
                         <input type="text" id="title" name="building_name" class="form-control" required>

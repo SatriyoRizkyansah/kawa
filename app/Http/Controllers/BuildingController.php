@@ -51,12 +51,14 @@ class BuildingController extends Controller
     public function store(Request $request)
     {
         $request->validate([
+            'id' => 'required|string|max:255',
             'building_name' => 'required|string|max:255',
             'slug' => 'required|string|max:255',
             'university' => 'required|exists:universities,id',
         ]);
 
         $building = new Building();
+            $building->id = md5($request->id);
             $building->building_name = $request->building_name;
             $building->slug = $request->slug;
             $building->university_id = $request->university;

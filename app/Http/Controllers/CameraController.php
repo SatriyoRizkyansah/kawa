@@ -43,6 +43,7 @@ class CameraController extends Controller
     public function store(Request $request)
     {
         $request->validate([
+            'id' => 'required|string|max:255',
             'nama_kamera' => 'required|string|max:255',
             'rtsp' => 'required|url|max:255',
             'description' => 'required|string|max:255',
@@ -59,6 +60,7 @@ class CameraController extends Controller
 
 
         $camera = new Camera();
+            $camera->id = md5($request->id);
             $camera->nama_kamera = $request->nama_kamera;
             $camera->rtsp = $request->rtsp;
             $camera->description = $request->description;

@@ -34,6 +34,7 @@
                         <tbody>
                         @foreach($buildings as $building)
                                 <tr>
+                                    {{-- <td>{{ $building->id }}</td> --}}
                                     <td class="border px-4 py-2">{{ $loop->iteration }}</td>
                                     <td class="border px-4 py-2">
                                         <a href="{{ route('floorByBuilding', ['id' => $building->id]) }}" class="text-decoration-none">{{ $building->building_name }}</a>

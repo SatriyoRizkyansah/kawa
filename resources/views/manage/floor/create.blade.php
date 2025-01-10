@@ -17,7 +17,7 @@
                         @csrf
 
                     <div class="mb-4">
-                        <input type="text" id="id" name="id" value="{{ Carbon::now()->format('YmdHis') }}" class="form-control" hidden>
+                        <input type="text" id="id" name="id" value="{{ Date('YmdHis') }}" class="form-control" hidden>
                     </div>
 
                         <div class="mb-4">

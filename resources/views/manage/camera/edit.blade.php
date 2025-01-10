@@ -17,6 +17,10 @@
                         @csrf
 
                     <div class="mb-4">
+                        <input type="text" id="id" name="id" value="{{ $building->id } }}" class="form-control" hidden>
+                    </div>
+
+                    <div class="mb-4">
                         <label for="university">Universitas</label>
                         <select id="university" name="university" class="form-control" required>
                             <option value="">Pilih Universitas</option>

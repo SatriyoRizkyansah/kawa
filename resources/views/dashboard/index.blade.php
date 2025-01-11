@@ -111,7 +111,7 @@
                   <!-- Card Header - Dropdown -->
                   <div class="card-header d-flex flex-row align-items-center justify-content-between">
 
-                    <a href="{{ route('detail.university', ['id' => 1]) }}">
+                    <a href="{{ route('detail.university', ['id' => '2c8c664d47f9e7da2029564f643c68bd']) }}">
                         <h6 class="m-0 font-weight-bold text-primary">
                             <i class="fa-solid fa-building-columns"></i> Kampus Pusat
                         </h6>
@@ -121,7 +121,7 @@
                   </div>
                   <!-- Card Body -->
                   <div class="card-body">
-                    <a href="{{ route('detail.university', ['id' => 1]) }}">
+                    <a href="{{ route('detail.university', ['id' => '2c8c664d47f9e7da2029564f643c68bd']) }}">
                       <img src="{{ asset('images/pusat.jpg') }}" alt="Image Cover" class="rounded" style="aspect-ratio: 19/6; width: 100%; object-fit: cover" />
                     </a>
                   </div>
@@ -133,14 +133,14 @@
                 <div class="card shadow mb-4">
                   <!-- Card Header - Dropdown -->
                   <div class="card-header d-flex flex-row align-items-center justify-content-between">
-                    <a href="{{ route('detail.university', ['id' => 2]) }}">
+                    <a href="{{ route('detail.university', ['id' => '500355ff113af906897df026a565cb23']) }}">
                       <h6 class="m-0 font-weight-bold text-primary"><i class="fa-solid fa-building-columns"></i> Kampus Viktor</h6>
                     </a>
                     <div class="badge bg-success text-white rounded-pill"><i class="bx bxs-webcam mr-1"></i>12 / 13</div>
                   </div>
                   <!-- Card Body -->
                   <div class="card-body">
-                    <a href="{{ route('detail.university', ['id' => 2]) }}">
+                    <a href="{{ route('detail.university', ['id' => '500355ff113af906897df026a565cb23']) }}">
                       <img src="{{ asset('images/bg.png') }}" alt="Image Cover" class="rounded" style="aspect-ratio: 19/6; width: 100%; object-fit: cover" />
                     </a>
                   </div>
@@ -152,14 +152,14 @@
                 <div class="card shadow mb-4">
                   <!-- Card Header - Dropdown -->
                   <div class="card-header d-flex flex-row align-items-center justify-content-between">
-                    <a href="{{ route('detail.university', ['id' => 3]) }}">
+                    <a href="{{ route('detail.university', ['id' => '98f1ceee608d0cd290463e1b68005c2e']) }}">
                       <h6 class="m-0 font-weight-bold text-primary"><i class="fa-solid fa-building-columns"></i> Kampus Witana</h6>
                     </a>
                     <div class="badge bg-success text-white rounded-pill"><i class="bx bxs-webcam mr-1"></i>11 / 12</div>
                   </div>
                   <!-- Card Body -->
                   <div class="card-body">
-                    <a href="{{ route('detail.university', ['id' => 3]) }}">
+                    <a href="{{ route('detail.university', ['id' => '98f1ceee608d0cd290463e1b68005c2e']) }}">
                       <img src="{{ asset('images/witana.jpg') }}" alt="Image Cover" class="rounded" style="aspect-ratio: 19/6; width: 100%; object-fit: cover" />
                     </a>
                   </div>
@@ -171,14 +171,14 @@
                 <div class="card shadow mb-4">
                   <!-- Card Header - Dropdown -->
                   <div class="card-header d-flex flex-row align-items-center justify-content-between">
-                    <a href="{{ route('detail.university', ['id' => 4]) }}">
+                    <a href="{{ route('detail.university', ['id' => 'e86ad641bae43dc317a7e0916fd82063']) }}">
                       <h6 class="m-0 font-weight-bold text-primary"><i class="fa-solid fa-building-columns"></i> Kampus Serang</h6>
                     </a>
                     <div class="badge bg-success text-white rounded-pill"><i class="bx bxs-webcam mr-1"></i>10 / 12</div>
                   </div>
                   <!-- Card Body -->
                   <div class="card-body">
-                    <a href="{{ route('detail.university', ['id' => 4]) }}">
+                    <a href="{{ route('detail.university', ['id' => 'e86ad641bae43dc317a7e0916fd82063']) }}">
                       <img src="{{ asset('images/serang.jpg') }}" alt="Image Cover" class="rounded" style="aspect-ratio: 19/6; width: 100%; object-fit: cover" />
                     </a>
                   </div>

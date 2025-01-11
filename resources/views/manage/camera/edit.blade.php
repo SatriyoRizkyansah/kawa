@@ -17,7 +17,7 @@
                         @csrf
 
                     <div class="mb-4">
-                        <input type="text" id="id" name="id" value="{{ $building->id } }}" class="form-control" hidden>
+                        <input type="text" id="id" name="id" value="{{ $camera->id }}" class="form-control" hidden>
                     </div>
 
                     <div class="mb-4">
@@ -109,8 +109,7 @@
         const buildingSelect = document.getElementById('gedung');
         const floorSelect = document.getElementById('lantai');
 
-        // tampil gedung berdasarkjan univ
-        const loadBuildings = (universityId, selectedBuildingId) => {
+        const loadBuildings = (universityId, selectedBuildingId = null) => {
             buildingSelect.innerHTML = '<option value="">Pilih Gedung</option>';
             floorSelect.innerHTML = '<option value="">Pilih Lantai</option>';
 
@@ -122,9 +121,9 @@
                             const option = document.createElement('option');
                             option.value = building.id;
                             option.textContent = building.building_name;
-                            if (building.id == selectedBuildingId) {
+                            if (selectedBuildingId && building.id == selectedBuildingId) {
                                 option.selected = true;
-                                loadFloors(selectedBuildingId, {{ $camera->floor_id }});
+                                loadFloors(selectedBuildingId, '{{ $camera->floor_id }}');
                             }
                             buildingSelect.appendChild(option);
                         });
@@ -132,8 +131,7 @@
             }
         };
 
-        // tampil lantai berdasarkan gedung
-        const loadFloors = (buildingId, selectedFloorId) => {
+        const loadFloors = (buildingId, selectedFloorId = null) => {
             floorSelect.innerHTML = '<option value="">Pilih Lantai</option>';
             if (buildingId) {
                 fetch(`/api/get-lantai/${buildingId}`)
@@ -143,7 +141,7 @@
                             const option = document.createElement('option');
                             option.value = floor.id;
                             option.textContent = floor.floor_name;
-                            if (floor.id == selectedFloorId) {
+                        if (selectedFloorId && floor.id == selectedFloorId) {
                                 option.selected = true;
                             }
                             floorSelect.appendChild(option);
@@ -152,20 +150,21 @@
             }
         };
 
-        // load initial data saat halaman dimuat
+        // Load initial data saat halaman dimuat
         loadBuildings('{{ $camera->university_id }}', '{{ $camera->building_id }}');
 
         // Event listener untuk universitas
         universitySelect.addEventListener('change', function () {
-            loadBuildings(this.value, null);
+            loadBuildings(this.value);
         });
 
         // Event listener untuk gedung
         buildingSelect.addEventListener('change', function () {
-            loadFloors(this.value, null);
+            loadFloors(this.value);
         });
     });
 </script>
+
 
 
 </x-app-layout>

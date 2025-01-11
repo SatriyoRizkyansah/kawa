@@ -16,11 +16,11 @@
                 </div>
                 <div class="card-body">
 
-                    {{-- <a href="/manage/university/create">
+                    <a href="{{ route('university.create') }}">
                         <button class="btn btn-primary mb-4">
                             Tambah data 
                         </button>
-                    </a> --}}
+                    </a>
                     
 
                     <div class="table-responsive">
@@ -30,7 +30,7 @@
                             <th>No</th>
                             <th>Nama Universitas</th>
                             <th>Deskripsi</th>
-                            {{-- <th>Action</th> --}}
+                            <th>Action</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -42,8 +42,8 @@
                                     </td>
 
                                     <td class="border px-4 py-2">{{ $university->description }}</td>
-                                    {{-- <td class="border px-4 py-2 fs-5">
-                                        <a href="{{ url('/manage/university/edit/'.$university->id) }}" class="text-blue-500 hover:underline text-decoration-none">
+                                    <td class="border px-4 py-2 fs-5">
+                                        <a href="{{ route('university.edit', ['id' => $university->id]) }}" class="text-blue-500 hover:underline text-decoration-none">
                                             <i class="bi bi-pencil-square"></i>
                                         </a>
 
@@ -55,7 +55,7 @@
                                             @csrf
                                             @method('DELETE')
                                         </form>
-                                    </td> --}}
+                                    </td>
 
                                     </tr>
                                 @endforeach

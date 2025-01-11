@@ -16,7 +16,7 @@
                             @csrf
 
                             <div class="mb-4">
-                                <input type="text" id="id" name="id" value="{{ $building->id } }}" class="form-control" hidden>
+                                <input type="text" id="id" name="id" value="{{ $floor->id  }}" class="form-control" hidden>
                             </div>
 
                             <!-- Universitas Dropdown -->

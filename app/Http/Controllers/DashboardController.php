@@ -17,13 +17,17 @@ class DashboardController extends Controller
     public function index()
     {
         $universities = University::all();
+        $university1 = University::first();
         return view('dashboard.index', compact('universities'));
     }
 
     public function university_detail($id)
     {
         $university = University::findOrFail($id);
-        $buildings = Building::where('university_id', $id)->get();
+        $buildings = Building::where('university_id', $id)
+        ->orderBy('building_name', 'asc')
+        ->get();
+
 
         return view('dashboard.university_detail', compact('university', 'buildings'));
     }

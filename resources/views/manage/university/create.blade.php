@@ -16,6 +16,11 @@
                 <div class="card-body">
                     <form method="POST">
                     @csrf
+
+                    <div class="mb-4">
+                        <input type="text" id="id" name="id" value="{{ Date('YmdHis') }}" class="form-control" hidden>
+                    </div>
+                    
                     <div class="mb-4">
                         <label for="university_name" >Nama Universitas</label>
                         <input type="text" id="title" name="university_name" class="form-control" required>
@@ -33,7 +38,7 @@
                     </button>
                     </form>
                 </div>
-            </div>
+            </div>  
             <!-- /.container-fluid -->
             </div>
         </div>

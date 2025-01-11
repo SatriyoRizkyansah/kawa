@@ -40,7 +40,9 @@ class FloorController extends Controller
 
       public function getGedung($universityId)
     {
-        $gedung = Building::where('university_id', $universityId)->get();
+        $gedung = Building::where('university_id', $universityId)
+        ->orderBy('building_name', 'asc')
+        ->get();
         return response()->json($gedung);
     }
 

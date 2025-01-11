@@ -51,11 +51,11 @@ Route::prefix('admin')->group(function () {
 
             // Page Kampus (University)
             Route::get('/university', [UniversityController::class, 'index'])->name('university');
-            Route::get('/university/create', [UniversityController::class, 'create'])->name('university create');
+            Route::get('/university/create', [UniversityController::class, 'create'])->name('university.create');
             Route::post('/university/create', [UniversityController::class, 'store'])->name('university store');
-            Route::get('/university/edit/{id}', [UniversityController::class, 'edit'])->name('university edit');
-            Route::post('/university/edit/{id}', [UniversityController::class, 'update'])->name('university update');
-            Route::delete('/university/delete/{id}', [UniversityController::class, 'destroy'])->name('destroy');
+            Route::get('/university/edit/{id}', [UniversityController::class, 'edit'])->name('university.edit');
+            Route::post('/university/edit/{id}', [UniversityController::class, 'update'])->name('university.update');
+            Route::delete('/university/delete/{id}', [UniversityController::class, 'destroy'])->name('university.delete');
             Route::get('/building/{id}', [BuildingController::class, 'showByUniversity'])->name('buildingByUniversity');
             
             // Page Gedung (Building)

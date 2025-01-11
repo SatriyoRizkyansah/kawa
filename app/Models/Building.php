@@ -20,7 +20,7 @@ class Building extends Model
 
     public function floors()
     {
-        return $this->hasMany(Floor::class);
+        return $this->hasMany(Floor::class)->orderBy('floor_name', 'asc');
     }
 
     public function university()

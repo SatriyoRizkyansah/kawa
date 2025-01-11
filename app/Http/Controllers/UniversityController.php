@@ -33,6 +33,7 @@ class UniversityController extends Controller
     public function store(Request $request)
     {
         $request->validate([
+            'id' => 'required|string|max:255',
             'university_name' => 'required|string|max:255',
             'slug' => 'required|string|max:255',
             'description' => 'required|string|max:255',
@@ -40,6 +41,7 @@ class UniversityController extends Controller
         ]);
 
         $university = new University();
+        $camera->id = md5($request->id);
         $university->university_name = $request->university_name;
         $university->slug = $request->slug;
         $university->description = $request->description;

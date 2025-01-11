@@ -29,13 +29,19 @@ class CameraController extends Controller
 
         public function getGedung($universityId)
     {
-        $gedung = Building::where('university_id', $universityId)->get();
+        $gedung = Building::where('university_id', $universityId)
+        ->orderBy('building_name', 'asc')
+        ->get();
+
         return response()->json($gedung);
     }
 
     public function getLantai($gedungId)
     {
-        $lantai = Floor::where('building_id', $gedungId)->get();
+        $lantai = Floor::where('building_id', $gedungId)
+        ->orderBy('floor_name', 'asc')
+        ->get();
+        
         return response()->json($lantai);
     }
 
@@ -81,7 +87,6 @@ class CameraController extends Controller
         public function edit($id)
     {
         $camera = Camera::findOrFail($id);
-
         $universities = University::all();
         $buildings = Building::where('university_id', $camera->university_id)->get();
         $floors = Floor::where('building_id', $camera->building_id)->get();

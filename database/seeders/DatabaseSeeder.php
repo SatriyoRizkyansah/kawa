@@ -30,39 +30,39 @@ class DatabaseSeeder extends Seeder
             ['id' => md5(Carbon::now()->format('YmdHis') . uniqid()),'university_name' => 'Kampus Serang', 'slug' => 'kampus-serang', 'description' => 'Deskripsi untuk Kampus Serang'],
         ]);
 
-        // Seeder untuk Buildings (A, B, C di setiap Universitas)
-        $buildingNames = ['A', 'B', 'C'];
+        // // Seeder untuk Buildings (A, B, C di setiap Universitas)
+        // $buildingNames = ['A', 'B', 'C'];
 
+        // $universityIds = DB::table('universities')->pluck('id', 'slug');
 
-        // foreach (range(1, 4) as $universityId) {
+        // foreach ($universityIds as $universitySlug => $universityId) {
         //     foreach ($buildingNames as $name) {
-        //         // Generate hashed ID for the building
+        //         // Insert ke tabel buildings
         //         $buildingId = DB::table('buildings')->insertGetId([
-        //             'id' => md5(Carbon::now()->format('YmdHis') . uniqid()), // Generate unique ID
+        //             'id' => md5(Carbon::now()->format('YmdHis') . $name), // ID hashed
         //             'building_name' => 'Gedung ' . $name,
-        //             'slug' => 'gedung-' . strtolower($name) . '-u' . $universityId,
-        //             'university_id' => $universityId,
+        //             'slug' => 'gedung-' . strtolower($name) . '-u-' . $universitySlug,
+        //             'university_id' => $universityId, // ID universitas
         //             'created_at' => now(),
         //             'updated_at' => now(),
         //         ]);
 
-        //         // Seeder untuk Floors (1 - 10 di setiap Gedung)
+        //         // Insert ke tabel floors (1 - 10)
         //         for ($floor = 1; $floor <= 10; $floor++) {
-        //             // Generate hashed ID for the floor
         //             $floorId = DB::table('floors')->insertGetId([
-        //                 'id' => md5(Carbon::now()->format('YmdHis') . uniqid()), // Generate unique ID
+        //                 'id' => md5(Carbon::now()->format('YmdHis') . $floor), // ID hashed
         //                 'floor_name' => 'Lantai ' . $floor,
-        //                 'slug' => 'lantai-' . $floor . '-g' . $buildingId,
-        //                 'university_id' => $universityId, // Menambahkan university_id dari gedung
-        //                 'building_id' => $buildingId,
+        //                 'slug' => 'lantai-' . $floor . '-g-' . $buildingId,
+        //                 'university_id' => $universityId, // ID universitas
+        //                 'building_id' => $buildingId, // ID gedung
         //                 'created_at' => now(),
         //                 'updated_at' => now(),
         //             ]);
 
-        //             // Seeder untuk Cameras (Minimal 5 Kamera per Lantai)
+        //             // Insert ke tabel cameras (5 kamera per lantai)
         //             for ($camera = 1; $camera <= 5; $camera++) {
         //                 DB::table('cameras')->insert([
-        //                     'id' => md5(Carbon::now()->format('YmdHis') . uniqid()), // Generate unique ID
+        //                     'id' => md5(Carbon::now()->format('YmdHis') . $camera), // ID hashed
         //                     'nama_kamera' => 'CAM ' . $camera . '-L' . $floor . '-G' . $buildingId,
         //                     'rtsp' => 'http://example.com/stream' . $camera,
         //                     'description' => 'Deskripsi Kamera ' . $camera,
@@ -72,9 +72,9 @@ class DatabaseSeeder extends Seeder
         //                     'brand' => 'Brand ' . chr(65 + ($camera % 26)),
         //                     'version_model' => 'V' . rand(1, 5) . '.' . rand(0, 9),
         //                     'installation_date' => now()->subDays(rand(1, 365))->toDateString(),
-        //                     'university_id' => $universityId,
-        //                     'building_id' => $buildingId,
-        //                     'floor_id' => $floorId,
+        //                     'university_id' => $universityId, // ID universitas
+        //                     'building_id' => $buildingId, // ID gedung
+        //                     'floor_id' => $floorId, // ID lantai
         //                     'created_at' => now(),
         //                     'updated_at' => now(),
         //                 ]);

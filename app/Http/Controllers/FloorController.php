@@ -18,7 +18,7 @@ class FloorController extends Controller
      */
     public function index()
     {
-        $floors = Floor::all(); 
+        $floors = Floor::orderBy('floor_name', 'asc')->get(); 
         return view('manage.floor.index')->with(compact('floors'));
     }
 

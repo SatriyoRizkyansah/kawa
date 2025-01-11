@@ -21,7 +21,6 @@
                             Tambah data 
                         </button>
                     </a>
-                    
 
                     <div class="table-responsive">
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -47,11 +46,11 @@
                                             <i class="bi bi-pencil-square"></i>
                                         </a>
 
-                                        <a href="javascript:void(0)" onclicxk="if(confirm('Are you sure you want to delete this camera?')) { document.getElementById('delete-form-{{ $university->id }}').submit(); }" class="text-red-500 hover:underline">
+                                        <a href="javascript:void(0)" onclick="if(confirm('Are you sure you want to delete this camera?')) { document.getElementById('delete-form-{{ $university->id }}').submit(); }" class="text-red-500 hover:underline">
                                             <i class="bi bi-trash text-danger"></i>
                                         </a>
 
-                                        <form id="delete-form-{{ $university->id }}" action="{{ url('/manage/university/delete/'.$university->id) }}" method="POST" style="display: none;">
+                                        <form id="delete-form-{{ $university->id }}" action="{{ route('university.delete', ['id' => $university->id]) }}" method="POST" style="display: none;">
                                             @csrf
                                             @method('DELETE')
                                         </form>

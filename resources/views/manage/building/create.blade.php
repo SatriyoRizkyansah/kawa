@@ -38,16 +38,7 @@
                         <label for="slug" >Slug</label>
                         <input type="text" id="slug" name="slug" class="form-control" required>
                     </div>
-                    <div class="mb-4">
-                        <label for="university">Universitas</label>
-                        <select id="university" name="university" class="form-control" required>
 
-                            @foreach ($universities as $university)
-                                <option value="{{ $university->id }}">{{ $university->university_name }}</option>
-                            @endforeach
-                    
-                        </select>
-                    </div>
                     <button type="submit" name="submit" class="bg-blue-500 hover:bg-blue-600 text-black px-4 py-2 rounded-md shadow-md hover:shadow-lg border border-blue-500 font-bold">
                     Simpan
                     </button>

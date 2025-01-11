@@ -11,23 +11,29 @@
                 <!-- DataTales Example -->
                 <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Tambah Data Universitas</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Edit Data Universitas</h6>
                 </div>
                 <div class="card-body">
-                    <form method="POST">
+                    <form method="POST" enctype="multipart/form-data">
                     @csrf
 
                     <div class="mb-4">
-                        <input type="text" id="id" name="id" value="{{ Date('YmdHis') }}" class="form-control" hidden>
+                        <input type="text" id="id" name="id" value="{{ Date('YmdHis')}}" class="form-control" hidden>
                     </div>
-                    
-                    <div class="mb-4">
-                        <label for="university_name" >Nama Universitas</label>
+                        <div class="mb-4">
+                        <label for="building_name" >Nama universitas</label>
                         <input type="text" id="title" name="university_name" class="form-control" required>
                     </div>
                     <div class="mb-4">
-                        <label for="slug">Slug</label>
+                        <label for="slug" >Slug</label>
                         <input type="text" id="slug" name="slug" class="form-control" required>
+                    </div>
+                    <div class="mb-4">
+                        <label class="form-label" for="img">Image:</label>
+                        <input type="file" class="form-control" id="img" name="img">
+                        @if ($errors->has('img'))
+                            <span class="text-danger">{{ $errors->first('img') }}</span>
+                        @endif
                     </div>
                     <div class="mb-4">
                         <label for="description" >Deskripsi</label>
@@ -38,7 +44,7 @@
                     </button>
                     </form>
                 </div>
-            </div>  
+            </div>
             <!-- /.container-fluid -->
             </div>
         </div>
@@ -60,4 +66,5 @@
         e.preventDefault();
     })
 </script>
+
 

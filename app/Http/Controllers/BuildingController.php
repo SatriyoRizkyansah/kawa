@@ -17,7 +17,8 @@ class BuildingController extends Controller
      */
     public function index()
     {
-        $buildings = Building::all();
+        $buildings = Building::orderBy('building_name', 'asc')
+        ->get();;
         return view('manage.building.index')->with(compact('buildings'));
     }
 

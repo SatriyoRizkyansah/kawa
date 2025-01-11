@@ -13,11 +13,10 @@ class University extends Model
     protected $primaryKey = 'id'; 
     public $incrementing = false; 
     protected $keyType = 'string'; 
-
     protected $table = 'universities';
 
     protected $fillable = [
-        'university_name', 'slug', 'description',
+        'university_name', 'slug', 'img', 'description',
     ];
     
 }

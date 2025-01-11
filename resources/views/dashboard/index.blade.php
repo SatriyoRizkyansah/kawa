@@ -1,4 +1,6 @@
 <x-app-layout>
+
+
         <div id="content">
 
           <!-- Begin Page Content -->
@@ -105,7 +107,7 @@
             <!-- Content Row -->
 
             <div class="row">
-
+              {{-- @include('partials.sidebar', ['universities' => $universities]) --}}
               @foreach ($universities as $university)
                 <div class="col-md-6">
                   <div class="card shadow mb-4">

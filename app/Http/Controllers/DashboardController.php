@@ -17,7 +17,6 @@ class DashboardController extends Controller
     public function index()
     {
         $universities = University::all();
-        $university1 = University::first();
         return view('dashboard.index', compact('universities'));
     }
 

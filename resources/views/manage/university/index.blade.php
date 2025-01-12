@@ -16,6 +16,26 @@
                 </div>
                 <div class="card-body">
 
+                    {{-- Alert error --}}
+                    @if (session('loginError'))
+                        <div class="alert alert-danger alert-dismissible fade show my-3" role="alert">
+                        {{ session('loginError') }}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                        </div>
+                    @endif
+
+                    {{-- Alert sukses --}}
+                    @if (session('success'))
+                        <div class="alert alert-success alert-dismissible fade show my-3" role="alert">
+                        {{ session('success') }}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                        </div>
+                    @endif
+
                     <a href="{{ route('university.create') }}">
                         <button class="btn btn-primary mb-4">
                             Tambah data 

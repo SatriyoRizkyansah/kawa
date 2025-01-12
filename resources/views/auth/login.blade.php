@@ -1,4 +1,5 @@
 <x-guest-layout>
+
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
@@ -33,9 +34,33 @@
       }
     </style>
 
-        <div class="container-fluid vh-100 d-flex justify-content-center align-items-center">
+
+
+
+      <div class="container-fluid vh-100 d-flex justify-content-center align-items-center">
       <div class="card o-hidden border-0 shadow-lg" style="width: 400px">
+        {{-- Alert error --}}
+        @if (session('loginError'))
+          <div class="alert alert-danger alert-dismissible fade show mx-3 my-3" role="alert">
+          {{ session('loginError') }}
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+          </button>
+          </div>
+        @endif
+
+        {{-- Alert sukses --}}
+        @if (session('success'))
+          <div class="alert alert-success alert-dismissible fade show mx-3 my-3" role="alert">
+          {{ session('success') }}
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+          </button>
+          </div>
+        @endif
+        
         <div class="card-body p-0">
+
           <div class="p-4">
             <div class="text-center d-flex justify-content-between align-items-center mb-3 px-3">
               <img src="images/sasmita.png" width="50" height="50" alt="" />

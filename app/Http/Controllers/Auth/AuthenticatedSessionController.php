@@ -22,13 +22,16 @@ class AuthenticatedSessionController extends Controller
     /**
      * Handle an incoming authentication request.
      */
+    
     public function store(LoginRequest $request)
     {
-        $request->authenticate();
+        if (Auth::attempt($request->only('email', 'password'), $request->boolean('remember'))) {
+            $request->session()->regenerate();
 
-        $request->session()->regenerate();
+            return redirect()->intended(route('dashboard'))->with('success', 'Login Berhasil.');
+        }
 
-       return redirect(route('dashboard'));
+        return back()->with('loginError', 'Login gagal, username / password salah!')->onlyInput('email');
     }
 
     /**

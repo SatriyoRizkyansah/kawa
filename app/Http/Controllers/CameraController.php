@@ -81,7 +81,7 @@ class CameraController extends Controller
             $camera->floor_id = $request->lantai;
         $camera->save();
 
-        return redirect()->route('camera')->with('success', 'CCTV berhasil ditambahkan!');
+        return redirect()->route('camera')->with('success', 'Kamera berhasil ditambahkan!');
     }
 
         public function edit($id)

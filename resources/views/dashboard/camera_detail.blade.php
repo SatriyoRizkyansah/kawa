@@ -60,13 +60,13 @@
                       </div>
                     </div>
                     <!-- Aktivitas Pelanggaran yang dilakukan mahasiswa di lingkungan kampus Terbaru -->
-                    <table class="table border-bottom text-nowrap ">
+                    <table class="table border-bottom text-wrap ">
                       <thead>
                         <tr>
                           <th>Tanggal</th>
                           <th>Waktu</th>
-                          <th>Kegiatan</th>
                           <th>Jenis Pelanggaran</th>
+                          <th>Detail</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -75,15 +75,22 @@
                           <td>2022-01-01</td>
                           <td>10:00</td>
                           <td>Merokok</td>
-                          <td>Lainnya</td>
+                          <td>                                        <a href="#" class="text-center text-blue-500 hover:underline text-decoration-none">
+                            <i class="bi bi-eye text-success fs-5"></i>
+                            </a>
+                          </td>
                         </tr>
 
                         <!-- Data pelanggaran yang lama -->
-                        <tr>
+                        <tr> 
                           <td>2021-12-31</td>
                           <td>15:00</td>
                           <td>Merokok</td>
-                          <td>Lainnya</td>
+                          <td>
+                             <a href="#" class="text-center text-blue-500 hover:underline text-decoration-none">
+                            <i class="bi bi-eye text-success fs-5"></i>
+                            </a>
+                          </td>
                         </tr>
                       </tbody>
                     </table>
@@ -131,9 +138,15 @@
                           <td></td>
                         </tr>
                         <tr>
-                          <td>RSTP / HLS</td>
+                          <td>RSTP</td>
                           <td>:</td>
                           <td>{{ $camera->rtsp }}</td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>HLS</td>
+                          <td>:</td>
+                          <td>{{ $camera->hls }}</td>
                           <td></td>
                         </tr>
                         <tr>

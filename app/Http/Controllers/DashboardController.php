@@ -51,6 +51,7 @@ class DashboardController extends Controller
         return view('dashboard.camera_detail', compact('camera'));
     }
 
+
     public function viewKampusAll(Request $request, $id)
 {
     // Ambil semua gedung berdasarkan universitas

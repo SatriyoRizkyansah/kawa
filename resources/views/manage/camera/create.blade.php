@@ -50,8 +50,12 @@
                         </div>
                         
                         <div class="mb-4">
-                            <label for="rtsp">Link RTSP / HLS (Video Stream)</label>
+                            <label for="rtsp">Link RTSP (Video Stream)</label>
                             <input type="url" id="rtsp" name="rtsp" class="form-control" required>
+                        </div>
+                        <div class="mb-4">
+                            <label for="hls">Link HLS (Video Stream)</label>
+                            <input type="url" id="hls" name="hls" class="form-control" required>
                         </div>
                         <div class="mb-4">
                             <label for="description">Deskripsi</label>

@@ -61,8 +61,12 @@
                         <input type="text" value="{{ $camera->nama_kamera }}" id="nama_kamera" name="nama_kamera" class="form-control" required>
                     </div>
                     <div class="mb-4">
-                        <label for="rtsp">Link RTSP / Video Stream</label>
+                        <label for="rtsp">Link RTSP (Video Stream)</label>
                         <input type="url" value="{{ $camera->rtsp }}" id="rtsp" name="rtsp" class="form-control" required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="hls">Link HLS (Video Stream)</label>
+                        <input type="url" value="{{ $camera->hls }}" id="hls" name="hls" class="form-control" required>
                     </div>
                     <div class="mb-4">
                         <label for="description">Deskripsi</label>

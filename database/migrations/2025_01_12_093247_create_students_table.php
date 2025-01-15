@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('nim');
             $table->string('name');
             $table->date('birth_date');
-            $table->string('faculty_id'); 
+            $table->string('faculty'); 
             $table->string('program_study');
             $table->string('reg');
             $table->string('class');

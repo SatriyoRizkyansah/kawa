@@ -17,7 +17,7 @@ class Camera extends Model
 
     // Tentukan kolom yang bisa diisi (fillable)
     protected $fillable = [
-        'nama_kamera', 'rtsp', 'gedung', 'lantai', 'id'
+        'id', 'ip', 'nama_kamera', 'rtsp', 'hls', 'description', 'device_color', 'type', 'brand', 'version_model', 'installation_date', 'university_id', 'building_id', 'floor_id',
     ];
 
       public function floor()

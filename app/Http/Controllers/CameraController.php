@@ -51,6 +51,7 @@ class CameraController extends Controller
             'id' => 'required|string|max:255',
             'nama_kamera' => 'required|string|max:255',
             'rtsp' => 'required|url|max:255',
+            'hls' => 'required|url|max:255',
             'description' => 'required|string|max:255',
             'device_color' => 'required|string|max:255',
             'ip' => 'required|string|max:255',
@@ -63,11 +64,11 @@ class CameraController extends Controller
             'lantai' => 'required|exists:floors,id',
         ]);
 
-
         $camera = new Camera();
             $camera->id = md5($request->id);
             $camera->nama_kamera = $request->nama_kamera;
             $camera->rtsp = $request->rtsp;
+            $camera->hls = $request->hls;
             $camera->description = $request->description;
             $camera->device_color = $request->device_color;
             $camera->ip = $request->ip;
@@ -100,6 +101,7 @@ class CameraController extends Controller
         $request->validate([
             'nama_kamera' => 'required|string|max:255',
             'rtsp' => 'required|url|max:255',
+            'hls' => 'required|url|max:255',
             'description' => 'required|string|max:255',
             'device_color' => 'required|string|max:255',
             'ip' => 'required|string|max:255',
@@ -115,6 +117,7 @@ class CameraController extends Controller
         $camera = Camera::findOrFail($id);
         $camera->nama_kamera = $request->nama_kamera;
         $camera->rtsp = $request->rtsp;
+        $camera->hls = $request->hls;
         $camera->description = $request->description;
         $camera->device_color = $request->device_color;
         $camera->ip = $request->ip;

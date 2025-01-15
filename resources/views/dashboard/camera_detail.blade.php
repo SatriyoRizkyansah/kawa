@@ -72,25 +72,15 @@
                       <tbody>
                         <!-- Data pelanggaran yang terbaru -->
                         <tr>
-                          <td>2022-01-01</td>
-                          <td>10:00</td>
-                          <td>Merokok</td>
-                          <td>                                        <a href="#" class="text-center text-blue-500 hover:underline text-decoration-none">
-                            <i class="bi bi-eye text-success fs-5"></i>
-                            </a>
-                          </td>
-                        </tr>
-
-                        <!-- Data pelanggaran yang lama -->
-                        <tr> 
-                          <td>2021-12-31</td>
-                          <td>15:00</td>
-                          <td>Merokok</td>
-                          <td>
-                             <a href="#" class="text-center text-blue-500 hover:underline text-decoration-none">
-                            <i class="bi bi-eye text-success fs-5"></i>
-                            </a>
-                          </td>
+                          @foreach ($violations as $violation)    
+                            <td>{{ $violation->date }}</td>
+                            <td>{{ $violation->time }}</td>
+                            <td>{{ $violation->violation_type }}</td>
+                            <td>                          <a href="#" class="text-center text-blue-500 hover:underline text-decoration-none">
+                              <i class="bi bi-eye text-success fs-5"></i>
+                              </a>
+                            </td>
+                          @endforeach
                         </tr>
                       </tbody>
                     </table>

@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use Hashids;
 use App\Models\Floor;
 use App\Models\Camera;
 use App\Models\Building;
+use App\Models\Violation;
 use App\Models\University;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Crypt;
-use Hashids;
 
 
 class DashboardController extends Controller
@@ -48,7 +49,8 @@ class DashboardController extends Controller
 
     public function camera_detail($id){
         $camera = Camera::findOrFail($id);
-        return view('dashboard.camera_detail', compact('camera'));
+        $violations = Violation::where('camera_id', $id)->get();
+        return view('dashboard.camera_detail', compact('camera', 'violations'));
     }
 
 

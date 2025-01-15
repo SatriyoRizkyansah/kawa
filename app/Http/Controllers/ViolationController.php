@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Student;
 use App\Models\violation;
 use App\Http\Requests\StoreviolationRequest;
 use App\Http\Requests\UpdateviolationRequest;
@@ -14,6 +15,12 @@ class ViolationController extends Controller
     public function index()
     {
         //
+    }
+
+    public function detail($id){
+        $violation = Violation::findOrFail($id);
+        $student = Student::Where('id', $violation->student_id)->first();
+        return view('violations.detail', compact('violation', 'student'));
     }
 
     /**

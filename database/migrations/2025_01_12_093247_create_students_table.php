@@ -15,11 +15,14 @@ return new class extends Migration
             $table->string('id')->primary();
             $table->string('nim');
             $table->string('name');
+            $table->string('img')->nullable();
+            $table->string('gender')->nullable();
             $table->date('birth_date');
             $table->string('faculty'); 
             $table->string('program_study');
             $table->string('reg');
             $table->string('class');
+            $table->string('semester')->nullable();
             $table->timestamps();
         });
     }

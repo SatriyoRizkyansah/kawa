@@ -8,6 +8,7 @@ use App\Http\Controllers\BuildingController;
 use App\Http\Controllers\CameraController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\UniversityController;
+use App\Http\Controllers\ViolationController;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 Route::get('/', function () {
@@ -74,6 +75,9 @@ Route::prefix('admin')->group(function () {
             Route::get('/floor/edit/{id}', [FloorController::class, 'edit'])->name('floor.edit');
             Route::post('/floor/edit/{id}', [FloorController::class, 'update'])->name('floor update');
             Route::delete('/floor/delete/{id}', [FloorController::class, 'destroy'])->name('floor.delete');
+
+            // Page violations
+            Route::get('/detail_violation/{id}', [ViolationController::class, 'detail'])->name('detail.violation');
         });
     });
 });

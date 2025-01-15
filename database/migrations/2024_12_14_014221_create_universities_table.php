@@ -15,6 +15,7 @@ return new class extends Migration
             $table->string('id')->primary();
             $table->string('university_name');
             $table->string('slug');
+            $table->string('img');
             $table->string('description');
             $table->timestamps();
         });

@@ -19,7 +19,6 @@ return new class extends Migration
             $table->time('time');
             $table->string('violation_type');
             $table->string('description')->nullable();
-            $table->string('evidence_path')->nullable();
             $table->string('student_id')->nullable();
             $table->foreign('student_id')->references('id')->on('students')->onDelete('cascade');
             

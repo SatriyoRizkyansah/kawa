@@ -34,4 +34,9 @@ class Camera extends Model
     {
         return $this->belongsTo(University::class);
     }
+
+    public function violations()
+    {
+        return $this->hasMany(Violation::class, 'camera_id');
+    }
 }

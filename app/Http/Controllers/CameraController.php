@@ -22,7 +22,6 @@ class CameraController extends Controller
         $buildings = Building::all();
         $floors = Floor::all();
         $universities = University::all();
-
         // dd($buildings);
         return view('manage.camera.create')->with(compact('buildings', 'floors', 'universities'));
     }

@@ -38,10 +38,10 @@
           <div id="kampus" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
               {{-- <h6 class="collapse-header">Custom Components:</h6> --}}
-              <a class="collapse-item" href="{{ route('detail.university', ['id' => '2c8c664d47f9e7da2029564f643c68bd']) }}">Pusat</a>
-              <a class="collapse-item" href="{{ route('detail.university', ['id' => '500355ff113af906897df026a565cb23']) }}">Viktor</a>
-              <a class="collapse-item" href="{{ route('detail.university', ['id' => '98f1ceee608d0cd290463e1b68005c2e']) }}">Witana</a>
-              <a class="collapse-item" href="{{ route('detail.university', ['id' => 'e86ad641bae43dc317a7e0916fd82063']) }}">Serang</a>
+              <a class="collapse-item" href="{{ route('detail.university', ['id' => '742e4a66fc089c0defa9a7fd91315876']) }}">Viktor</a>
+              <a class="collapse-item" href="{{ route('detail.university', ['id' => 'cfb12a0c6ac2ddee9be980bfcb91afe6']) }}">Pusat</a>
+              <a class="collapse-item" href="{{ route('detail.university', ['id' => 'd752d367619544b8923de09e8416997e']) }}">Serang</a>
+              <a class="collapse-item" href="{{ route('detail.university', ['id' => 'd87623988abf95f45a5ab70b67029ba4']) }}">Witana</a>
             </div>
           </div>
         </li>

@@ -23,12 +23,12 @@ class DatabaseSeeder extends Seeder
         ]);
 
         // Seeder untuk Universities
-        DB::table('universities')->insert([
-            ['id' => md5(Carbon::now()->format('YmdHis') . uniqid()),'university_name' => 'Kampus Pusat', 'slug' => 'kampus-pusat', 'description' => 'Deskripsi untuk Kampus Pusat'],
-            ['id' => md5(Carbon::now()->format('YmdHis') . uniqid()),'university_name' => 'Kampus Viktor', 'slug' => 'kampus-viktor', 'description' => 'Deskripsi untuk Kampus Viktor'],
-            ['id' => md5(Carbon::now()->format('YmdHis') . uniqid()),'university_name' => 'Kampus Witana', 'slug' => 'kampus-witana', 'description' => 'Deskripsi untuk Kampus Witana'],
-            ['id' => md5(Carbon::now()->format('YmdHis') . uniqid()),'university_name' => 'Kampus Serang', 'slug' => 'kampus-serang', 'description' => 'Deskripsi untuk Kampus Serang'],
-        ]);
+        // DB::table('universities')->insert([
+        //     ['id' => md5(Carbon::now()->format('YmdHis') . uniqid()),'university_name' => 'Kampus Pusat', 'slug' => 'kampus-pusat', 'description' => 'Deskripsi untuk Kampus Pusat'],
+        //     ['id' => md5(Carbon::now()->format('YmdHis') . uniqid()),'university_name' => 'Kampus Viktor', 'slug' => 'kampus-viktor', 'description' => 'Deskripsi untuk Kampus Viktor'],
+        //     ['id' => md5(Carbon::now()->format('YmdHis') . uniqid()),'university_name' => 'Kampus Witana', 'slug' => 'kampus-witana', 'description' => 'Deskripsi untuk Kampus Witana'],
+        //     ['id' => md5(Carbon::now()->format('YmdHis') . uniqid()),'university_name' => 'Kampus Serang', 'slug' => 'kampus-serang', 'description' => 'Deskripsi untuk Kampus Serang'],
+        // ]);
 
         // // Seeder untuk Buildings (A, B, C di setiap Universitas)
         // $buildingNames = ['A', 'B', 'C'];

@@ -10,15 +10,16 @@ class CreateCamerasTable extends Migration
     {
         Schema::create('cameras', function (Blueprint $table) {
             $table->string('id')->primary();
-            $table->string('nama_kamera');
-            $table->string('rtsp');
-            $table->string('description');
-            $table->string('device_color');
             $table->string('ip');
-            $table->string('type');
-            $table->string('brand');
-            $table->string('version_model');
-            $table->date('installation_date');
+            $table->string('nama_kamera');
+            $table->string('rtsp')->nullable();
+            $table->string('hls')->nullable();
+            $table->string('description')->nullable();
+            $table->string('device_color')->nullable();
+            $table->string('type')->nullable();
+            $table->string('brand')->nullable();
+            $table->string('version_model')->nullable();
+            $table->date('installation_date')->nullable();
 
             $table->string('university_id');
             $table->foreign('university_id')->references('id')->on('universities')->onDelete('cascade');

@@ -75,7 +75,8 @@
                             <td>{{ $violation->date }}</td>
                             <td>{{ $violation->time }}</td>
                             <td>{{ $violation->violation_type }}</td>
-                            <td>                          <a href="{{ route('detail.violation', ['id' => $violation->id]) }}" class="text-center text-blue-500 hover:underline text-decoration-none">
+                            <td>
+                              <a href="{{ route('detail.violation', ['id' => $violation->id]) }}" class="text-center text-blue-500 hover:underline text-decoration-none">
                               <i class="bi bi-eye text-success fs-5"></i>
                               </a>
                             </td>

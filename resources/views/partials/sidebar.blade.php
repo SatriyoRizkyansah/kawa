@@ -25,8 +25,7 @@
         <li class="nav-item {{ Request::is('admin/user_information') ? 'active' : '' }}">
           <a class="nav-link" href="{{ route('user_info') }}">
             <i class="bi bi-person-fill"></i>
-            <span>Data Pribadi</span></a
-          >
+            <span>Data Pribadi</span></a>
         </li>
 
         {{-- Kampus --}}
@@ -46,8 +45,16 @@
           </div>
         </li>
 
+        {{-- Pelanggaran terdeteksi --}}
+        <li class="nav-item {{ Request::is('admin/violations') ? 'active' : '' }}">
+          <a class="nav-link" href="{{ route('violations') }}">
+            <i class="bi bi-radioactive"></i>
+            <span>Pelanggaran Terdeteksi</span></a>
+        </li>
+
         <!-- Divider -->
         <hr class="sidebar-divider" />
+
 
         {{-- <li class="nav-item active">
           <a class="nav-link" href="/beranda">
@@ -63,7 +70,7 @@
 
         <div class="sidebar-heading">Control</div>
 
-       <li class="nav-item {{ Request::is('admin/manage/*') ? 'active' : '' }}">
+        <li class="nav-item {{ Request::is('admin/manage/*') ? 'active' : '' }}">
           <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
             <i class="fas fa-fw fa-cog"></i>
             <span>Manage / Pengaturan</span>

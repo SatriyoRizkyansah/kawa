@@ -1,5 +1,4 @@
 <x-app-layout>
-
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
             <!-- Main Content -->
@@ -89,7 +88,7 @@
                         <div class="card-body">
                             <div class="row justify-content-center">
                                 <!-- Foto Muka 1 -->
-                                <div class="col-md-3">
+                                <div class="col-md-3 my-1">
                                     <div class="card border-0 shadow rounded" style="height: 250px;">
                                         <img src="https://i.pinimg.com/736x/a3/bb/c1/a3bbc18109f04f2ee4d447f231a205ad.jpg"
                                             class="card-img-top rounded"
@@ -97,7 +96,7 @@
                                     </div>
                                 </div>
                                 <!-- Foto Muka 2 -->
-                                <div class="col-md-3">
+                                <div class="col-md-3 my-1">
                                     <div class="card border-0 shadow rounded" style="height: 250px;">
                                         <img src="https://i.pinimg.com/736x/64/36/db/6436dbfad18caa427b41c9a30528f4f5.jpg"
                                             class="card-img-top rounded"
@@ -105,7 +104,7 @@
                                     </div>
                                 </div>
                                 <!-- Foto Muka 3 -->
-                                <div class="col-md-3">
+                                <div class="col-md-3 my-1">
                                     <div class="card border-0 shadow rounded" style="height: 250px;">
                                         <img src="https://i.pinimg.com/736x/64/36/db/6436dbfad18caa427b41c9a30528f4f5.jpg"
                                             class="card-img-top rounded"
@@ -113,7 +112,7 @@
                                     </div>
                                 </div>
                                 <!-- Foto Muka 4 -->
-                                <div class="col-md-3">
+                                <div class="col-md-3 my-1">
                                     <div class="card border-0 shadow rounded" style="height: 250px;">
                                         <img src="https://i.pinimg.com/736x/c0/cd/00/c0cd001998a09110b74c347071b96377.jpg"
                                             class="card-img-top rounded"

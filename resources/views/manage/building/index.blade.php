@@ -16,16 +16,6 @@
                     <h6 class="m-0 font-weight-bold text-primary">Data Gedung</h6>
                 </div>
                 <div class="card-body">
-                    
-                {{-- Alert error --}}
-                @if (session('loginError'))
-                    <div class="alert alert-danger alert-dismissible fade show my-3" role="alert">
-                    {{ session('loginError') }}
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                    </button>
-                    </div>
-                @endif
                 
                 {{-- Alert sukses --}}
                 @if (session('success'))

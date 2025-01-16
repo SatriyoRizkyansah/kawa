@@ -14,7 +14,8 @@ class ViolationController extends Controller
      */
     public function index()
     {
-        //
+        $violations = Violation::all();
+        return view('violations.index', compact('violations'));
     }
 
     public function detail($id){

@@ -41,6 +41,11 @@ Route::prefix('admin')->group(function () {
         // User Information
         Route::get('/user_information', [DashboardController::class, 'showUserInformation'])->name('user_info');
 
+        // Page violations
+        Route::get('/violations', [ViolationController::class, 'index'])->name('violations');
+        Route::get('/detail_violation/{id}', [ViolationController::class, 'detail'])->name('detail.violation');
+
+        // Page Manage
         Route::prefix('manage')->group(function () {
             // Page Camera
             Route::get('/camera', [CameraController::class, 'index'])->name('camera');
@@ -75,9 +80,6 @@ Route::prefix('admin')->group(function () {
             Route::get('/floor/edit/{id}', [FloorController::class, 'edit'])->name('floor.edit');
             Route::post('/floor/edit/{id}', [FloorController::class, 'update'])->name('floor update');
             Route::delete('/floor/delete/{id}', [FloorController::class, 'destroy'])->name('floor.delete');
-
-            // Page violations
-            Route::get('/detail_violation/{id}', [ViolationController::class, 'detail'])->name('detail.violation');
         });
     });
 });

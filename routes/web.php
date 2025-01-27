@@ -51,16 +51,16 @@ Route::prefix('admin')->group(function () {
             Route::get('/camera', [CameraController::class, 'index'])->name('camera');
             Route::get('/camera/create', [CameraController::class, 'create'])->name('camera.create');
             Route::post('/camera/create', [CameraController::class, 'store'])->name('camera store');
-            Route::get('/camera/edit/{id}', [CameraController::class, 'edit'])->name('camera.edit');
-            Route::post('/camera/edit/{id}', [CameraController::class, 'update'])->name('camera update');
+            Route::get('/camera/{id}/edit', [CameraController::class, 'edit'])->name('camera.edit');
+            Route::post('/camera/{id}/edit', [CameraController::class, 'update'])->name('camera update');
             Route::delete('/camera/delete/{id}', [CameraController::class, 'destroy'])->name('camera.delete');
 
             // Page Kampus (University)
             Route::get('/university', [UniversityController::class, 'index'])->name('university');
             Route::get('/university/create', [UniversityController::class, 'create'])->name('university.create');
             Route::post('/university/create', [UniversityController::class, 'store'])->name('university.store');
-            Route::get('/university/edit/{id}', [UniversityController::class, 'edit'])->name('university.edit');
-            Route::post('/university/edit/{id}', [UniversityController::class, 'update'])->name('university.update');
+            Route::get('/university/{id}/edit', [UniversityController::class, 'edit'])->name('university.edit');
+            Route::post('/university/{id}/edit', [UniversityController::class, 'update'])->name('university.update');
             Route::delete('/university/delete/{id}', [UniversityController::class, 'destroy'])->name('university.delete');
             Route::get('/building/{id}', [BuildingController::class, 'showByUniversity'])->name('buildingByUniversity');
             
@@ -68,8 +68,8 @@ Route::prefix('admin')->group(function () {
             Route::get('/building', [BuildingController::class, 'index'])->name('building');
             Route::get('/gedung/create', [BuildingController::class, 'create'])->name('building.create');
             Route::post('/gedung/create', [BuildingController::class, 'store'])->name('building.create');
-            Route::get('/building/edit/{id}', [BuildingController::class, 'edit'])->name('building.edit');
-            Route::post('/building/edit/{id}', [BuildingController::class, 'update'])->name('building update');
+            Route::get('/building/{id}/edit', [BuildingController::class, 'edit'])->name('building.edit');
+            Route::post('/building/{id}/edit', [BuildingController::class, 'update'])->name('building update');
             Route::delete('/building/delete/{id}', [BuildingController::class, 'destroy'])->name('building.delete');
             Route::get('/floor/{id}', [FloorController::class, 'showByBuilding'])->name('floorByBuilding');
 
@@ -77,8 +77,8 @@ Route::prefix('admin')->group(function () {
             Route::get('/floor', [FloorController::class, 'index'])->name('floor');
             Route::get('/lantai/create', [FloorController::class, 'create'])->name('floor.create');
             Route::post('/lantai/create', [FloorController::class, 'store'])->name('floor store');
-            Route::get('/floor/edit/{id}', [FloorController::class, 'edit'])->name('floor.edit');
-            Route::post('/floor/edit/{id}', [FloorController::class, 'update'])->name('floor update');
+            Route::get('/floor/{id}/edit', [FloorController::class, 'edit'])->name('floor.edit');
+            Route::post('/floor/{id}/edit', [FloorController::class, 'update'])->name('floor update');
             Route::delete('/floor/delete/{id}', [FloorController::class, 'destroy'])->name('floor.delete');
         });
     });

@@ -30,7 +30,7 @@ Route::prefix('admin')->group(function () {
         Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
         // Kampus
-        Route::get('/university_detail/{id}', [DashboardController::class, 'university_detail'])->name('detail.university');
+        Route::get('/university_detail/{slug}', [DashboardController::class, 'university_detail'])->name('detail.university');
         Route::get('/cameras_building/{id}', [DashboardController::class, 'cameras_building'])->name('cameras.by.building');
         Route::get('/cameras_floor/{id}', [DashboardController::class, 'cameras_floor'])->name('cameras.by.floor');
         Route::get('/camera_detail/{id}', [DashboardController::class, 'camera_detail'])->name('camera.detail');

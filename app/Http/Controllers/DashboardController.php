@@ -21,15 +21,22 @@ class DashboardController extends Controller
         return view('dashboard.index', compact('universities'));
     }
 
-    public function university_detail($id)
+    public function university_detail($slug)
     {
-        $university = University::findOrFail($id);
-        $buildings = Building::where('university_id', $id)
+    // Cari universitas berdasarkan slug
+    $university = University::findBySlug($slug);
+
+    // Jika universitas tidak ditemukan, kembalikan error 404
+    if (!$university) {
+        abort(404);
+    }
+
+    // Ambil bangunan berdasarkan university_id
+    $buildings = Building::where('university_id', $university->id)
         ->orderBy('building_name', 'asc')
         ->get();
 
-
-        return view('dashboard.university_detail', compact('university', 'buildings'));
+    return view('dashboard.university_detail', compact('university', 'buildings'));
     }
 
     public function cameras_building($id){

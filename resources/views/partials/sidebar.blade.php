@@ -37,10 +37,10 @@
           <div id="kampus" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
               {{-- <h6 class="collapse-header">Custom Components:</h6> --}}
-              <a class="collapse-item" href="{{ route('detail.university', ['id' => '742e4a66fc089c0defa9a7fd91315876']) }}">Viktor</a>
-              <a class="collapse-item" href="{{ route('detail.university', ['id' => 'cfb12a0c6ac2ddee9be980bfcb91afe6']) }}">Pusat</a>
-              <a class="collapse-item" href="{{ route('detail.university', ['id' => 'd752d367619544b8923de09e8416997e']) }}">Serang</a>
-              <a class="collapse-item" href="{{ route('detail.university', ['id' => 'd87623988abf95f45a5ab70b67029ba4']) }}">Witana</a>
+              <a class="collapse-item" href="{{ route('detail.university', ['slug' => 'kampus-viktor']) }}">Viktor</a>
+              <a class="collapse-item" href="{{ route('detail.university', ['slug' => 'kampus-pusat']) }}">Pusat</a>
+              <a class="collapse-item" href="{{ route('detail.university', ['slug' => 'kampus-serang']) }}">Serang</a>
+              <a class="collapse-item" href="{{ route('detail.university', ['slug' => 'kampus-witana']) }}">Witana</a>
             </div>
           </div>
         </li>

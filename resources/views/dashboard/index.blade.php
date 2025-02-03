@@ -1,7 +1,6 @@
 <x-app-layout>
 
-
-              {{-- Alert sukses --}}
+      {{-- Alert sukses --}}
       @if (session('success'))
             <div class="alert alert-success alert-dismissible fade show mx-3" role="alert">
             {{ session('success') }}
@@ -123,7 +122,7 @@
                     <!-- Card Header - Dropdown -->
                     <div class="card-header d-flex flex-row align-items-center justify-content-between">
 
-                      <a href="{{ route('detail.university', ['id' => $university->id]) }}">
+                      <a href="{{ route('detail.university', ['slug' => $university->slug]) }}">
                           <h6 class="m-0 font-weight-bold text-primary">
                               <i class="fa-solid fa-building-columns"></i> {{ $university->university_name }}
                           </h6>
@@ -133,7 +132,7 @@
                     </div>
                     <!-- Card Body -->
                     <div class="card-body">
-                      <a href="{{ route('detail.university', ['id' => $university->id]) }}">
+                      <a href="{{ route('detail.university', ['slug' => $university->slug]) }}">
                         <img src="{{ asset('storage/images/university/' . $university->img) }}" alt="Image Cover" class="rounded" style="aspect-ratio: 19/6; width: 100%; object-fit: cover" />
                       </a>
                     </div>

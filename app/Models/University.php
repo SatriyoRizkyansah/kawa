@@ -18,5 +18,10 @@ class University extends Model
     protected $fillable = [
         'university_name', 'slug', 'img', 'description',
     ];
+
+    public static function findBySlug($slug)
+    {
+        return self::where('slug', $slug)->first();
+    }
     
 }

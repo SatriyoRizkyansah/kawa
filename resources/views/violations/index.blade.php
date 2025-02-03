@@ -45,9 +45,7 @@
                                 <tr>
                                     {{-- <td>{{ $building->id }}</td> --}}
                                     <td class="border px-4 py-2">{{ $loop->iteration }}</td>
-                                    <td class="border px-4 py-2">
-                                        <a href="#" class="text-decoration-none">{{ $violation->violation_type }}</a>
-                                    </td>
+                                    <td class="border px-4 py-2"> {{ $violation->violation_type }} </td>
                                     <td class="border px-4 py-2">{{ $violation->description }}</td>
                                     <td class="border px-4 py-2">{{ $violation->date }}</td>
                                     <td class="border px-4 py-2">{{ $violation->time }}</td>

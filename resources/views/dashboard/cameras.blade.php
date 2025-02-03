@@ -6,7 +6,7 @@
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800">{{ $title }}</h1>
-                        <div class="dropdown mb-4">
+                        {{-- <div class="dropdown mb-4">
                             <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-stairs me-2"></i> Pilih Lantai
@@ -28,7 +28,7 @@
                                 <a class="dropdown-item" href="#">Lantai 11</a>
                                 <a class="dropdown-item" href="#">Lantai 12</a>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
 
 

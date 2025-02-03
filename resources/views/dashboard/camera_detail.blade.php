@@ -13,7 +13,7 @@
             <!-- Page Heading -->
             <div class="d-sm-flex align-items-center justify-content-between mb-4">
               <h1 class="h3 mb-0 text-gray-800">Detail Kamera</h1>
-              <div class="dropdown mb-4">
+              {{-- <div class="dropdown mb-4">
                 <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="bx bxs-webcam mr-2"></i> Pilih Kamera</button>
                 <div class="dropdown-menu animated--fade-in" aria-labelledby="dropdownMenuButton" style="">
                   <a class="dropdown-item" href="#">Camera 1</a>
@@ -25,7 +25,7 @@
                   <a class="dropdown-item" href="#">Camera 7</a>
                   <a class="dropdown-item" href="#">Camera 8</a>
                 </div>
-              </div>
+              </div> --}}
             </div>
 
             <!-- CCTV Grid -->

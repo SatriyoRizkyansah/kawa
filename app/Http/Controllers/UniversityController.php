@@ -16,7 +16,7 @@ class UniversityController extends Controller
     public function index()
     {
         $universities = University::all();
-        return view('manage.university.index')->with(compact('universities'));
+        return view('manage-cameras.university.index')->with(compact('universities'));
     }
 
     /**
@@ -24,7 +24,7 @@ class UniversityController extends Controller
      */
     public function create()
     {
-        return view('manage.university.create');
+        return view('manage-cameras.university.create');
     }
 
     /**
@@ -74,7 +74,7 @@ class UniversityController extends Controller
     public function edit($id, University $university)
     {
         $university = University::find($id);
-        return view('manage.university.edit')->with(compact('university'));
+        return view('manage-cameras.university.edit')->with(compact('university'));
     }
 
     /**

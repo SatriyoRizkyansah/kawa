@@ -7,6 +7,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\BuildingController;
 use App\Http\Controllers\CameraController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ManageMahasiswaController;
 use App\Http\Controllers\UniversityController;
 use App\Http\Controllers\ViolationController;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
@@ -46,7 +47,7 @@ Route::prefix('admin')->group(function () {
         Route::get('/detail_violation/{id}', [ViolationController::class, 'detail'])->name('detail.violation');
 
         // Page Manage
-        Route::prefix('manage')->group(function () {
+        Route::prefix('manage-camera')->group(function () {
             // Page Camera
             Route::get('/camera', [CameraController::class, 'index'])->name('camera');
             Route::get('/camera/create', [CameraController::class, 'create'])->name('camera.create');
@@ -80,6 +81,14 @@ Route::prefix('admin')->group(function () {
             Route::get('/floor/{id}/edit', [FloorController::class, 'edit'])->name('floor.edit');
             Route::post('/floor/{id}/edit', [FloorController::class, 'update'])->name('floor update');
             Route::delete('/floor/delete/{id}', [FloorController::class, 'destroy'])->name('floor.delete');
+        });
+
+        Route::prefix('manage-mahasiswa')->group(function () {
+            // Fakultas
+            Route::get('/faculties', [ManageMahasiswaController::class, 'faculties'])->name('faculties');
+
+            // Program Studi
+            Route::get('/academic-programs', [ManageMahasiswaController::class, 'academic'])->name('academic');
         });
     });
 });

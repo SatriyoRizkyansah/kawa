@@ -15,7 +15,7 @@ class CameraController extends Controller
     public function index()
     {
         $cameras = Camera::all();
-        return view('manage.camera.index')->with(compact('cameras'));
+        return view('manage-cameras.camera.index')->with(compact('cameras'));
     }
 
     public function create(){
@@ -23,7 +23,7 @@ class CameraController extends Controller
         $floors = Floor::all();
         $universities = University::all();
         // dd($buildings);
-        return view('manage.camera.create')->with(compact('buildings', 'floors', 'universities'));
+        return view('manage-cameras.camera.create')->with(compact('buildings', 'floors', 'universities'));
     }
 
         public function getGedung($universityId)
@@ -91,7 +91,7 @@ class CameraController extends Controller
         $buildings = Building::where('university_id', $camera->university_id)->get();
         $floors = Floor::where('building_id', $camera->building_id)->get();
 
-        return view('manage.camera.edit', compact('camera', 'universities', 'buildings', 'floors'));
+        return view('manage-cameras.camera.edit', compact('camera', 'universities', 'buildings', 'floors'));
     }
 
 

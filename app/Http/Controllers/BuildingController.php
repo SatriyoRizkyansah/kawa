@@ -19,7 +19,7 @@ class BuildingController extends Controller
     {
         $buildings = Building::orderBy('building_name', 'asc')
         ->get();;
-        return view('manage.building.index')->with(compact('buildings'));
+        return view('manage-cameras.building.index')->with(compact('buildings'));
     }
 
     public function showByUniversity($encryptedId)
@@ -29,7 +29,7 @@ class BuildingController extends Controller
             list($id, $timestamp) = explode('|', $decrypted);
 
             $buildings = Building::where('university_id', $id)->get();
-            return view('manage.building.index')->with(compact('buildings'));
+            return view('manage-cameras.building.index')->with(compact('buildings'));
 
         } catch (\Exception $e) {
             abort(404);
@@ -43,7 +43,7 @@ class BuildingController extends Controller
     {
         // dd('Route berhasil dipanggil');
         $universities = University::all();
-        return view('manage.building.create')->with(compact('universities'));
+        return view('manage-cameras.building.create')->with(compact('universities'));
     }
 
     /**
@@ -83,7 +83,7 @@ class BuildingController extends Controller
     {
         $building = Building::find($id);
         $universities = University::all();
-        return view('manage.building.edit')->with(compact('building', 'universities'));
+        return view('manage-cameras.building.edit')->with(compact('building', 'universities'));
     }
 
     /**

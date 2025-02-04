@@ -101,8 +101,8 @@
           <div id="collapseThree" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
               {{-- <h6 class="collapse-header">Custom Components:</h6> --}}
-              <a class="collapse-item" href="{{ route('camera') }}">Fakultas</a>
-              <a class="collapse-item" href="{{ route('university') }}">Program Studi</a>
+              <a class="collapse-item" href="{{ route('faculties') }}">Fakultas</a>
+              <a class="collapse-item" href="{{ route('academic') }}">Program Studi</a>
               <a class="collapse-item" href="{{ route('building') }}">Mahasiswa</a>
               <a class="collapse-item" href="{{ route('floor') }}">Verifikasi Foto</a>
             </div>

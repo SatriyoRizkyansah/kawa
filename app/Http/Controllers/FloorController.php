@@ -19,13 +19,13 @@ class FloorController extends Controller
     public function index()
     {
         $floors = Floor::orderBy('floor_name', 'asc')->get(); 
-        return view('manage.floor.index')->with(compact('floors'));
+        return view('manage-cameras.floor.index')->with(compact('floors'));
     }
 
     public function showByBuilding($id)
     {
         $floors = Floor::where('building_id', $id)->get(); 
-        return view('manage.floor.index')->with(compact('floors'));
+        return view('manage-cameras.floor.index')->with(compact('floors'));
     }
 
     /**
@@ -35,7 +35,7 @@ class FloorController extends Controller
     {
         $universities = University::all();
         $buildings = Building::all();
-        return view('manage.floor.create')->with(compact('buildings', 'universities'));
+        return view('manage-cameras.floor.create')->with(compact('buildings', 'universities'));
     }
 
       public function getGedung($universityId)
@@ -90,7 +90,7 @@ class FloorController extends Controller
         $floor = Floor::find($id);
         $universities = University::all();
         $buildings = Building::all();
-        return view('manage.floor.edit')->with(compact('floor', 'universities', 'buildings'));
+        return view('manage-cameras.floor.edit')->with(compact('floor', 'universities', 'buildings'));
     }
 
     /**

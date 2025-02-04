@@ -16,15 +16,15 @@ return new class extends Migration
             $table->string('nim');
             $table->string('name');
             $table->string('img')->nullable();
-            $table->string('gender')->nullable();
             $table->date('birth_date');
-            // $table->string('faculty'); 
+            $table->string('gender')->nullable();
             $table->unsignedBigInteger('academic_program_id');
             $table->foreign('academic_program_id')->references('id')->on('academic_programs')->onDelete('cascade');
-            
+            // $table->string('faculty'); 
             $table->string('reg');
             $table->string('class');
             $table->string('semester')->nullable();
+            $table->string('status')->nullable();
             $table->timestamps();
         });
     }

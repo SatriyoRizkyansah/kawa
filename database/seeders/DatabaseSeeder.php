@@ -83,5 +83,7 @@ class DatabaseSeeder extends Seeder
         //     }
         // }
 
+        // Seeder untuk University
+        $this->call(FacultiesAndProgramsSeeder::class);
     }
 }

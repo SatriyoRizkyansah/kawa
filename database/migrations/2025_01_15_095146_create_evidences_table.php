@@ -12,10 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('evidences', function (Blueprint $table) {
-        $table->string('id')->primary(); 
-        $table->string('violation_id'); 
+        $table->id(); 
+        $table->unsignedBigInteger('violation_id'); 
         $table->foreign('violation_id')->references('id')->on('violations')->onDelete('cascade');
-        
         $table->string('file_path'); 
         $table->enum('file_type', ['image', 'video']);
         $table->string('description')->nullable(); 

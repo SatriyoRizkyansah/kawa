@@ -68,8 +68,10 @@
 
         <!-- Nav Item - Pages Manage Menu -->
 
+        {{-- Control --}}
         <div class="sidebar-heading">Control</div>
 
+        {{-- Manage / Pengaturan --}}
         <li class="nav-item {{ Request::is('admin/manage/*') ? 'active' : '' }}">
           <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
             <i class="fas fa-fw fa-cog"></i>
@@ -86,9 +88,26 @@
           </div>
         </li>
 
-
         <!-- Divider -->
         <hr class="sidebar-divider" />
+
+        <div class="sidebar-heading">Request</div>
+
+        <li class="nav-item {{ Request::is('admin/manage/*') ? 'active' : '' }}">
+          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+            <i class="fas fa-fw fa-cog"></i>
+            <span>Mahasiswa Management</span>
+          </a>
+          <div id="collapseThree" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+              {{-- <h6 class="collapse-header">Custom Components:</h6> --}}
+              <a class="collapse-item" href="{{ route('camera') }}">Fakultas</a>
+              <a class="collapse-item" href="{{ route('university') }}">Program Studi</a>
+              <a class="collapse-item" href="{{ route('building') }}">Mahasiswa</a>
+              <a class="collapse-item" href="{{ route('floor') }}">Verifikasi Foto</a>
+            </div>
+          </div>
+        </li>
 
         <!-- Heading -->
         {{-- <div class="sidebar-heading">Addons</div> --}}

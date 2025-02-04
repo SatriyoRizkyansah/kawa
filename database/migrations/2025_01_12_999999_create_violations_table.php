@@ -12,14 +12,14 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('violations', function (Blueprint $table) {
-            $table->string('id')->primary();
+            $table->id();
             $table->string('camera_id');
             $table->foreign('camera_id')->references('id')->on('cameras')->onDelete('cascade');
             $table->date('date');
             $table->time('time');
             $table->string('violation_type');
             $table->string('description')->nullable();
-            $table->string('student_id')->nullable();
+            $table->unsignedBigInteger('student_id')->nullable();
             $table->foreign('student_id')->references('id')->on('students')->onDelete('cascade');
             
             $table->timestamps();

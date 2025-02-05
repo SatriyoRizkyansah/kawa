@@ -44,7 +44,7 @@
                             <th>Nama Mahasiswa</th>
                             <th>Nim</th>
                             <th>Program Studi</th>
-                            <th>Status</th>
+                            <th>Status Foto</th>
                             <th>Action</th>
                         </tr>
                         </thead>
@@ -60,8 +60,18 @@
                                 <td class="border px-4 py-2">{{ $data->student->name }}</td>
                                 <td class="border px-4 py-2">{{ $data->student->nim }}</td>
                                 <td class="border px-4 py-2">{{ $data->student->academic_program->program_name }}</td>
-                                <td class="border px-4 py-2">{{ $data->status }}</td>
-                                <td>View</td>
+                                <td class="border px-4 py-2">
+                                    <span class="badge 
+                                        {{ $data->status === 'approved' ? 'bg-success' : 
+                                        ($data->status === 'rejected' ? 'bg-danger' : 'bg-warning text-dark') }}">
+                                        {{ ucfirst($data->status) }}
+                                    </span>
+                                </td>
+                                <td class="text-center">
+                                    <a href="{{ route('camera.detail', ['id' => $data->id]) }}" class="text-blue-500 hover:underline text-decoration-none">
+                                        <i class="bi bi-eye text-success fs-5"></i>
+                                    </a>
+                                </td>
                             </tr>
                         @endforeach
                         </tbody>

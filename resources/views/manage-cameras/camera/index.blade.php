@@ -67,7 +67,7 @@
                                     <td class="border px-4 py-2">{{ $camera->university->university_name }}</td>
                                     <td class="border px-4 py-2">{{ $camera->building->building_name }}</td>
                                     <td class="border px-4 py-2">{{ $camera->floor->floor_name }}</td>
-                                <td class="border px-4 py-2 fs-5">
+                                    <td class="border px-4 py-2 fs-5">
                                         <a href="{{ route('camera.detail', ['id' => $camera->id]) }}" class="text-blue-500 hover:underline text-decoration-none">
                                             <i class="bi bi-eye text-success fs-5"></i>
                                         </a>

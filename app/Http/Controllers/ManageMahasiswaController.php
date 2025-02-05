@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Faculty;
 use App\Models\Student;
 use Illuminate\Http\Request;
-use App\Models\academic_program;
+use App\Models\Academic_program;
+use App\Models\Student_media;
 
 class ManageMahasiswaController extends Controller
 {
@@ -25,5 +26,12 @@ class ManageMahasiswaController extends Controller
         $students = Student::with('academic_program')->get();
 
         return view('manage-students.students', compact('students'));
+    }
+
+    public function photo_verification(){
+        $datas = Student_media::with('student')->get();
+
+        return view('manage-students.photo_verification
+        ', compact('datas'));
     }
 }

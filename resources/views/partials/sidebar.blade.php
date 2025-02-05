@@ -95,7 +95,7 @@
 
         <li class="nav-item {{ Request::is('admin/manage/*') ? 'active' : '' }}">
           <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
-            <i class="fas fa-fw fa-cog"></i>
+            <i class="fa fa-graduation-cap"></i>
             <span>Manage Mahasiswa</span>
           </a>
           <div id="collapseThree" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
@@ -104,7 +104,7 @@
               <a class="collapse-item" href="{{ route('faculties') }}">Fakultas</a>
               <a class="collapse-item" href="{{ route('academic') }}">Program Studi</a>
               <a class="collapse-item" href="{{ route('students') }}">Mahasiswa</a>
-              <a class="collapse-item" href="{{ route('floor') }}">Verifikasi Foto</a>
+              <a class="collapse-item" href="{{ route('photo-verification') }}">Verifikasi Foto</a>
             </div>
           </div>
         </li>

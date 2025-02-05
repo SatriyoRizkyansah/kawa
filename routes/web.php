@@ -89,6 +89,9 @@ Route::prefix('admin')->group(function () {
 
             // Program Studi
             Route::get('/academic-programs', [ManageMahasiswaController::class, 'academic'])->name('academic');
+
+            // Mahasiswa
+            Route::get('/students', [ManageMahasiswaController::class, 'students'])->name('students');
         });
     });
 });

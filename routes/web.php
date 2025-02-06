@@ -93,6 +93,7 @@ Route::prefix('admin')->group(function () {
             // Mahasiswa
             Route::get('/students', [ManageMahasiswaController::class, 'students'])->name('students');
             Route::get('/photo-verification', [ManageMahasiswaController::class, 'photo_verification'])->name('photo-verification');
+            Route::get('/photo-verification/student/{id}', [ManageMahasiswaController::class, 'student_photo_verification'])->name('student-photo-verification');
         });
     });
 });

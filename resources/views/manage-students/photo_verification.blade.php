@@ -68,7 +68,7 @@
                                     </span>
                                 </td>
                                 <td class="text-center">
-                                    <a href="{{ route('camera.detail', ['id' => $data->id]) }}" class="text-blue-500 hover:underline text-decoration-none">
+                                    <a href="{{ route('student-photo-verification', ['id' => $data->id]) }}" class="text-blue-500 hover:underline text-decoration-none">
                                         <i class="bi bi-eye text-success fs-5"></i>
                                     </a>
                                 </td>

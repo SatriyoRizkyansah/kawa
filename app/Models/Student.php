@@ -18,4 +18,9 @@ class Student extends Model
     {
         return $this->belongsTo(Academic_program::class, 'academic_program_id');
     }
+
+    public function student_media()
+    {
+        return $this->hasMany(Student_media::class, 'student_id');
+    }
 }

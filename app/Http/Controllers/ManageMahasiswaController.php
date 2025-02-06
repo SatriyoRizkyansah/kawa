@@ -34,4 +34,11 @@ class ManageMahasiswaController extends Controller
         return view('manage-students.photo_verification
         ', compact('datas'));
     }
+
+    public function student_photo_verification($id){
+        $student_data = Student_media::where('student_id', $id)->with('student')->first();
+        // dd($data);
+        $datas = Student_media::where('student_id', $id)->get();
+        return view('manage-students.student_photo_verification', compact('student_data', 'datas'));
+    }
 }

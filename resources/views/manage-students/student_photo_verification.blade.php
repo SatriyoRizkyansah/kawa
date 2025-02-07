@@ -48,6 +48,17 @@
                                             <td>{{ $student_data->student->nim }}</td>
                                         </tr>
                                         <tr>
+                                            <td>Status</td>
+                                            <td>:</td>
+                                            <td>
+                                                <span class="badge 
+                                                    {{ $student_data->status === 'approved' ? 'bg-success' : 
+                                                    ($student_data->status === 'rejected' ? 'bg-danger' : 'bg-warning text-dark') }}">
+                                                    {{ ucfirst($student_data->status) }}
+                                                </span>
+                                            </td>
+                                        </tr>
+                                        <tr>
                                             <td>Kelas</td>
                                             <td>:</td>
                                             <td>{{ $student_data->student->class }}</td>
@@ -125,6 +136,37 @@
                                         class="card-img-top rounded"
                                         style="height: 100%; width: 100%; object-fit: cover;" alt="Foto" />
                                 </div>
+                            </div>
+
+                            <div class="col-md-3 mb-3">
+                                <div class="card border-0 shadow rounded position-relative" style="height: 250px; width: 13rem;">
+                                    <input class="form-check-input position-absolute top-0 start-0 m-2 photo-checkbox" type="checkbox">
+                                    <img src="https://i.pinimg.com/736x/76/17/ee/7617eeb25a0080cb69b1de1770dd32e9.jpg"
+                                        class="card-img-top rounded"
+                                        style="height: 100%; width: 100%; object-fit: cover;" alt="Foto" />
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 mb-3">
+                                <div class="card border-0 shadow rounded position-relative" style="height: 250px; width: 13rem;">
+                                    <input class="form-check-input position-absolute top-0 start-0 m-2 photo-checkbox" type="checkbox">
+                                    <img src="https://i.pinimg.com/736x/76/17/ee/7617eeb25a0080cb69b1de1770dd32e9.jpg"
+                                        class="card-img-top rounded"
+                                        style="height: 100%; width: 100%; object-fit: cover;" alt="Foto" />
+                                </div>
+                            </div>
+
+                            <div>
+                                <select class="form-select" aria-label="Default select example">
+                                <option selected>Konfirmasi Status</option>
+                                <option value="pending" class="badge bg-warning">Pending</option>
+                                <option value="approved" class="badge bg-success">Approved</option>
+                                <option value="rejected" class="badge bg-danger">Rejected</option>
+                                </select>
+                            </div>
+
+                            <div class="d-flex flex-row-reverse mt-3">
+                                <a href="" class="btn btn-primary " style="width: 6rem">Save</a>
                             </div>
                         </div>
                     </div>

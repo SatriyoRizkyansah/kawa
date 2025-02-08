@@ -120,68 +120,18 @@
                         </div>
 
                         <div class="row" id="photoContainer">
+                            @foreach ($datas as $data)
+                                
                             <div class="col-md-3 mb-3">
                                 <div class="card border-0 shadow rounded position-relative" style="height: 250px; width: 13rem;">
                                     <input class="form-check-input position-absolute top-0 start-0 m-2 photo-checkbox" type="checkbox">
-                                    <img src="https://i.pinimg.com/736x/76/17/ee/7617eeb25a0080cb69b1de1770dd32e9.jpg"
+                                    <img src="{{ asset('storage/images/student_media/' . $data->student->nim) . '/' . $data->file_name  }}"
                                         class="card-img-top rounded"
                                         style="height: 100%; width: 100%; object-fit: cover;" alt="Foto" />
                                 </div>
                             </div>
 
-                            <div class="col-md-3 mb-3">
-                                <div class="card border-0 shadow rounded position-relative" style="height: 250px; width: 13rem;">
-                                    <input class="form-check-input position-absolute top-0 start-0 m-2 photo-checkbox" type="checkbox">
-                                    <img src="https://i.pinimg.com/736x/76/17/ee/7617eeb25a0080cb69b1de1770dd32e9.jpg"
-                                        class="card-img-top rounded"
-                                        style="height: 100%; width: 100%; object-fit: cover;" alt="Foto" />
-                                </div>
-                            </div>
-
-                            <div class="col-md-3 mb-3">
-                                <div class="card border-0 shadow rounded position-relative" style="height: 250px; width: 13rem;">
-                                    <input class="form-check-input position-absolute top-0 start-0 m-2 photo-checkbox" type="checkbox">
-                                    <img src="https://i.pinimg.com/736x/76/17/ee/7617eeb25a0080cb69b1de1770dd32e9.jpg"
-                                        class="card-img-top rounded"
-                                        style="height: 100%; width: 100%; object-fit: cover;" alt="Foto" />
-                                </div>
-                            </div>
-
-                            <div class="col-md-3 mb-3">
-                                <div class="card border-0 shadow rounded position-relative" style="height: 250px; width: 13rem;">
-                                    <input class="form-check-input position-absolute top-0 start-0 m-2 photo-checkbox" type="checkbox">
-                                    <img src="https://i.pinimg.com/736x/76/17/ee/7617eeb25a0080cb69b1de1770dd32e9.jpg"
-                                        class="card-img-top rounded"
-                                        style="height: 100%; width: 100%; object-fit: cover;" alt="Foto" />
-                                </div>
-                            </div>
-
-                            <div class="col-md-3 mb-3">
-                                <div class="card border-0 shadow rounded position-relative" style="height: 250px; width: 13rem;">
-                                    <input class="form-check-input position-absolute top-0 start-0 m-2 photo-checkbox" type="checkbox">
-                                    <img src="https://i.pinimg.com/736x/76/17/ee/7617eeb25a0080cb69b1de1770dd32e9.jpg"
-                                        class="card-img-top rounded"
-                                        style="height: 100%; width: 100%; object-fit: cover;" alt="Foto" />
-                                </div>
-                            </div>
-
-                            <div class="col-md-3 mb-3">
-                                <div class="card border-0 shadow rounded position-relative" style="height: 250px; width: 13rem;">
-                                    <input class="form-check-input position-absolute top-0 start-0 m-2 photo-checkbox" type="checkbox">
-                                    <img src="https://i.pinimg.com/736x/76/17/ee/7617eeb25a0080cb69b1de1770dd32e9.jpg"
-                                        class="card-img-top rounded"
-                                        style="height: 100%; width: 100%; object-fit: cover;" alt="Foto" />
-                                </div>
-                            </div>
-
-                            {{-- <div>
-                                <select class="form-select" aria-label="Default select example">
-                                <option selected>Konfirmasi Status</option>
-                                <option value="pending" class="badge bg-warning">Pending</option>
-                                <option value="approved" class="badge bg-success">Approved</option>
-                                <option value="rejected" class="badge bg-danger">Rejected</option>
-                                </select>
-                            </div> --}}
+                            @endforeach
                         </div>
                         
                         <div class="d-flex justify-content-end">

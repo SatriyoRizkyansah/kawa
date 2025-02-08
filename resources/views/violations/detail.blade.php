@@ -95,14 +95,9 @@
                                             <td>{{ $student->reg }}</td>
                                         </tr>
                                         <tr>
-                                            <td>Fakultas</td>
-                                            <td>:</td>
-                                            <td>{{ $student->faculty }}</td>
-                                        </tr>
-                                        <tr>
                                             <td>Program Studi</td>
                                             <td>:</td>
-                                            <td>{{ $student->program_study }}</td>
+                                            <td>{{ $student->academic_program->program_name }}</td>
                                         </tr>
                                         <tr>
                                             <td>Semester</td>
@@ -161,38 +156,21 @@
                         </div>
                         <div class="card-body">
                             <div class="row justify-content-center">
+
+                                @foreach ($evidences as $evidence)
+                                    
                                 <!-- Foto Muka 1 -->
                                 <div class="col-md-3 my-1">
                                     <div class="card border-0 shadow rounded" style="height: 250px;">
-                                        <img src="https://i.pinimg.com/736x/a3/bb/c1/a3bbc18109f04f2ee4d447f231a205ad.jpg"
-                                            class="card-img-top rounded"
-                                            style="height: 100%; width: 100%; object-fit: cover;" alt="..." />
+                                    <img src="{{ asset('storage/images/evidences/' . $student->nim) . '/' . $evidence->file_path  }}"
+                                        class="card-img-top rounded"
+                                        style="height: 100%; width: 100%; object-fit: cover;" alt="..." />
+
                                     </div>
                                 </div>
-                                <!-- Foto Muka 2 -->
-                                <div class="col-md-3 my-1">
-                                    <div class="card border-0 shadow rounded" style="height: 250px;">
-                                        <img src="https://i.pinimg.com/736x/64/36/db/6436dbfad18caa427b41c9a30528f4f5.jpg"
-                                            class="card-img-top rounded"
-                                            style="height: 100%; width: 100%; object-fit: cover;" alt="..." />
-                                    </div>
-                                </div>
-                                <!-- Foto Muka 3 -->
-                                <div class="col-md-3 my-1">
-                                    <div class="card border-0 shadow rounded" style="height: 250px;">
-                                        <img src="https://i.pinimg.com/736x/64/36/db/6436dbfad18caa427b41c9a30528f4f5.jpg"
-                                            class="card-img-top rounded"
-                                            style="height: 100%; width: 100%; object-fit: cover;" alt="..." />
-                                    </div>
-                                </div>
-                                <!-- Foto Muka 4 -->
-                                <div class="col-md-3 my-1">
-                                    <div class="card border-0 shadow rounded" style="height: 250px;">
-                                        <img src="https://i.pinimg.com/736x/c0/cd/00/c0cd001998a09110b74c347071b96377.jpg"
-                                            class="card-img-top rounded"
-                                            style="height: 100%; width: 100%; object-fit: cover;" alt="..." />
-                                    </div>
-                                </div>
+
+                                @endforeach
+
                             </div>
                         </div>
 
@@ -229,8 +207,6 @@
                                     </div>
                                 </div>
                         </div>
-
-
                 </div>
         </div>
 

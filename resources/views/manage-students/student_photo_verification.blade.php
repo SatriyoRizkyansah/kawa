@@ -93,12 +93,30 @@
                         
                     <div class="container p-3">
                         
-                        <div class="d-flex justify-content-between mb-2 ml-4">
-                            <div>
+                        <div class="d-flex justify-content-between mb-2">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-info  btn-sm dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Status Foto
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">Status</a></li>
+                                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item" href="#">Separated link</a></li>
+                                </ul>
+                            </div>
+
+                            {{-- <div>
                                 <input class="form-check-input" type="checkbox" id="selectAll" onclick="toggleSelectAll()">
                                 <label class="form-check-label" for="selectAll">Select All</label>
+                            </div> --}}
+                            
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" role="switch" id="selectAll" onclick="toggleSelectAll()">
+                                <label class="form-check-label mr-3" for="selectAll" style="font-size: 0.9rem">Select All </label>
                             </div>
-                            <button class="btn btn-danger" onclick="deleteSelected()">Delete Selected</button>
+                            
                         </div>
 
                         <div class="row" id="photoContainer">
@@ -156,19 +174,24 @@
                                 </div>
                             </div>
 
-                            <div>
+                            {{-- <div>
                                 <select class="form-select" aria-label="Default select example">
                                 <option selected>Konfirmasi Status</option>
                                 <option value="pending" class="badge bg-warning">Pending</option>
                                 <option value="approved" class="badge bg-success">Approved</option>
                                 <option value="rejected" class="badge bg-danger">Rejected</option>
                                 </select>
-                            </div>
-
-                            <div class="d-flex flex-row-reverse mt-3">
-                                <a href="" class="btn btn-primary " style="width: 6rem">Save</a>
-                            </div>
+                            </div> --}}
                         </div>
+                        
+                        <div class="d-flex justify-content-end">
+                            
+
+                            <button class="btn btn-danger btn-sm" onclick="deleteSelected()">Delete Selected <i class="bi bi-trash"></i></button>
+
+                            <button type="submit" class="ml-3 btn btn-primary btn-sm" style="width: 6rem">Save</button>
+                        </div>
+                        
                     </div>
 
 

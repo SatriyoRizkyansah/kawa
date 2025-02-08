@@ -18,7 +18,7 @@ return new class extends Migration
                     ->references('id')
                     ->on('students')
                     ->onDelete('cascade');
-            $table->string('path')->nullable();
+            $table->string('file_name')->nullable();
             $table->enum('status', ['pending', 'approved', 'rejected'])->default('pending');
             $table->timestamps();
         });

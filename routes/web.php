@@ -91,11 +91,13 @@ Route::prefix('admin')->group(function () {
             Route::get('/academic-programs', [ManageMahasiswaController::class, 'academic'])->name('academic');
 
             // Mahasiswa | Photo verification
+            // Route::get('/students', [ManageMahasiswaController::class, 'students'])->name('students');
             Route::get('/students', [ManageMahasiswaController::class, 'students'])->name('students');
-            Route::get('/photo-verification', [ManageMahasiswaController::class, 'photo_verification'])->name('photo-verification');
-            Route::get('/photo-verification/student/{id}', [ManageMahasiswaController::class, 'student_photo_verification'])->name('student-photo-verification');
+            Route::get('/photo-verification/student/{id}', [ManageMahasiswaController::class, 'photo_verification'])->name('student-photo-verification');
             Route::post('/photo-verification/student/delete-photos', [ManageMahasiswaController::class, 'deleteSelectedPhotos'])->name('photos.delete');
-            
+            Route::post('/update-media-status', [ManageMahasiswaController::class, 'updateStatus'])->name('update-media-status');
+
+
         });
     });
 });

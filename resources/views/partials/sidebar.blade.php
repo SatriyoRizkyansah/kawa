@@ -104,7 +104,7 @@
               <a class="collapse-item" href="{{ route('faculties') }}">Fakultas</a>
               <a class="collapse-item" href="{{ route('academic') }}">Program Studi</a>
               {{-- <a class="collapse-item" href="{{ route('students') }}">Mahasiswa</a> --}}
-              <a class="collapse-item" href="{{ route('photo-verification') }}">Mahasiswa | Verifikasi Foto</a>
+              <a class="collapse-item" href="{{ route('students') }}">Mahasiswa | Verifikasi Foto</a>
             </div>
           </div>
         </li>

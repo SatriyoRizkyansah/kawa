@@ -26,24 +26,25 @@ class ManageMahasiswaController extends Controller
         return view('manage-students.academic-programs', compact('academics'));
     }
 
-    public function students(){
-        $students = Student::with('academic_program')->get();
+    // public function students(){
+    //     $students = Student::with('academic_program')->get();
 
+    //     return view('manage-students.students', compact('students'));
+    // }
+
+    public function students()
+    {
+        $students = Student::with(['academic_program', 'student_media'])->get();
         return view('manage-students.students', compact('students'));
     }
 
-    public function photo_verification()
-    {
-        $students = Student::with(['academic_program', 'student_media'])->get();
-        return view('manage-students.photo_verification', compact('students'));
-    }
 
-
-    public function student_photo_verification($id){
+    public function photo_verification($id){
+        $student = Student::find($id);
         $student_data = Student_media::where('student_id', $id)->with('student')->first();
         // dd($data);
         $datas = Student_media::where('student_id', $id)->get();
-        return view('manage-students.student_photo_verification', compact('student_data', 'datas'));
+        return view('manage-students.photo_verification', compact('student_data', 'datas', 'student'));
     }
 
 
@@ -85,6 +86,17 @@ class ManageMahasiswaController extends Controller
             Log::error('Error deleting photos', ['error' => $e->getMessage()]);
             return redirect()->back()->with('error', 'Terjadi kesalahan saat menghapus foto: ' . $e->getMessage());
         }
+    }
+
+    public function updateStatus(Request $request)
+    {
+
+        // dd($request);
+        Student_media::where('student_id', $request->id)->update([
+        'status' => $request->status
+        ]);
+
+        return redirect()->back()->with('success', 'Status berhasil diperbarui!');
     }
 
 }

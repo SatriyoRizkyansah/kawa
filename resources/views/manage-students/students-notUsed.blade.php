@@ -44,39 +44,30 @@
                             <th>Nama Mahasiswa</th>
                             <th>Nim</th>
                             <th>Program Studi</th>
-                            <th>Status Foto</th>
-                            <th>Action</th>
+                            <th>Reg</th>
+                            <th>Kelas</th>
+                            <th>Semester</th>
+                            <th>Status</th>
                         </tr>
                         </thead>
                         <tbody>
                         @foreach($students as $student)
-                            <tr>
-                                <td class="border px-4 py-2">{{ $loop->iteration }}</td>
-                                <td class="border px-4 py-2">{{ $student->name }}</td>
-                                <td class="border px-4 py-2">{{ $student->nim }}</td>
-                                <td class="border px-4 py-2">{{ $student->academic_program->program_name }}</td>
-                                <td class="border px-4 py-2">
-                                    @php
-                                        $media = $student->student_media->first();
-                                    @endphp
-                                    @if($media)
-                                        <span class="badge 
-                                            {{ $media->status === 'approved' ? 'bg-success' : 
-                                            ($media->status === 'rejected' ? 'bg-danger' : 'bg-warning text-dark') }}">
-                                            {{ ucfirst($media->status) }}
-                                        </span>
-                                    @else
-                                        <span class="badge bg-secondary">Tidak ada data media</span>
-                                    @endif
-                                </td>
+                                <tr>
+                                    <td class="border px-4 py-2">{{ $loop->iteration }}</td>
+                                    
+                                    {{-- <td class="border px-4 py-2">
+                                        <a href="{{ route('buildingByUniversity', ['id' => $faculty->id]) }}" class="text-decoration-none">{{ $faculty->university_name }}</a>
+                                    </td> --}}
 
-                                <td class="text-center">
-                                    <a href="{{ route('student-photo-verification', ['id' => $student->id]) }}" class="text-blue-500 hover:underline text-decoration-none">
-                                        <i class="bi bi-eye text-success fs-5"></i>
-                                    </a>
-                                </td>
-                            </tr>
-                        @endforeach
+                                    <td class="border px-4 py-2">{{ $student->name }}</td>
+                                    <td class="border px-4 py-2">{{ $student->nim }}</td>
+                                    <td class="border px-4 py-2">{{ $student->academic_program->program_name }}</td>
+                                    <td class="border px-4 py-2">{{ $student->reg }}</td>
+                                    <td class="border px-4 py-2">{{ $student->class }}</td>
+                                    <td class="border px-4 py-2">{{ $student->semester }}</td>
+                                    <td class="border px-4 py-2">{{ $student->status }}</td>
+                                    </tr>
+                                @endforeach
                         </tbody>
                     </table>
                     </div>

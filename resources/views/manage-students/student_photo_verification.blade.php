@@ -1,4 +1,5 @@
 <x-app-layout>
+    
 
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
@@ -10,6 +11,31 @@
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                     <h1 class="h3 mb-0 text-gray-800">Detail Mahasiswa</h1>
                     </div>
+
+                    @if(session('success'))
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        {{ session('success') }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                @endif
+
+                @if(session('error'))
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        {{ session('error') }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                @endif
+
+                @if ($errors->any())
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <ul class="mb-0">
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                @endif
 
                     <!-- CCTV Grid -->
                     <div class="row">
@@ -68,11 +94,6 @@
                                             <td>:</td>
                                             <td>{{ $student_data->student->reg }}</td>
                                         </tr>
-                                        {{-- <tr>
-                                            <td>Fakultas</td>
-                                            <td>:</td>
-                                            <td>{{ $student_data->student->faculty }}</td>
-                                        </tr> --}}
                                         <tr>
                                             <td>Program Studi</td>
                                             <td>:</td>
@@ -90,63 +111,55 @@
                         </div>
                     </div>
                     <div class="card shadow mb-4">
-                        
-                    <div class="container p-3">
-                        
-                        <div class="d-flex justify-content-between mb-2">
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-info  btn-sm dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Status Foto
-                                </button>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">Status</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                    <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item" href="#">Separated link</a></li>
-                                </ul>
-                            </div>
-
-                            {{-- <div>
-                                <input class="form-check-input" type="checkbox" id="selectAll" onclick="toggleSelectAll()">
-                                <label class="form-check-label" for="selectAll">Select All</label>
-                            </div> --}}
-                            
-                            <div class="form-check form-switch">
-                                <input class="form-check-input" type="checkbox" role="switch" id="selectAll" onclick="toggleSelectAll()">
-                                <label class="form-check-label mr-3" for="selectAll" style="font-size: 0.9rem">Select All </label>
-                            </div>
-                            
-                        </div>
-
-                        <div class="row" id="photoContainer">
-                            @foreach ($datas as $data)
-                                
-                            <div class="col-md-3 mb-3">
-                                <div class="card border-0 shadow rounded position-relative" style="height: 250px; width: 13rem;">
-                                    <input class="form-check-input position-absolute top-0 start-0 m-2 photo-checkbox" type="checkbox">
-                                    <img src="{{ asset('storage/images/student_media/' . $data->student->nim) . '/' . $data->file_name  }}"
-                                        class="card-img-top rounded"
-                                        style="height: 100%; width: 100%; object-fit: cover;" alt="Foto" />
+                        <div class="container p-3">
+                            <form action="{{ route('photos.delete') }}" method="POST">
+                                @csrf
+                                <div class="d-flex justify-content-between mb-2">
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-info btn-sm dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                            Status Foto
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="#">Status</a></li>
+                                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                            <li><hr class="dropdown-divider"></li>
+                                            <li><a class="dropdown-item" href="#">Separated link</a></li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" role="switch" id="selectAll" onclick="toggleSelectAll()">
+                                        <label class="form-check-label mr-3" for="selectAll" style="font-size: 0.9rem">Select All </label>
+                                    </div>
                                 </div>
-                            </div>
 
-                            @endforeach
+                                <div class="row" id="photoContainer">
+                                    @foreach ($datas as $data)
+                                        <div class="col-md-3 mb-3">
+                                            <div class="card border-0 shadow rounded position-relative" style="height: 250px; width: 13rem;">
+                                                <input class="form-check-input position-absolute top-0 start-0 m-2 photo-checkbox" 
+                                                    type="checkbox" 
+                                                    name="photo_ids[]" 
+                                                    value="{{ $data->id }}">
+                                                <img src="{{ asset('storage/images/student_media/' . $data->student->nim) . '/' . $data->file_name  }}"
+                                                    class="card-img-top rounded"
+                                                    style="height: 100%; width: 100%; object-fit: cover;" alt="Foto" />
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                </div>
+                                
+                                <div class="d-flex justify-content-end mr-3">
+                                    <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda yakin ingin menghapus foto yang dipilih?')">
+                                        Delete Selected <i class="bi bi-trash"></i>
+                                    </button>
+
+                                    <button type="submit" class="ml-3 btn btn-primary btn-sm" style="width: 6rem">Save</button>
+                                </div>
+                            </form>
                         </div>
-                        
-                        <div class="d-flex justify-content-end">
-                            
-
-                            <button class="btn btn-danger btn-sm" onclick="deleteSelected()">Delete Selected <i class="bi bi-trash"></i></button>
-
-                            <button type="submit" class="ml-3 btn btn-primary btn-sm" style="width: 6rem">Save</button>
-                        </div>
-                        
                     </div>
-
-
-
-
                 </div>
         </div>
 
@@ -159,18 +172,5 @@
         checkboxes.forEach(cb => cb.checked = selectAll.checked);
     }
 
-    function deleteSelected() {
-        const selectedPhotos = document.querySelectorAll('.photo-checkbox:checked');
-        if (selectedPhotos.length === 0) {
-            alert("Pilih setidaknya satu foto untuk dihapus.");
-            return;
-        }
-
-        if (confirm("Apakah Anda yakin ingin menghapus foto yang dipilih?")) {
-            selectedPhotos.forEach(photo => {
-                photo.closest('.col-md-3').remove();
-            });
-        }
-    }
 </script>
 </x-app-layout>

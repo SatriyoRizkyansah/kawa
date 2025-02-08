@@ -49,26 +49,29 @@
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach($datas as $data)
+                        @foreach($students as $student)
                             <tr>
                                 <td class="border px-4 py-2">{{ $loop->iteration }}</td>
-
-                                {{-- <td class="border px-4 py-2">
-                                    <a href="{{ route('buildingByUniversity', ['id' => $faculty->id]) }}" class="text-decoration-none">{{ $faculty->university_name }}</a>
-                                </td> --}}
-
-                                <td class="border px-4 py-2">{{ $data->student->name }}</td>
-                                <td class="border px-4 py-2">{{ $data->student->nim }}</td>
-                                <td class="border px-4 py-2">{{ $data->student->academic_program->program_name }}</td>
+                                <td class="border px-4 py-2">{{ $student->name }}</td>
+                                <td class="border px-4 py-2">{{ $student->nim }}</td>
+                                <td class="border px-4 py-2">{{ $student->academic_program->program_name }}</td>
                                 <td class="border px-4 py-2">
-                                    <span class="badge 
-                                        {{ $data->status === 'approved' ? 'bg-success' : 
-                                        ($data->status === 'rejected' ? 'bg-danger' : 'bg-warning text-dark') }}">
-                                        {{ ucfirst($data->status) }}
-                                    </span>
+                                    @php
+                                        $media = $student->student_media->first();
+                                    @endphp
+                                    @if($media)
+                                        <span class="badge 
+                                            {{ $media->status === 'approved' ? 'bg-success' : 
+                                            ($media->status === 'rejected' ? 'bg-danger' : 'bg-warning text-dark') }}">
+                                            {{ ucfirst($media->status) }}
+                                        </span>
+                                    @else
+                                        <span class="badge bg-secondary">Tidak ada data media</span>
+                                    @endif
                                 </td>
+
                                 <td class="text-center">
-                                    <a href="{{ route('student-photo-verification', ['id' => $data->id]) }}" class="text-blue-500 hover:underline text-decoration-none">
+                                    <a href="{{ route('student-photo-verification', ['id' => $student->id]) }}" class="text-blue-500 hover:underline text-decoration-none">
                                         <i class="bi bi-eye text-success fs-5"></i>
                                     </a>
                                 </td>

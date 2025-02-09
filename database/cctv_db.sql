@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Feb 08, 2025 at 02:37 PM
+-- Generation Time: Feb 09, 2025 at 04:46 AM
 -- Server version: 8.0.30
 -- PHP Version: 8.3.10
 
@@ -375,8 +375,8 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('3z0HKKBGAiyUaUDhNlxqipOH4fC25e3O3qFo7uSQ', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiM2NRdXlnNUdvTEpUTkJQVUJ1ZVlSRzFVMkhDdGNKRmJYNkhSTmtYVSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzI6Imh0dHA6Ly9rYXdhLnRlc3QvYWRtaW4vZGFzaGJvYXJkIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTt9', 1739016175),
-('xFNy9d7OPaGlCDWkRj6h5pk6TnFAYiaVmRAx0Qfi', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiWnkxcXlLOFQzbUtRNEE5S1Q2VEtrSTZCQXFVNFBTMDI5dUI5b0VrdSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MTY6Imh0dHA6Ly9rYXdhLnRlc3QiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX19', 1739025408);
+('mGW77XVCnkmW0Vtks9YtsVD4OhyUFzhQztI3dQF0', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiOFg0cXViWnZwcjFncFBNSlgxRjJTZ1RaRXdtTUZYb05hdTZNWXUxNSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NDE6Imh0dHA6Ly9rYXdhLnRlc3QvYWRtaW4vZGV0YWlsX3Zpb2xhdGlvbi8xIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTt9', 1739075657),
+('MPIcqGUVU59EbZT7aVEc6cq0bq6kC3IOyFPpzJ8y', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoiTlN3WDdMUmhwUUVvOVljMk5vVThlMnJmTno5M2s5VjJVSFlzWE01NyI7czozOiJ1cmwiO2E6MDp7fXM6OToiX3ByZXZpb3VzIjthOjE6e3M6MzoidXJsIjtzOjQ4OiJodHRwOi8va2F3YS50ZXN0L2FkbWluL21hbmFnZS1tYWhhc2lzd2Evc3R1ZGVudHMiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxO30=', 1739036044);
 
 -- --------------------------------------------------------
 
@@ -388,6 +388,7 @@ CREATE TABLE `students` (
   `id` bigint UNSIGNED NOT NULL,
   `nim` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `entry_year` date DEFAULT NULL,
   `img` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `birth_date` date NOT NULL,
   `gender` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -404,9 +405,9 @@ CREATE TABLE `students` (
 -- Dumping data for table `students`
 --
 
-INSERT INTO `students` (`id`, `nim`, `name`, `img`, `birth_date`, `gender`, `academic_program_id`, `reg`, `class`, `semester`, `status`, `created_at`, `updated_at`) VALUES
-(1, '221011700050', 'Satriyo Rizkyansah', NULL, '2004-06-22', 'Male', 18, 'A', '06SIFP002', '6', 'Aktif', '2025-02-05 04:12:12', '2025-02-05 04:12:12'),
-(2, '221011700054', 'Muhammad Tri Putro', NULL, '2025-02-08', 'Male', 19, 'A', '03SIFP003', '3', 'Aktif', '2025-02-08 11:59:04', '2025-02-08 11:59:04');
+INSERT INTO `students` (`id`, `nim`, `name`, `entry_year`, `img`, `birth_date`, `gender`, `academic_program_id`, `reg`, `class`, `semester`, `status`, `created_at`, `updated_at`) VALUES
+(1, '221011700050', 'Satriyo Rizkyansah', '2022-04-12', NULL, '2004-06-22', 'Male', 18, 'A', '06SIFP002', '6', 'Aktif', '2025-02-05 04:12:12', '2025-02-05 04:12:12'),
+(2, '221011700054', 'Muhammad Tri Putro', '2022-04-12', NULL, '2025-02-08', 'Male', 19, 'A', '03SIFP003', '3', 'Aktif', '2025-02-08 11:59:04', '2025-02-08 11:59:04');
 
 -- --------------------------------------------------------
 
@@ -428,10 +429,9 @@ CREATE TABLE `student_media` (
 --
 
 INSERT INTO `student_media` (`id`, `student_id`, `file_name`, `status`, `created_at`, `updated_at`) VALUES
-(12, 1, '7617eeb25a0080cb69b1de1770dd32e92.jpg', 'approved', '2025-02-08 08:22:43', '2025-02-08 04:58:45'),
-(13, 1, '7617eeb25a0080cb69b1de1770dd32e93.jpg', 'approved', '2025-02-08 08:22:43', '2025-02-08 04:58:45'),
-(14, 1, '7617eeb25a0080cb69b1de1770dd32e91.jpg', 'approved', '2025-02-08 08:22:43', '2025-02-08 04:58:45'),
-(15, 1, '7617eeb25a0080cb69b1de1770dd32e9.jpg', 'approved', '2025-02-08 08:22:43', '2025-02-08 04:58:45'),
+(12, 1, '7617eeb25a0080cb69b1de1770dd32e92.jpg', 'approved', '2025-02-08 08:22:43', '2025-02-08 07:42:44'),
+(13, 1, '7617eeb25a0080cb69b1de1770dd32e93.jpg', 'approved', '2025-02-08 08:22:43', '2025-02-08 07:42:44'),
+(15, 1, '7617eeb25a0080cb69b1de1770dd32e9.jpg', 'approved', '2025-02-08 08:22:43', '2025-02-08 07:42:44'),
 (16, 2, '7617eeb25a0080cb69b1de1770dd32e92.jpg', 'pending', '2025-02-08 12:00:05', '2025-02-08 05:02:29');
 
 -- --------------------------------------------------------
